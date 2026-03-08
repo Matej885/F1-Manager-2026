@@ -22,13 +22,21 @@ namespace F1_Manager_2026
         {
             InitializeComponent();
             Loading_Screen_Intro_Media_Element.Play();
+            
         }
         private void MediaElement_MediaFailed(object sender, ExceptionRoutedEventArgs e)
         {
             // Keby sa niecčo pokazilo nech máme informáciu o tom čo sa stalo
             MessageBox.Show(e.ErrorException.Message);
         }
+        private void MediaRepeat(object sender, RoutedEventArgs e) //aby sa video po skončení spustilo znova
+        {
+            // 1. Vráti video na začiatok
+            Loading_Screen_Intro_Media_Element.Position = TimeSpan.FromSeconds(0);
 
+            // 2. Znova ho spustí
+            Loading_Screen_Intro_Media_Element.Play();
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Loading_Screen_Intro_Media_Element.Stop();

@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="Options" Height="601" Width="1051">
     <Grid>
-        <MediaElement Name= "options_Media_Element" Stretch="UniformToFill" HorizontalAlignment="Center" MediaEnded="MediaRepeat" IsMuted="True" Source="Videos/Options Video.mp4" Height="585" VerticalAlignment="Center" Width="1051"/>
+        <MediaElement Name= "options_Media_Element" LoadedBehavior="Manual" UnloadedBehavior="Manual" Stretch="UniformToFill" HorizontalAlignment="Center" MediaEnded="MediaRepeat" IsMuted="True" Source="Videos/Options Video.mp4" Height="585" VerticalAlignment="Center" Width="1051"/>
 
         <Button Name = "Continue_Button" Content="Continue" HorizontalAlignment="Left" Margin="33,327,0,0" VerticalAlignment="Top" Height="38" Width="306" FontSize="20" FontWeight="Bold" Click="Continue_Button_Click"/>
-        <Image HorizontalAlignment="Left" Source="/Images/F1 Manager 2026 logo.png" Height="148" Margin="819,0,0,0" VerticalAlignment="Top" Width="232" Stretch="Fill"/>
         <Button Name= "Career_Create_Button" Content="New Career" HorizontalAlignment="Left" Margin="33,370,0,0" VerticalAlignment="Top" Height="102" Width="306" FontSize="20" FontWeight="Bold"/>
+        <Label Content="F1 Manager 2026" HorizontalAlignment="Left" Margin="466,10,0,0" VerticalAlignment="Top" Height="170" Width="575" FontWeight="Bold" FontSize="72" FontFamily="Bahnschrift" Background="{x:Null}" Foreground="White"/>
 
     </Grid>
 </Window>

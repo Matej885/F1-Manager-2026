@@ -8,8 +8,8 @@
         Icon= "/Images/F1 Manager 2026 logo.png"
         Title="F1 Manager 2026" Height="601" Width="1051">
     <Grid>
-        <MediaElement Name = "Loading_Screen_Intro_Media_Element" LoadedBehavior="Manual" UnloadedBehavior="Manual" HorizontalAlignment="Center" Height="583" VerticalAlignment="Top" Source= "Videos/Loading_Screen_Source.mp4" Width="1050"/>
-        <Button Content="Skip" HorizontalAlignment="Left" Margin="986,524,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Background="White" Click="Button_Click"/>
+        <MediaElement Name = "Loading_Screen_Intro_Media_Element" LoadedBehavior="Manual" UnloadedBehavior="Manual" HorizontalAlignment="Center" Height="583" VerticalAlignment="Top" Source= "Videos/Loading_Screen_Source.mp4" MediaEnded="MediaRepeat"  Width="1050"/>
+        <Button Content="Skip" HorizontalAlignment="Left" Margin="975,504,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Background="White" Click="Button_Click" Height="29" Width="66"/>
 
     </Grid>
 </Window>

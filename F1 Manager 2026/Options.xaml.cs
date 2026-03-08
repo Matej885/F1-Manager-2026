@@ -23,8 +23,10 @@ namespace F1_Manager_2026
         {
             InitializeComponent();
             SoundPlayer soundPlayer = new SoundPlayer("Sounds/Options_Soundtrack.wav");
-            soundPlayer.Play();
+            soundPlayer.PlayLooping();
+            options_Media_Element.Play();
         }
+
         private void MediaRepeat(object sender, RoutedEventArgs e) //aby sa video po skončení spustilo znova
         {
             // 1. Vráti video na začiatok
