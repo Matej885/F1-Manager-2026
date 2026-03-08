@@ -40,6 +40,23 @@ namespace F1_Manager_2026
         {
             MessageBox.Show("Keď bude load system tak ti to načíta hru basically");
         }
+
+        private void Career_Create_Button_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ImageBrush imageBrush = new ImageBrush();
+            imageBrush.ImageSource = new BitmapImage(new Uri("Images/New_Career_Photo_2.jpg", UriKind.Relative));
+            imageBrush.Stretch = Stretch.UniformToFill;
+
+            Career_Create_Button.Background = imageBrush;
+            MessageBox.Show("Keď bude load system tak ti to loadne hru");
+        }
+
+        private void Career_Create_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Picking_Team.Main_TeamChoosing _TeamChoosing = new Picking_Team.Main_TeamChoosing();
+            _TeamChoosing.Show();
+            this.Close();
+        }
     }
 
 }

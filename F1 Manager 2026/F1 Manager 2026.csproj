@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <None Remove="Images\F1 Manager 2026 logo.png" />
+    <None Remove="Images\New_Career_Photo.jpg" />
+    <None Remove="Images\New_Career_Photo_2.jpg" />
     <None Remove="Sounds\Options_Soundtrack.wav" />
     <None Remove="Videos\Loading_Screen_Source.mp4" />
     <None Remove="Videos\Options Video.mp4" />
@@ -20,6 +22,12 @@
     <Resource Include="Images\F1 Manager 2026 logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Images\New_Career_Photo.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\New_Career_Photo_2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Videos\Loading_Screen_Source.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
