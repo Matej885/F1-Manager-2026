@@ -10,9 +10,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\AlfaRomeo-logo.jpg" />
+    <None Remove="Images\AlfaRomeo_Car.jpg" />
+    <None Remove="Images\BMW_Car.jpg" />
+    <None Remove="Images\BMW_Logo.png" />
+    <None Remove="Images\coloured_tire_difficulty.png" />
     <None Remove="Images\F1 Manager 2026 logo.png" />
+    <None Remove="Images\minardi-logo.png" />
+    <None Remove="Images\Minardi_Car.jpg" />
     <None Remove="Images\New_Career_Photo.jpg" />
     <None Remove="Images\New_Career_Photo_2.jpg" />
+    <None Remove="Images\Siemens-logo.png" />
+    <None Remove="Images\Siemens_Car.jpg" />
+    <None Remove="Images\Tire_Uncoloured_Difficulty.jpg" />
     <None Remove="Sounds\Options_Soundtrack.wav" />
     <None Remove="Videos\Loading_Screen_Source.mp4" />
     <None Remove="Videos\Options Video.mp4" />
@@ -22,10 +32,40 @@
     <Resource Include="Images\F1 Manager 2026 logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Images\AlfaRomeo-logo.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\AlfaRomeo_Car.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\BMW_Car.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\BMW_Logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\coloured_tire_difficulty.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\minardi-logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Minardi_Car.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\New_Career_Photo.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\New_Career_Photo_2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Siemens-logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Siemens_Car.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Tire_Uncoloured_Difficulty.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Videos\Loading_Screen_Source.mp4">

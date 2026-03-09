@@ -31,11 +31,9 @@ namespace F1_Manager_2026
         }
         private void MediaRepeat(object sender, RoutedEventArgs e) //aby sa video po skončení spustilo znova
         {
-            // 1. Vráti video na začiatok
-            Loading_Screen_Intro_Media_Element.Position = TimeSpan.FromSeconds(0);
-
-            // 2. Znova ho spustí
-            Loading_Screen_Intro_Media_Element.Play();
+            Options options = new Options();
+            options.Show();
+            this.Close();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

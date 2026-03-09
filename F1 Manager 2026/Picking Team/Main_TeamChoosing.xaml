@@ -5,20 +5,94 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:F1_Manager_2026.Picking_Team"
         mc:Ignorable="d"
-        Title="Main_TeamChoosing" Height="601" Width="1051">
-    <Grid Background="Black">
-        <Label Content="Team Profile:" HorizontalAlignment="Left" Margin="32,35,0,0" VerticalAlignment="Top" Foreground="White" Width="154" FontFamily="Bahnschrift" FontSize="18" Height="34" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Margin="158,98,0,0" TextWrapping="Wrap" Text="Siemens Racing" VerticalAlignment="Top" Width="247" FontFamily="Bahnschrift" FontSize="16"/>
-        <Label Content="Team Name:" HorizontalAlignment="Left" Margin="66,98,0,0" VerticalAlignment="Top" Height="45" Width="120" OpacityMask="Black" Foreground="White" FontFamily="Bahnschrift" FontWeight="Bold"/>
-        <Label Content="Boss Name:" HorizontalAlignment="Left" Margin="66,143,0,0" VerticalAlignment="Top" Height="45" Width="120" OpacityMask="Black" Foreground="White" FontFamily="Bahnschrift" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Margin="158,144,0,0" TextWrapping="Wrap" Text="Matej" VerticalAlignment="Top" Width="247" FontFamily="Bahnschrift" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Margin="158,188,0,0" TextWrapping="Wrap" Text="Tichý" VerticalAlignment="Top" Width="247" FontFamily="Bahnschrift" FontSize="16"/>
-        <Label Content="Boss Lastname:" HorizontalAlignment="Left" Margin="49,183,0,0" VerticalAlignment="Top" Height="45" Width="120" OpacityMask="Black" Foreground="White" FontFamily="Bahnschrift" FontWeight="Bold"/>
-        <Label Content="Your Origin:" HorizontalAlignment="Left" Margin="503,93,0,0" VerticalAlignment="Top" Height="45" Width="120" OpacityMask="Black" Foreground="White" FontFamily="Bahnschrift" FontWeight="Bold"/>
-        <Button Content="1" HorizontalAlignment="Left" Margin="503,155,0,0" VerticalAlignment="Top" Height="70" Width="80" Background="Black" Foreground="White" FontFamily="Bahnschrift" FontSize="36" BorderBrush="White"/>
-        <Button Content="2" HorizontalAlignment="Left" Margin="612,155,0,0" VerticalAlignment="Top" Height="70" Width="80" Background="Black" Foreground="White" FontFamily="Bahnschrift" FontSize="36" BorderBrush="White"/>
-        <Button Content="3" HorizontalAlignment="Left" Margin="719,155,0,0" VerticalAlignment="Top" Height="70" Width="80" Background="Black" Foreground="White" FontFamily="Bahnschrift" FontSize="36" BorderBrush="White"/>
-        <Button Content="4" HorizontalAlignment="Left" Margin="828,155,0,0" VerticalAlignment="Top" Height="70" Width="80" Background="Black" Foreground="White" FontFamily="Bahnschrift" FontSize="36" BorderBrush="White"/>
+        WindowState="Maximized"
+        WindowStyle="None"
+        Title="Main_TeamChoosing" Height="1080" Width="1920">
 
+    <Grid Background="#0F0F0F">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="450"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.ColumnSpan="3" VerticalAlignment="Top" Height="80" Background="#1A1A1A" BorderBrush="Red" BorderThickness="0,0,0,3">
+            <Label Content="F1 TEAM SELECTION 2026" Foreground="White" FontSize="32" FontFamily="Bahnschrift" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+        </Border>
+
+        <StackPanel Grid.Column="0" Margin="40,120,20,0">
+            <Label Content="TEAM PRINCIPAL PROFILE" Foreground="Red" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold" Margin="0,0,0,20"/>
+
+            <Label Content="First Name:" Foreground="Gray" FontFamily="Bahnschrift"/>
+            <TextBox Text="Matej" Height="35" FontSize="18" Margin="0,5,0,15" Background="#252525" Foreground="White" BorderBrush="#444" VerticalContentAlignment="Center" Padding="5,0"/>
+
+            <Label Content="Last Name:" Foreground="Gray" FontFamily="Bahnschrift"/>
+            <TextBox Text="Tichý" Height="35" FontSize="18" Margin="0,5,0,30" Background="#252525" Foreground="White" BorderBrush="#444" VerticalContentAlignment="Center" Padding="5,0"/>
+
+            <Border BorderBrush="#333" BorderThickness="1" Padding="10" CornerRadius="5" Margin="0,50,0,0">
+                <StackPanel>
+                    <Label Content="CURRENT VEHICLE PREVIEW" Foreground="White" HorizontalAlignment="Center" FontFamily="Bahnschrift" FontWeight="Bold"/>
+                    <Image Name="Car_Shower" Height="250" Margin="0,10" Stretch="Uniform"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Margin="20,120,20,0" HorizontalAlignment="Center">
+            <Label Content="SELECT YOUR ORIGIN / TEAM" Foreground="White" FontSize="18" HorizontalAlignment="Center" FontFamily="Bahnschrift" Margin="0,0,0,20"/>
+
+            <UniformGrid Columns="4" Width="400" Height="80">
+                <Button Content="1" Margin="5,0,5,0" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" Click="Button_Click" Cursor="Hand" Height="70" VerticalAlignment="Center"/>
+                <Button Content="2" Margin="5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" Click="Button_Click_1" Cursor="Hand"/>
+                <Button Content="3" Margin="5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" Click="Button_Click_2" Cursor="Hand"/>
+                <Button Content="4" Margin="5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" Click="Button_Click_3" Cursor="Hand"/>
+            </UniformGrid>
+
+            <Label Name="Team_Name_Label" Content="TEAM NAME" Margin="0,40,0,0" HorizontalAlignment="Center" Foreground="White" FontSize="36" FontWeight="Bold" FontFamily="Bahnschrift"/>
+            <Image Name="Logo_Shower" Height="150" Width="150" Margin="0,20" Stretch="Uniform"/>
+
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,40,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <Label Name="Car_Speed_Label" Content="CAR PERFORMANCE:" Foreground="White" FontSize="16" FontFamily="Bahnschrift" Visibility="Visible"/>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,0,0">
+                        <Rectangle Name="Car_Speed_Rectangle1" Width="12" Height="25" Margin="2" Fill="Red" Stroke="White"/>
+                        <Rectangle Name="Car_Speed_Rectangle2" Width="12" Height="25" Margin="2" Fill="Red" Stroke="White"/>
+                        <Rectangle Name="Car_Speed_Rectangle3" Width="12" Height="25" Margin="2" Fill="#333" Stroke="White"/>
+                        <Rectangle Name="Car_Speed_Rectangle4" Width="12" Height="25" Margin="2" Fill="#333" Stroke="White"/>
+                        <Rectangle Name="Car_Speed_Rectangle5" Width="12" Height="25" Margin="2" Fill="#333" Stroke="White"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label Name="Money_Label" Content="BUDGET:" Foreground="White" FontSize="16" FontFamily="Bahnschrift"/>
+                    <Label Name="Money_Description_Label" Content="$$$" Foreground="LightGreen" FontSize="16" FontWeight="Bold" FontFamily="Bahnschrift"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Margin="20,120,40,0">
+            <Label Content="TEAM BIOGRAPHY" Foreground="Red" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold" Margin="0,0,0,20"/>
+            <TextBlock Name="Description_Text" TextWrapping="Wrap" Foreground="White" FontSize="16" FontFamily="Bahnschrift" TextAlignment="Justify" Height="400">
+                Tu sa zobrazia informácie o vybranom tíme. Vyberte jeden z tímov pomocou čísiel v strede obrazovky...
+            </TextBlock>
+
+            <Label Name="Difficulty_Label" Content="DIFFICULTY" Foreground="White" Margin="0,20,0,5" FontWeight="Bold"/>
+            <StackPanel Orientation="Horizontal">
+                <Image Name="Difficulty_Grid1" Width="40" Height="25" Margin="2"/>
+                <Image Name="Difficulty_Grid2" Width="40" Height="25" Margin="2"/>
+                <Image Name="Difficulty_Grid3" Width="40" Height="25" Margin="2"/>
+                <Image Name="Difficulty_Grid4" Width="40" Height="25" Margin="2"/>
+            </StackPanel>
+        </StackPanel>
+
+        <Button Content="CONFIRM SELECTION" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+                Margin="0,0,40,40" Width="250" Height="60" Background="Red" Foreground="White" 
+                FontSize="20" FontWeight="Bold" FontFamily="Bahnschrift" Click="Button_Click_4" Cursor="Hand">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>
