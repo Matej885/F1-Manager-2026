@@ -154,6 +154,7 @@ namespace F1_Manager_2026.Picking_Team
             {
                 if (Team_Chosen == 1)
                 {
+                    PlayerTeam playerTeam = new PlayerTeam();
                     MessageBox.Show("You have chosen Minardi F1 Team. Good luck in your career!");
                     this.Close();
                 }

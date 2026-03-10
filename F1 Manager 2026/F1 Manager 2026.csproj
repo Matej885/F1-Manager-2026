@@ -14,15 +14,23 @@
     <None Remove="Images\AlfaRomeo_Car.jpg" />
     <None Remove="Images\BMW_Car.jpg" />
     <None Remove="Images\BMW_Logo.png" />
+    <None Remove="Images\bortoleto.png" />
+    <None Remove="Images\bottas.png" />
+    <None Remove="Images\bottas1.png" />
     <None Remove="Images\coloured_tire_difficulty.png" />
     <None Remove="Images\F1 Manager 2026 logo.png" />
+    <None Remove="Images\hulkenberg.png" />
     <None Remove="Images\minardi-logo.png" />
     <None Remove="Images\Minardi_Car.jpg" />
     <None Remove="Images\New_Career_Photo.jpg" />
     <None Remove="Images\New_Career_Photo_2.jpg" />
+    <None Remove="Images\RB_suit.png" />
+    <None Remove="Images\redbull_suit.jpg" />
+    <None Remove="Images\redbull_suit.png" />
     <None Remove="Images\Siemens-logo.png" />
     <None Remove="Images\Siemens_Car.jpg" />
     <None Remove="Images\Tire_Uncoloured_Difficulty.jpg" />
+    <None Remove="Images\verstappen.png" />
     <None Remove="Sounds\Options_Soundtrack.wav" />
     <None Remove="Videos\Loading_Screen_Source.mp4" />
     <None Remove="Videos\Options Video.mp4" />
@@ -44,7 +52,16 @@
     <Content Include="Images\BMW_Logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\bortoleto.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\bottas.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\coloured_tire_difficulty.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\hulkenberg.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\minardi-logo.png">
@@ -59,6 +76,9 @@
     <Content Include="Images\New_Career_Photo_2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\RB_suit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Siemens-logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -66,6 +86,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Tire_Uncoloured_Difficulty.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\verstappen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Videos\Loading_Screen_Source.mp4">

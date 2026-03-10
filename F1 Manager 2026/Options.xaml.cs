@@ -57,6 +57,12 @@ namespace F1_Manager_2026
             _TeamChoosing.Show();
             this.Close();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Test test = new Test();
+            test.Show();
+        }
     }
 
 }

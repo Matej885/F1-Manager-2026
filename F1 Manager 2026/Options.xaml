@@ -17,14 +17,14 @@
                       IsMuted="True" 
                       Source="Videos/Options Video.mp4" />
 
-        <Label Content="F1 Manager 2026" 
-               HorizontalAlignment="Center" 
+        <Label Content="Manager 2026" 
+               HorizontalAlignment="Left" 
                VerticalAlignment="Top" 
-               Margin="0,50,0,0" 
+               Margin="170,54,0,0" 
                FontWeight="Bold" 
-               FontSize="72" 
+               FontSize="24" 
                FontFamily="Bahnschrift" 
-               Foreground="White"/>
+               Foreground="Red" Background="{x:Null}" Height="87" Width="472"/>
 
         <StackPanel VerticalAlignment="Bottom" 
                     HorizontalAlignment="Left" 
@@ -49,13 +49,10 @@
                     FontWeight="Bold" 
                     Click="Career_Create_Button_Click"
                     Foreground="White" 
-                    Cursor="Hand">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Images/New_Career_Photo.jpg" Stretch="UniformToFill"/>
-                </Button.Background>
-            </Button>
+                    Cursor="Hand" Background="#80000000"/>
 
         </StackPanel>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="1316,743,0,0" VerticalAlignment="Top" Height="119" Width="280" Click="Button_Click"/>
 
     </Grid>
 </Window>
