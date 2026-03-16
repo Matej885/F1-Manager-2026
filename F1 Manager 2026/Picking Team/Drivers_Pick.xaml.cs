@@ -20,6 +20,7 @@ namespace F1_Manager_2026.Picking_Team
         public Drivers_Pick()
         {
             InitializeComponent();
+            Money_Label.Content = $"Budget: ${GameState.Budget:N0}";
         }
     }
 }

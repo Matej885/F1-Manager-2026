@@ -20,7 +20,7 @@
         <Label Content="Manager 2026" 
                HorizontalAlignment="Left" 
                VerticalAlignment="Top" 
-               Margin="170,54,0,0" 
+               Margin="211,72,0,0" 
                FontWeight="Bold" 
                FontSize="24" 
                FontFamily="Bahnschrift" 
