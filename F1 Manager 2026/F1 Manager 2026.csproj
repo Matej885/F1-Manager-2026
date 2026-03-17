@@ -17,8 +17,10 @@
     <None Remove="Images\bortoleto.png" />
     <None Remove="Images\bottas.png" />
     <None Remove="Images\bottas1.png" />
+    <None Remove="Images\colapinto.png" />
     <None Remove="Images\coloured_tire_difficulty.png" />
     <None Remove="Images\F1 Manager 2026 logo.png" />
+    <None Remove="Images\gasly.png" />
     <None Remove="Images\hulkenberg.png" />
     <None Remove="Images\minardi-logo.png" />
     <None Remove="Images\Minardi_Car.jpg" />
@@ -31,6 +33,7 @@
     <None Remove="Images\Siemens_Car.jpg" />
     <None Remove="Images\Tire_Uncoloured_Difficulty.jpg" />
     <None Remove="Images\verstappen.png" />
+    <None Remove="Images\volume_off.png" />
     <None Remove="Sounds\Options_Soundtrack.wav" />
     <None Remove="Videos\Loading_Screen_Source.mp4" />
     <None Remove="Videos\Options Video.mp4" />
@@ -58,7 +61,13 @@
     <Content Include="Images\bottas.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\colapinto.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\coloured_tire_difficulty.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\gasly.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\hulkenberg.png">
@@ -89,6 +98,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\verstappen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\volume_off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\volume_on.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Videos\Loading_Screen_Source.mp4">

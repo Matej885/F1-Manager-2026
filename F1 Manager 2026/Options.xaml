@@ -3,11 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        WindowStyle="None"
-        WindowState="Maximized"
         xmlns:local="clr-namespace:F1_Manager_2026"
         mc:Ignorable="d"
-        Title="Options" Height="1080" Width="1920">
+        Title="Options" 
+        Height="1080" Width="1920"
+        WindowStyle="None"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen">
+
     <Grid>
         <MediaElement Name="options_Media_Element" 
                       LoadedBehavior="Manual" 
@@ -24,7 +27,9 @@
                FontWeight="Bold" 
                FontSize="24" 
                FontFamily="Bahnschrift" 
-               Foreground="Red" Background="{x:Null}" Height="87" Width="472"/>
+               Foreground="Red" 
+               Background="{x:Null}" 
+               Height="87" Width="472"/>
 
         <StackPanel VerticalAlignment="Bottom" 
                     HorizontalAlignment="Left" 
@@ -49,10 +54,32 @@
                     FontWeight="Bold" 
                     Click="Career_Create_Button_Click"
                     Foreground="White" 
-                    Cursor="Hand" Background="#80000000"/>
+                    Cursor="Hand" 
+                    Background="#80000000"/>
 
+            <Button Name="Volume_Button" 
+                    Width="77" Height="60" 
+                    HorizontalAlignment="Left"
+                    Margin="0,15,0,0" 
+                    Click="Button_Click_4" 
+                    Cursor="Hand" 
+                    Background="#80000000">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </StackPanel>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="1316,743,0,0" VerticalAlignment="Top" Height="119" Width="280" Click="Button_Click"/>
+
+        <Button Content="Button" 
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Bottom" 
+                Margin="0,0,50,50" 
+                Height="119" Width="280" 
+                Click="Button_Click"
+                Background="#80000000"
+                Foreground="White"/>
 
     </Grid>
 </Window>

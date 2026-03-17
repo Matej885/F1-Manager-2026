@@ -42,7 +42,7 @@ namespace F1_Manager_2026
 
         private void ButtonHulk_Click(object sender, RoutedEventArgs e)
         {
-            driverphoto_shower.Source = new BitmapImage(new Uri("pack://application:,,,/Images/hulkenberg.png", UriKind.Absolute));
+            driverphoto_shower.Source = new BitmapImage(new Uri("pack://application:,,,/Images/colapinto.png", UriKind.Absolute));
             racesuit_shower.Source = new BitmapImage(new Uri("pack://application:,,,/Images/RB_suit.png", UriKind.Absolute));
         }
     }

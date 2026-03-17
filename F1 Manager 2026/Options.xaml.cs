@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Media;
 using System.Text;
 using System.Windows;
@@ -19,12 +20,18 @@ namespace F1_Manager_2026
     /// </summary>
     public partial class Options : Window
     {
+        public bool isplaying = true;
+        public SoundPlayer soundPlayer;
         public Options()
         {
             InitializeComponent();
-            SoundPlayer soundPlayer = new SoundPlayer("Sounds/Options_Soundtrack.wav");
+            soundPlayer = new SoundPlayer();
+            soundPlayer.SoundLocation = "Sounds/Options_Soundtrack.wav";
             soundPlayer.PlayLooping();
             options_Media_Element.Play();
+            ImageBrush brush = new ImageBrush();
+            brush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/volume_on.png"));
+            Volume_Button.Background = brush;
         }
 
         private void MediaRepeat(object sender, RoutedEventArgs e) //aby sa video po skončení spustilo znova
@@ -62,6 +69,30 @@ namespace F1_Manager_2026
         {
             Test test = new Test();
             test.Show();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            if (isplaying == true)
+            {
+                isplaying = false;
+                ImageBrush brush = new ImageBrush();
+                soundPlayer.Stop();
+                brush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/volume_off.png"));
+                Volume_Button.Background = brush;
+            }
+            else if (isplaying == false)
+            {
+                isplaying= true;
+                ImageBrush brush = new ImageBrush();
+                soundPlayer.PlayLooping();
+                brush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/volume_on.png"));
+                Volume_Button.Background = brush;
+
+                soundPlayer = new SoundPlayer();
+                soundPlayer.SoundLocation = "Sounds/Options_Soundtrack.wav";
+                soundPlayer.PlayLooping();
+            }
         }
     }
 

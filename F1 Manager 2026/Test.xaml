@@ -20,7 +20,7 @@
                        VerticalAlignment="Top" 
                        Margin="0,43,0,0" 
                        Stretch="Uniform"
-                       Source="Assets/Heads/verstappen_head.png"/>
+                       Source="/Images/gasly.png"/>
             </Grid>
         </Viewbox>
 
