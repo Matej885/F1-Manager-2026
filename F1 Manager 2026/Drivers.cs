@@ -14,48 +14,48 @@ namespace F1_Manager_2026
         public string Team { get; set; }
 
         // McLAREN
-        public static Drivers Lando_Norris = new Drivers { Name = "Lando Norris", Number = 4, PhotoPath = "/Images/Drivers/norris.png", Skill = 95, Team = "McLaren" };
-        public static Drivers Oscar_Piastri = new Drivers { Name = "Oscar Piastri", Number = 81, PhotoPath = "/Images/Drivers/piastri.png", Skill = 92, Team = "McLaren" };
+        public static Drivers Lando_Norris = new Drivers { Name = "Lando Norris", Number = 4, PhotoPath = "/Images/norris.png", Skill = 95, Team = "McLaren" };
+        public static Drivers Oscar_Piastri = new Drivers { Name = "Oscar Piastri", Number = 81, PhotoPath = "/Images/piastri.png", Skill = 92, Team = "McLaren" };
 
         // FERRARI
-        public static Drivers Charles_Leclerc = new Drivers { Name = "Charles Leclerc", Number = 16, PhotoPath = "/Images/Drivers/leclerc.png", Skill = 94, Team = "Ferrari" };
-        public static Drivers Lewis_Hamilton = new Drivers { Name = "Lewis Hamilton", Number = 44, PhotoPath = "/Images/Drivers/hamilton.png", Skill = 93, Team = "Ferrari" };
+        public static Drivers Charles_Leclerc = new Drivers { Name = "Charles Leclerc", Number = 16, PhotoPath = "/Images/leclerc.png", Skill = 94, Team = "Ferrari" };
+        public static Drivers Lewis_Hamilton = new Drivers { Name = "Lewis Hamilton", Number = 44, PhotoPath = "/Images/hamilton.png", Skill = 93, Team = "Ferrari" };
 
         // RED BULL RACING
-        public static Drivers Max_Verstappen = new Drivers { Name = "Max Verstappen", Number = 33, PhotoPath = "/Images/Drivers/verstappen.png", Skill = 96, Team = "Red Bull Racing" };
-        public static Drivers Isack_Hadjar = new Drivers { Name = "Isack Hadjar", Number = 6, PhotoPath = "/Images/Drivers/hadjar.png", Skill = 80, Team = "Red Bull Racing" };
+        public static Drivers Max_Verstappen = new Drivers { Name = "Max Verstappen", Number = 33, PhotoPath = "/Images/verstappen.png", Skill = 96, Team = "Red Bull Racing" };
+        public static Drivers Isack_Hadjar = new Drivers { Name = "Isack Hadjar", Number = 6, PhotoPath = "/Images/hadjar.png", Skill = 80, Team = "Red Bull Racing" };
 
         // MERCEDES
-        public static Drivers George_Russell = new Drivers { Name = "George Russell", Number = 63, PhotoPath = "/Images/Drivers/russell.png", Skill = 90, Team = "Mercedes" };
-        public static Drivers Kimi_Antonelli = new Drivers { Name = "Kimi Antonelli", Number = 12, PhotoPath = "/Images/Drivers/antonelli.png", Skill = 84, Team = "Mercedes" };
+        public static Drivers George_Russell = new Drivers { Name = "George Russell", Number = 63, PhotoPath = "/Images/russell.png", Skill = 90, Team = "Mercedes" };
+        public static Drivers Kimi_Antonelli = new Drivers { Name = "Kimi Antonelli", Number = 12, PhotoPath = "/Images/antonelli.png", Skill = 84, Team = "Mercedes" };
 
         // ASTON MARTIN
-        public static Drivers Fernando_Alonso = new Drivers { Name = "Fernando Alonso", Number = 14, PhotoPath = "/Images/Drivers/alonso.png", Skill = 88, Team = "Aston Martin" };
-        public static Drivers Lance_Stroll = new Drivers { Name = "Lance Stroll", Number = 18, PhotoPath = "/Images/Drivers/stroll.png", Skill = 78, Team = "Aston Martin" };
+        public static Drivers Fernando_Alonso = new Drivers { Name = "Fernando Alonso", Number = 14, PhotoPath = "/Images/alonso.png", Skill = 88, Team = "Aston Martin" };
+        public static Drivers Lance_Stroll = new Drivers { Name = "Lance Stroll", Number = 18, PhotoPath = "/Images/stroll.png", Skill = 78, Team = "Aston Martin" };
 
         // ALPINE
-        public static Drivers Pierre_Gasly = new Drivers { Name = "Pierre Gasly", Number = 10, PhotoPath = "/Images/Drivers/gasly.png", Skill = 85, Team = "Alpine" };
-        public static Drivers Franco_Colapinto = new Drivers { Name = "Franco Colapinto", Number = 43, PhotoPath = "/Images/Drivers/colapinto.png", Skill = 82, Team = "Alpine" };
+        public static Drivers Pierre_Gasly = new Drivers { Name = "Pierre Gasly", Number = 10, PhotoPath = "/Images/gasly.png", Skill = 85, Team = "Alpine" };
+        public static Drivers Franco_Colapinto = new Drivers { Name = "Franco Colapinto", Number = 43, PhotoPath = "/Images/colapinto.png", Skill = 82, Team = "Alpine" };
 
         // HAAS
-        public static Drivers Oliver_Bearman = new Drivers { Name = "Oliver Bearman", Number = 87, PhotoPath = "/Images/Drivers/bearman.png", Skill = 81, Team = "Haas" };
-        public static Drivers Esteban_Ocon = new Drivers { Name = "Esteban Ocon", Number = 31, PhotoPath = "/Images/Drivers/ocon.png", Skill = 83, Team = "Haas" };
+        public static Drivers Oliver_Bearman = new Drivers { Name = "Oliver Bearman", Number = 87, PhotoPath = "/Images/bearman.png", Skill = 81, Team = "Haas" };
+        public static Drivers Esteban_Ocon = new Drivers { Name = "Esteban Ocon", Number = 31, PhotoPath = "/Images/ocon.png", Skill = 83, Team = "Haas" };
 
         // RB (Racing Bulls)
-        public static Drivers Liam_Lawson = new Drivers { Name = "Liam Lawson", Number = 30, PhotoPath = "/Images/Drivers/lawson.png", Skill = 83, Team = "RB" };
-        public static Drivers Arvid_Lindblad = new Drivers { Name = "Arvid Lindblad", Number = 41, PhotoPath = "/Images/Drivers/lindblad.png", Skill = 79, Team = "RB" };
+        public static Drivers Liam_Lawson = new Drivers { Name = "Liam Lawson", Number = 30, PhotoPath = "/Images/lawson.png", Skill = 83, Team = "RB" };
+        public static Drivers Arvid_Lindblad = new Drivers { Name = "Arvid Lindblad", Number = 41, PhotoPath = "/Images/lindblad.png", Skill = 79, Team = "RB" };
 
         // WILLIAMS
-        public static Drivers Alex_Albon = new Drivers { Name = "Alex Albon", Number = 23, PhotoPath = "/Images/Drivers/albon.png", Skill = 86, Team = "Williams" };
-        public static Drivers Carlos_Sainz = new Drivers { Name = "Carlos Sainz", Number = 55, PhotoPath = "/Images/Drivers/sainz.png", Skill = 91, Team = "Williams" };
+        public static Drivers Alex_Albon = new Drivers { Name = "Alex Albon", Number = 23, PhotoPath = "/Images/albon.png", Skill = 86, Team = "Williams" };
+        public static Drivers Carlos_Sainz = new Drivers { Name = "Carlos Sainz", Number = 55, PhotoPath = "/Images/sainz.png", Skill = 91, Team = "Williams" };
 
         // CADILLAC
-        public static Drivers Valtteri_Bottas = new Drivers { Name = "Valtteri Bottas", Number = 77, PhotoPath = "/Images/Drivers/bottas.png", Skill = 84, Team = "Cadillac" };
-        public static Drivers Sergio_Perez = new Drivers { Name = "Sergio Perez", Number = 11, PhotoPath = "/Images/Drivers/perez.png", Skill = 82, Team = "Cadillac" };
+        public static Drivers Valtteri_Bottas = new Drivers { Name = "Valtteri Bottas", Number = 77, PhotoPath = "/Images/bottas.png", Skill = 84, Team = "Cadillac" };
+        public static Drivers Sergio_Perez = new Drivers { Name = "Sergio Perez", Number = 11, PhotoPath = "/Images/perez.png", Skill = 82, Team = "Cadillac" };
 
         // AUDI
-        public static Drivers Nico_Hulkenberg = new Drivers { Name = "Nico Hulkenberg", Number = 27, PhotoPath = "/Images/Drivers/hulkenberg.png", Skill = 84, Team = "Audi" };
-        public static Drivers Gabriel_Bortoleto = new Drivers { Name = "Gabriel Bortoleto", Number = 5, PhotoPath = "/Images/Drivers/bortoleto.png", Skill = 80, Team = "Audi" };
+        public static Drivers Nico_Hulkenberg = new Drivers { Name = "Nico Hulkenberg", Number = 27, PhotoPath = "/Images/hulkenberg.png", Skill = 84, Team = "Audi" };
+        public static Drivers Gabriel_Bortoleto = new Drivers { Name = "Gabriel Bortoleto", Number = 5, PhotoPath = "/Images/bortoleto.png", Skill = 80, Team = "Audi" };
 
         /// F2 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

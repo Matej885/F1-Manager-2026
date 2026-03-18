@@ -10,8 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\albon.png" />
     <None Remove="Images\AlfaRomeo-logo.jpg" />
     <None Remove="Images\AlfaRomeo_Car.jpg" />
+    <None Remove="Images\alonso.png" />
+    <None Remove="Images\antonelli.png" />
+    <None Remove="Images\bearman.png" />
     <None Remove="Images\BMW_Car.jpg" />
     <None Remove="Images\BMW_Logo.png" />
     <None Remove="Images\bortoleto.png" />
@@ -21,16 +25,28 @@
     <None Remove="Images\coloured_tire_difficulty.png" />
     <None Remove="Images\F1 Manager 2026 logo.png" />
     <None Remove="Images\gasly.png" />
+    <None Remove="Images\hadjar.png" />
+    <None Remove="Images\hamilton.png" />
     <None Remove="Images\hulkenberg.png" />
+    <None Remove="Images\lawson.png" />
+    <None Remove="Images\leclerc.png" />
+    <None Remove="Images\lindblad.png" />
     <None Remove="Images\minardi-logo.png" />
     <None Remove="Images\Minardi_Car.jpg" />
     <None Remove="Images\New_Career_Photo.jpg" />
     <None Remove="Images\New_Career_Photo_2.jpg" />
+    <None Remove="Images\norris.png" />
+    <None Remove="Images\ocon.png" />
+    <None Remove="Images\perez.png" />
+    <None Remove="Images\piastri.png" />
     <None Remove="Images\RB_suit.png" />
     <None Remove="Images\redbull_suit.jpg" />
     <None Remove="Images\redbull_suit.png" />
+    <None Remove="Images\russell.png" />
+    <None Remove="Images\sainz.png" />
     <None Remove="Images\Siemens-logo.png" />
     <None Remove="Images\Siemens_Car.jpg" />
+    <None Remove="Images\stroll.png" />
     <None Remove="Images\Tire_Uncoloured_Difficulty.jpg" />
     <None Remove="Images\verstappen.png" />
     <None Remove="Images\volume_off.png" />
@@ -43,10 +59,22 @@
     <Resource Include="Images\F1 Manager 2026 logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Images\albon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\AlfaRomeo-logo.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\AlfaRomeo_Car.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\alonso.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\antonelli.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\bearman.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\BMW_Car.jpg">
@@ -70,7 +98,22 @@
     <Content Include="Images\gasly.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\hadjar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\hamilton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\hulkenberg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\lawson.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\leclerc.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\lindblad.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\minardi-logo.png">
@@ -85,13 +128,34 @@
     <Content Include="Images\New_Career_Photo_2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\norris.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ocon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\perez.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\piastri.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\RB_suit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\russell.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\sainz.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Siemens-logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Siemens_Car.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\stroll.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Tire_Uncoloured_Difficulty.jpg">

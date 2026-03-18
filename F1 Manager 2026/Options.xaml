@@ -54,6 +54,7 @@
                     FontWeight="Bold" 
                     Click="Career_Create_Button_Click"
                     Foreground="White" 
+                    
                     Cursor="Hand" 
                     Background="#80000000"/>
 

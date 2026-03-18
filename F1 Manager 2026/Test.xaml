@@ -16,9 +16,9 @@
                        Source="Assets/Suits/suit_redbull.png"/>
 
                 <Image x:Name="driverphoto_shower" 
-                       Width="200" 
+                       Width="220" 
                        VerticalAlignment="Top" 
-                       Margin="0,43,0,0" 
+                       Margin="10,35,0,0" 
                        Stretch="Uniform"
                        Source="/Images/gasly.png"/>
             </Grid>
@@ -65,5 +65,6 @@
                 </StackPanel>
             </Border>
         </StackPanel>
+        <Button Content=">" HorizontalAlignment="Left" Margin="486,227,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
     </Grid>
 </Window>
