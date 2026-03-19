@@ -27,18 +27,18 @@ namespace F1_Manager_2026
         // Logika priradenia kombinézy podľa názvu tímu
         private void UpdateSuitPath()
         {
-            string folder = "Assets/Suits/";
+            string folder = "/Images/";
             SuitPath = _team switch
             {
                 "McLaren" => folder + "suit_mclaren.png",
                 "Ferrari" => folder + "suit_ferrari.png",
-                "Red Bull Racing" => folder + "suit_redbull.png",
+                "Red Bull Racing" => folder + "RB_suit.png",
                 "Mercedes" => folder + "suit_mercedes.png",
                 "Aston Martin" => folder + "suit_astonmartin.png",
                 "Alpine" => folder + "suit_alpine.png",
                 "Haas" => folder + "suit_haas.png",
                 "RB" => folder + "suit_rb.png",
-                "Williams" => folder + "suit_williams.png",
+                "Williams" => folder + "suit_williams1.png",
                 "Cadillac" => folder + "suit_cadillac.png",
                 "Audi" => folder + "suit_audi.png",
                 "ART Grand Prix" => folder + "suit_art.png",
