@@ -6,10 +6,13 @@ namespace F1_Manager_2026
 {
     public class PlayerTeam
     {
-        public string driver1name;
-        public string driver2name;
-        public string teamName;
-        public string playername;
+        // Use string.Empty to satisfy the non-nullable requirement
+        public string Logo { get; set; } = string.Empty;
+        public string driver1name = string.Empty;
+        public string driver2name = string.Empty;
+        public string teamName = string.Empty;
+        public string playername = string.Empty;
+
         public int driver1rating;
         public int driver1cost;
         public int Races = 0;
@@ -19,9 +22,10 @@ namespace F1_Manager_2026
         public int driver2cost;
         public int Standings;
         public int TeamPower = 10;
-        public int Money { get; set; } = 10000;
-        public string teamtype { get; set; }
+
+        public decimal Budget { get; set; }
+        public string teamtype { get; set; } = string.Empty;
         public int effectivity = 0;
-        public string UpgradeName = "";
+        public string UpgradeName = string.Empty;
     }
 }

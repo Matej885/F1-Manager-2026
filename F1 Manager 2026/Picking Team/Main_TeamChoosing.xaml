@@ -43,7 +43,7 @@
 
             <UniformGrid Columns="4" Width="400" Height="80">
                 <Button Content="1" Margin="5,0,5,5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" Click="Button_Click" Cursor="Hand" Height="70" VerticalAlignment="Bottom"/>
-                <Button Content="2" Margin="5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" Click="Button_Click_1" Cursor="Hand"/>
+                <Button Content="2" Margin="5,0,5,5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" Click="Button_Click_1" Cursor="Hand" Height="70" VerticalAlignment="Bottom"/>
                 <Button Content="3" Margin="5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" Click="Button_Click_2" Cursor="Hand"/>
                 <Button Content="4" Margin="5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" Click="Button_Click_3" Cursor="Hand"/>
             </UniformGrid>
