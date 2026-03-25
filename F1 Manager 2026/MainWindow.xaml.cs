@@ -21,6 +21,7 @@ namespace F1_Manager_2026
         public MainWindow()
         {
             InitializeComponent();
+            var a = Database.Instance.DriverList;
             Loading_Screen_Intro_Media_Element.Play();
             
         }

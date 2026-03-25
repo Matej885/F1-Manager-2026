@@ -156,28 +156,28 @@ namespace F1_Manager_2026.Picking_Team
                 if (Team_Chosen == 1)
                 {
                     PlayerTeam playerTeam = new PlayerTeam();
-                    GameState.InitializeTeam(1);
+                    Database.Instance.InitializeTeam(1);
                     Drivers_Pick drivers_Pick = new Drivers_Pick();
                     drivers_Pick.Show();
                     this.Close();
                 }
                 else if (Team_Chosen == 2)
                 {
-                    GameState.InitializeTeam(2);
+                    Database.Instance.InitializeTeam(2);
                     Drivers_Pick drivers_Pick = new Drivers_Pick();
                     drivers_Pick.Show();
                     this.Close();
                 }
                 else if (Team_Chosen == 3)
                 {
-                    GameState.InitializeTeam(3);
+                    Database.Instance.InitializeTeam(3);
                     Drivers_Pick drivers_Pick = new Drivers_Pick();
                     drivers_Pick.Show();
                     this.Close();
                 }
                 else if (Team_Chosen == 4)
                 {
-                    GameState.InitializeTeam(4);
+                    Database.Instance.InitializeTeam(4);
                     Drivers_Pick drivers_Pick = new Drivers_Pick();
                     drivers_Pick.Show();
                     this.Close();
