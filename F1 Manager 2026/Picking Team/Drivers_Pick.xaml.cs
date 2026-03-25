@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Media;
+using System.Numerics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -16,28 +16,77 @@ namespace F1_Manager_2026.Picking_Team
         {
             InitializeComponent();
             LoadDataToUI();
+            ResetMoney();
         }
 
+        private void ResetMoney()
+        {
+            BudgetDisplay.Text = $"{Database.Instance.PlayerTeamInstance.Budget.ToString("N0")}$";
+        }
         private void LoadDataToUI()
         {
-            // Načítanie všetkých jazdcov zo statickej triedy Drivers
-            List<Drivers> allDriversList = Drivers.GetAllDrivers();
+            var allDrivers = Database.Instance.DriverList; 
+            if (allDrivers != null)
+                DriversItemsControl.ItemsSource = allDrivers;
+        }
 
-            if (allDriversList != null)
+        private void DriverCard_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is Border kliknutyBorder && kliknutyBorder.DataContext is Driver kliknutyJazdec)
             {
-                if (allDriversList.Count > 0)
+                // 1. Získame názov tímu, ktorý sme si vybrali v MainMenu
+                string mojTim = Database.Instance.PlayerTeamInstance.teamName;
+
+                if (timesselected < 1)
                 {
-                    // Naplnenie ItemsControl dátami
-                    DriversItemsControl.ItemsSource = allDriversList;
+                    if (kliknutyJazdec.Cost > Database.Instance.PlayerTeamInstance.Budget)
+                    {
+                        MessageBox.Show($"Not enough money for: {kliknutyJazdec.Name}!", "Info", MessageBoxButton.OK, MessageBoxImage.Hand);
+                        return;
+                    }
+                    else
+                    {
+                        MediaPlayer player = new MediaPlayer();
+                        player.Open(new Uri("Sounds/signing.wav", UriKind.Relative));
+                        player.Play();
+                        Database.Instance.PlayerTeamInstance.Budget -= (decimal)kliknutyJazdec.Cost;
+                        // 2. Nastavíme jazdcovi náš tím -> toto automaticky zmení SuitPath v triede Drivers
+                        kliknutyJazdec.Team = mojTim;
+                        // 3. Uložíme výber do globálneho stavu
+                        Database.Instance.PlayerTeamInstance.driver1name = kliknutyJazdec.Name;
+                        Database.Instance.PlayerTeamInstance.driver1rating = kliknutyJazdec.Skill;
+                        Database.Instance.PlayerTeamInstance.driver1cost = kliknutyJazdec.Cost;
+                        MessageBox.Show($"Jazdec {kliknutyJazdec.Name} úspešne podpísaný za {mojTim}!");
+                        ResetMoney();
+                        timesselected++;
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Zoznam jazdcov je prázdny!");
+                    if (kliknutyJazdec.Cost > Database.Instance.PlayerTeamInstance.Budget)
+                    {
+                        MessageBox.Show($"Not enough money for: {kliknutyJazdec.Name}!", "Info", MessageBoxButton.OK, MessageBoxImage.Hand);
+                        return;
+                    }
+                    else
+                    {
+                        MediaPlayer player = new MediaPlayer();
+                        player.Open(new Uri("Sounds/signing.wav", UriKind.Relative));
+                        player.Play();
+                        Database.Instance.PlayerTeamInstance.Budget -= (decimal)kliknutyJazdec.Cost;
+                        // 2. Nastavíme jazdcovi náš tím -> toto automaticky zmení SuitPath v triede Drivers
+                        kliknutyJazdec.Team = mojTim;
+                        // 3. Uložíme výber do globálneho stavu
+                        Database.Instance.PlayerTeamInstance.driver2name = kliknutyJazdec.Name;
+                        Database.Instance.PlayerTeamInstance.driver2rating = kliknutyJazdec.Skill;
+                        Database.Instance.PlayerTeamInstance.driver2cost = kliknutyJazdec.Cost;
+                        MessageBox.Show($"Jazdec {kliknutyJazdec.Name} úspešne podpísaný za {mojTim}!");
+                        ResetMoney();
+                        timesselected++;
+                        MessageBox.Show("You have selected 2 drivers, you cannot select more!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                        this.Close();
+                    }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Dáta jazdcov sa nepodarilo načítať (null).");
             }
         }
 

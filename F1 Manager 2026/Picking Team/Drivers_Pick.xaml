@@ -17,8 +17,19 @@
         </Grid.RowDefinitions>
 
         <Border Grid.Row="0" Background="#1A1A1A" BorderBrush="Red" BorderThickness="0,0,0,3">
-            <Label Content="F1 DRIVER SELECTION 2026" Foreground="White" FontSize="32" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+            <Grid Margin="40,0">
+                <Label Content="F1 DRIVER SELECTION 2026" Foreground="White" FontSize="32" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <TextBlock Text="TEAM BUDGET:" Foreground="#888" FontSize="14" 
+                               VerticalAlignment="Center" Margin="0,5,15,0" FontWeight="Bold"/>
+                    <Border Background="#222" CornerRadius="5" Padding="15,5" BorderBrush="#00FF41" BorderThickness="1">
+                        <TextBlock x:Name="BudgetDisplay" Text="0 $" Foreground="#00FF41" 
+                                   FontSize="24" FontWeight="Bold" FontFamily="Consolas"/>
+                    </Border>
+                </StackPanel>
+            </Grid>
         </Border>
 
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="10">
@@ -61,9 +72,14 @@
                                                FontWeight="Bold" HorizontalAlignment="Center"/>
                                     <TextBlock Text="{Binding Team}" Foreground="#888" FontSize="11" 
                                                HorizontalAlignment="Center" Margin="0,2,0,5"/>
-                                    <Border Background="#222" CornerRadius="5" Padding="5">
-                                        <TextBlock Text="{Binding FormattedCost}" Foreground="White" 
-                                                   FontSize="15" HorizontalAlignment="Center" FontWeight="Bold"/>
+
+                                    <Border Background="#222" CornerRadius="5" Padding="8,5" BorderBrush="#444" BorderThickness="1">
+                                        <Grid>
+                                            <TextBlock Text="VALUE" Foreground="#666" FontSize="9" 
+                                                       FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                            <TextBlock Text="{Binding FormattedCost}" Foreground="#00FF41" 
+                                                       FontSize="15" HorizontalAlignment="Right" FontWeight="Bold"/>
+                                        </Grid>
                                     </Border>
                                 </StackPanel>
                             </Grid>
