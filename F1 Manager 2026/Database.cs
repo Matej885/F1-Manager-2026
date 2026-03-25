@@ -1,14 +1,48 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace F1_Manager_2026
 {
-    public static class Database
+    public  class Database : INotifyPropertyChanged
     {
-        public static List<Driver> DriverList { get; set; }
 
-        static Database()
+        private static Database instance = null;
+        private static readonly object padlock = new object();
+
+        public static Database Instance
         {
-            DriverList = new List<Driver>
+            get
+            {
+                if (instance == null)
+                {
+                    lock (padlock)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new Database();
+                        }
+                    }
+                }
+                return instance;
+            }
+        }
+
+
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string? name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        public  PlayerTeam PlayerTeamInstance { get; set; } = new PlayerTeam();
+        public  ObservableCollection<Driver> DriverList { get; set; }
+
+        public Database()
+        {
+            DriverList = new ObservableCollection<Driver>
             {
                 new Driver { Name = "Max Verstappen", Number = 33, PhotoPath = "/Images/verstappen.png", Skill = 96, Team = "Red Bull Racing", Cost = 85000000 },
                 new Driver { Name = "Lando Norris", Number = 4, PhotoPath = "/Images/norris.png", Skill = 95, Team = "McLaren", Cost = 70000000 },
@@ -33,6 +67,31 @@ namespace F1_Manager_2026
                 new Driver { Name = "Arvid Lindblad", Number = 41, PhotoPath = "/Images/lindblad.png", Skill = 79, Team = "RB", Cost = 0 },
                 new Driver { Name = "Lance Stroll", Number = 18, PhotoPath = "/Images/stroll.png", Skill = 78, Team = "Aston Martin", Cost = 1000000 }
             };
+        }
+        public  void InitializeTeam(int choice)
+        {
+            // Resetujeme dáta
+            PlayerTeamInstance = new PlayerTeam();
+
+            switch (choice)
+            {
+                case 1:
+                    PlayerTeamInstance.teamName = "Minardi F1 Team";
+                    PlayerTeamInstance.Budget = 80000000;
+                    break;
+                case 2:
+                    PlayerTeamInstance.teamName = "Alfa Romeo F1 Team";
+                    PlayerTeamInstance.Budget = 140000000;
+                    break;
+                case 3:
+                    PlayerTeamInstance.teamName = "BMW Sauber F1 Team";
+                    PlayerTeamInstance.Budget = 180000000;
+                    break;
+                case 4:
+                    PlayerTeamInstance.teamName = "Siemens Racing F1 Team";
+                    PlayerTeamInstance.Budget = 210000000;
+                    break;
+            }
         }
     }
 }

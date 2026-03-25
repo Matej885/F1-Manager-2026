@@ -143,8 +143,8 @@ namespace F1_Manager_2026.Picking_Team
             Description_Text.Text = "Forget the corporate billions. Minardi is back for 2026, and they’ve brought nothing but a dream and a set of old wrenches. You are the grid's biggest underdog—starting with the smallest budget, aging facilities, and a car that has to fight for every single position.\r\n\r\nThis isn't about luxury; it’s about survival. Every point is a miracle, and every finish is a victory. The giants expect you to fail, but they’ve forgotten one thing: heart can’t be bought. Do you have the grit to turn this garage team into a giant-slayer? Welcome to the hardest seat in Formula 1";
             Money_Description_Label.Content = "210,000,000 $";
             Team_Name_Label.Content = "Siemens Racing F1 Team";
-        } //Maliny Gerko
-
+        }
+        //666666666666666666666666666666666666666666666666666666666
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             if (Team_Chosen == 0)
@@ -156,28 +156,28 @@ namespace F1_Manager_2026.Picking_Team
                 if (Team_Chosen == 1)
                 {
                     PlayerTeam playerTeam = new PlayerTeam();
-                    GameState.InitializeTeam(1);
+                    Database.Instance.InitializeTeam(1);
                     Drivers_Pick drivers_Pick = new Drivers_Pick();
                     drivers_Pick.Show();
                     this.Close();
                 }
                 else if (Team_Chosen == 2)
                 {
-                    GameState.InitializeTeam(2);
+                    Database.Instance.InitializeTeam(2);
                     Drivers_Pick drivers_Pick = new Drivers_Pick();
                     drivers_Pick.Show();
                     this.Close();
                 }
                 else if (Team_Chosen == 3)
                 {
-                    GameState.InitializeTeam(3);
+                    Database.Instance.InitializeTeam(3);
                     Drivers_Pick drivers_Pick = new Drivers_Pick();
                     drivers_Pick.Show();
                     this.Close();
                 }
                 else if (Team_Chosen == 4)
                 {
-                    GameState.InitializeTeam(4);
+                    Database.Instance.InitializeTeam(4);
                     Drivers_Pick drivers_Pick = new Drivers_Pick();
                     drivers_Pick.Show();
                     this.Close();

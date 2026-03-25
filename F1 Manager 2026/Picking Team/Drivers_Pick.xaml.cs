@@ -16,7 +16,7 @@ namespace F1_Manager_2026.Picking_Team
 
         private void LoadDataToUI()
         {
-            var allDrivers = Database.DriverList;
+            var allDrivers = Database.Instance.DriverList;
             if (allDrivers != null)
                 DriversItemsControl.ItemsSource = allDrivers;
         }
@@ -26,15 +26,15 @@ namespace F1_Manager_2026.Picking_Team
             if (sender is Border kliknutyBorder && kliknutyBorder.DataContext is Driver kliknutyJazdec)
             {
                 // 1. Získame názov tímu, ktorý sme si vybrali v MainMenu
-                string mojTim = GameState.PlayerTeamInstance.teamName;
+                string mojTim = Database.Instance.PlayerTeamInstance.teamName;
 
                 // 2. Nastavíme jazdcovi náš tím -> toto automaticky zmení SuitPath v triede Drivers
                 kliknutyJazdec.Team = mojTim;
-
+                //kliknutyJazdec.UpdateSuitPath();
                 // 3. Uložíme výber do globálneho stavu
-                GameState.PlayerTeamInstance.driver1name = kliknutyJazdec.Name;
-                GameState.PlayerTeamInstance.driver1rating = kliknutyJazdec.Skill;
-                GameState.PlayerTeamInstance.driver1cost = kliknutyJazdec.Cost;
+                Database.Instance.PlayerTeamInstance.driver1name = kliknutyJazdec.Name;
+                Database.Instance.PlayerTeamInstance.driver1rating = kliknutyJazdec.Skill;
+                Database.Instance.PlayerTeamInstance.driver1cost = kliknutyJazdec.Cost;
 
                 if (timesselected < 1)
                 {

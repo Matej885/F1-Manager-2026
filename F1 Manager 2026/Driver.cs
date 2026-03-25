@@ -1,13 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel; // For INotifyPropertyChanged
+using System.Runtime.CompilerServices; // For [CallerMemberName]
 
 namespace F1_Manager_2026
 {
-    public class Driver
+    public class Driver : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private string? _team;
         public string? Name { get; set; }
         public int Number { get; set; }
@@ -21,11 +27,15 @@ namespace F1_Manager_2026
             get => _team;
             set
             {
-                _team = value;
-                UpdateSuitPath();
+                if (_team != value)
+                {
+                    _team = value;
+                    UpdateSuitPath();
+                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(SuitPath));
+                }
             }
         }
-
         public string FormattedCost
         {
             get
@@ -34,8 +44,11 @@ namespace F1_Manager_2026
                 return "COST: $" + costValue.ToString("F1") + "M";
             }
         }
-
-        private void UpdateSuitPath()
+        protected void OnPropertyChanged([CallerMemberName] string? name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        public void UpdateSuitPath()
         {
             string folder = "/Images/";
             if (_team == null) { SuitPath = folder + "suit_default.png"; return; }
