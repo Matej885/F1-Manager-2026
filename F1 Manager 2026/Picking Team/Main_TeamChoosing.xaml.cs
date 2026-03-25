@@ -144,7 +144,7 @@ namespace F1_Manager_2026.Picking_Team
             Money_Description_Label.Content = "210,000,000 $";
             Team_Name_Label.Content = "Siemens Racing F1 Team";
         }
-
+        //666666666666666666666666666666666666666666666666666666666
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             if (Team_Chosen == 0)
