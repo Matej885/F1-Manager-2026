@@ -47,9 +47,11 @@
     <None Remove="Images\Siemens-logo.png" />
     <None Remove="Images\Siemens_Car.jpg" />
     <None Remove="Images\stroll.png" />
+    <None Remove="Images\suit_alfa.png" />
     <None Remove="Images\suit_alpine.png" />
     <None Remove="Images\suit_astonmartin.png" />
     <None Remove="Images\suit_audi.png" />
+    <None Remove="Images\suit_BMW.png" />
     <None Remove="Images\suit_cadillac.png" />
     <None Remove="Images\suit_ferrari.png" />
     <None Remove="Images\suit_haas.png" />
@@ -164,6 +166,9 @@
     <Content Include="Images\stroll.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\suit_alfa.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\suit_alpine.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -171,6 +176,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\suit_audi.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\suit_BMW.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\suit_cadillac.png">

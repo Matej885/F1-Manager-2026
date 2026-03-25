@@ -101,6 +101,11 @@ namespace F1_Manager_2026.Picking_Team
                     playerTeam.driver1name = j.Name;
                     playerTeam.driver1rating = j.Skill;
                     playerTeam.driver1cost = j.Cost;
+                    j.Team = playerTeam.teamName;
+                    Drivers drivers = new Drivers();
+                    Drivers_Pick pick = new Drivers_Pick();
+                    pick.Show();
+                    this.Close();
                     MessageBox.Show($"Vybral si jazdca: {playerTeam.driver1name} s ratingom {playerTeam.driver1rating}!");
                 }
                 else
