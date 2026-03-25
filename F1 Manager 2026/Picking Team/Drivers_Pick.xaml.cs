@@ -98,8 +98,6 @@ namespace F1_Manager_2026.Picking_Team
                         driver1name = j.Name,
                         driver1rating = j.Skill,
                     };
-                    playerTeam.driver1name = j.Name;
-                    playerTeam.driver1rating = j.Skill;
                     playerTeam.driver1cost = j.Cost;
                     j.Team = playerTeam.teamName;
                     Drivers drivers = new Drivers();
