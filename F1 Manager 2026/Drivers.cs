@@ -21,9 +21,13 @@ namespace F1_Manager_2026
             get => _team;
             set
             {
-                _team = value;
-                UpdateSuitPath();
-                OnPropertyChanged();
+                if (_team != value)
+                {
+                    _team = value;
+                    UpdateSuitPath(); // Toto zmení cestu k obrázku
+                    OnPropertyChanged(); // Oznámi zmenu Teamu
+                    OnPropertyChanged(nameof(SuitPath)); // Oznámi UI, že sa zmenil obrázok kombinézy
+                }
             }
         }
 
@@ -41,6 +45,7 @@ namespace F1_Manager_2026
         {
             get
             {
+                // Výpočet ceny na základe skillu (približný model)
                 double costValue = (Skill - 60) * 0.8;
                 return "COST: $" + costValue.ToString("F1") + "M";
             }
@@ -49,30 +54,38 @@ namespace F1_Manager_2026
         private void UpdateSuitPath()
         {
             string folder = "/Images/";
-            if (string.IsNullOrEmpty(_team)) { SuitPath = folder + "suit_default.png"; return; }
 
-            // Logika pre tvoje vybrateľné tímy
+            if (string.IsNullOrEmpty(_team))
+            {
+                SuitPath = folder + "suit_default.png";
+                return;
+            }
+
+            // Logika pre tvoje štyri voliteľné tímy (Nové tímy v hre)
             if (_team.Contains("Minardi")) SuitPath = folder + "suit_minardi.png";
             else if (_team.Contains("Alfa Romeo")) SuitPath = folder + "suit_alfa.png";
             else if (_team.Contains("BMW")) SuitPath = folder + "suit_bmw.png";
             else if (_team.Contains("Siemens")) SuitPath = folder + "suit_siemens.png";
 
-            // Logika pre pôvodné tímy jazdcov
-            else switch (_team)
+            // Logika pre pôvodné tímy (Existujúce F1 tímy)
+            else
+            {
+                SuitPath = _team switch
                 {
-                    case "McLaren": SuitPath = folder + "suit_mclaren.png"; break;
-                    case "Ferrari": SuitPath = folder + "suit_ferrari.png"; break;
-                    case "Red Bull Racing": SuitPath = folder + "RB_suit.png"; break;
-                    case "Mercedes": SuitPath = folder + "suit_mercedes.png"; break;
-                    case "Aston Martin": SuitPath = folder + "suit_astonmartin.png"; break;
-                    case "Alpine": SuitPath = folder + "suit_alpine.png"; break;
-                    case "Haas": SuitPath = folder + "suit_haas.png"; break;
-                    case "RB": SuitPath = folder + "suit_RBJ.png"; break;
-                    case "Williams": SuitPath = folder + "suit_williams1.png"; break;
-                    case "Cadillac": SuitPath = folder + "suit_cadillac.png"; break;
-                    case "Audi": SuitPath = folder + "suit_audi.png"; break;
-                    default: SuitPath = folder + "suit_default.png"; break;
-                }
+                    "McLaren" => folder + "suit_mclaren.png",
+                    "Ferrari" => folder + "suit_ferrari.png",
+                    "Red Bull Racing" => folder + "RB_suit.png",
+                    "Mercedes" => folder + "suit_mercedes.png",
+                    "Aston Martin" => folder + "suit_astonmartin.png",
+                    "Alpine" => folder + "suit_alpine.png",
+                    "Haas" => folder + "suit_haas.png",
+                    "RB" => folder + "suit_RBJ.png",
+                    "Williams" => folder + "suit_williams1.png",
+                    "Cadillac" => folder + "suit_cadillac.png",
+                    "Audi" => folder + "suit_audi.png",
+                    _ => folder + "suit_default.png"
+                };
+            }
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
