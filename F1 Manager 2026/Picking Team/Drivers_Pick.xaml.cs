@@ -7,6 +7,7 @@ namespace F1_Manager_2026.Picking_Team
 {
     public partial class Drivers_Pick : Window
     {
+        public int timesselected = 0;
         public Drivers_Pick()
         {
             InitializeComponent();
@@ -15,14 +16,14 @@ namespace F1_Manager_2026.Picking_Team
 
         private void LoadDataToUI()
         {
-            var allDrivers = Drivers.GetAllDrivers();
+            var allDrivers = Database.DriverList;
             if (allDrivers != null)
                 DriversItemsControl.ItemsSource = allDrivers;
         }
 
         private void DriverCard_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (sender is Border kliknutyBorder && kliknutyBorder.DataContext is Drivers kliknutyJazdec)
+            if (sender is Border kliknutyBorder && kliknutyBorder.DataContext is Driver kliknutyJazdec)
             {
                 // 1. Získame názov tímu, ktorý sme si vybrali v MainMenu
                 string mojTim = GameState.PlayerTeamInstance.teamName;
@@ -35,8 +36,16 @@ namespace F1_Manager_2026.Picking_Team
                 GameState.PlayerTeamInstance.driver1rating = kliknutyJazdec.Skill;
                 GameState.PlayerTeamInstance.driver1cost = kliknutyJazdec.Cost;
 
-                MessageBox.Show($"Jazdec {kliknutyJazdec.Name} úspešne podpísaný za {mojTim}!");
-
+                if (timesselected < 1)
+                {
+                    MessageBox.Show($"Jazdec {kliknutyJazdec.Name} úspešne podpísaný za {mojTim}!");
+                    timesselected++;
+                }
+                else
+                {
+                    MessageBox.Show($"Jazdec {kliknutyJazdec.Name} úspešne podpísaný za {mojTim}!");
+                    this.Close();
+                }
             }
         }
 
