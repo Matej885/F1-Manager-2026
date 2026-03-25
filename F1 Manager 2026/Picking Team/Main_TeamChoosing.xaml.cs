@@ -122,7 +122,7 @@ namespace F1_Manager_2026.Picking_Team
             Difficulty_Grid2.Visibility = Visibility.Visible;
             Difficulty_Grid3.Visibility = Visibility.Visible;
             Difficulty_Grid4.Visibility = Visibility.Visible;
-            Car_Speed_Rectangle1.Visibility = Visibility.Visible;
+            Car_Speed_Rectangle1.Visibility = Visibility.Visible;//kk
             Car_Speed_Rectangle2.Visibility = Visibility.Visible;
             Car_Speed_Rectangle3.Visibility = Visibility.Visible;
             Car_Speed_Rectangle4.Visibility = Visibility.Visible;
