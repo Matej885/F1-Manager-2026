@@ -32,61 +32,101 @@
             </Grid>
         </Border>
 
-        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="10">
-            <ItemsControl x:Name="DriversItemsControl">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel HorizontalAlignment="Center"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border x:Name="DriverCard" 
-                                Background="#1A1A1A" 
-                                BorderBrush="#333" 
-                                BorderThickness="2" 
-                                CornerRadius="12" 
-                                Margin="10" 
-                                Width="280" 
-                                Height="420"
-                                MouseEnter="DriverCard_MouseEnter"
-                                MouseLeave="DriverCard_MouseLeave"
-                                MouseDown="DriverCard_MouseDown">
+            <StackPanel Grid.Column="0" Margin="20,30,10,0">
+                <Border Background="#1A1A1A" CornerRadius="15" Padding="25" BorderBrush="Red" BorderThickness="1">
+                    <StackPanel>
+                        <TextBlock Text="TIP:" 
+                                   Foreground="Red" 
+                                   FontSize="28" 
+                                   FontWeight="Bold" 
+                                   Margin="0,0,0,15"/>
 
-                            <Grid Background="Transparent">
-                                <TextBlock Text="{Binding Skill}" Foreground="Red" FontSize="28" 
-                                           FontWeight="Bold" HorizontalAlignment="Right" 
-                                           Margin="0,10,15,0" Panel.ZIndex="10"/>
+                        <TextBlock Text="DON´T FORGET: You have to save money for Upgrades and contracts for next season too!" 
+                                   Foreground="White" 
+                                   FontSize="16" 
+                                   TextWrapping="Wrap" 
+                                   LineHeight="24"
+                                   FontStyle="Italic"/>
 
-                                <Viewbox Stretch="Uniform" Margin="10,40,10,80">
-                                    <Grid Width="300" Height="400">
-                                        <Image Source="{Binding SuitPath}" VerticalAlignment="Bottom" Stretch="Uniform"/>
-                                        <Image Source="{Binding PhotoPath}" Width="220" VerticalAlignment="Top" 
-                                               Margin="10,35,0,0" Stretch="Uniform"/>
-                                    </Grid>
-                                </Viewbox>
+                        <Separator Background="#333" Margin="0,25"/>
 
-                                <StackPanel VerticalAlignment="Bottom" Margin="10">
-                                    <TextBlock Text="{Binding Name}" Foreground="White" FontSize="18" 
-                                               FontWeight="Bold" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="{Binding Team}" Foreground="#888" FontSize="11" 
-                                               HorizontalAlignment="Center" Margin="0,2,0,5"/>
+                        <TextBlock Text="WHAT TO DO:" 
+                                   Foreground="#888" 
+                                   FontSize="12" 
+                                   FontWeight="Bold" 
+                                   Margin="0,0,0,5"/>
 
-                                    <Border Background="#222" CornerRadius="5" Padding="8,5" BorderBrush="#444" BorderThickness="1">
-                                        <Grid>
-                                            <TextBlock Text="VALUE" Foreground="#666" FontSize="9" 
-                                                       FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                                            <TextBlock Text="{Binding FormattedCost}" Foreground="#00FF41" 
-                                                       FontSize="15" HorizontalAlignment="Right" FontWeight="Bold"/>
+                        <TextBlock Text="Pick your two main drivers by clicking on them" 
+                                   Foreground="#AAA" 
+                                   FontSize="14" 
+                                   TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+
+            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" Margin="10,0,0,0">
+                <ItemsControl x:Name="DriversItemsControl">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border x:Name="DriverCard" 
+                                    Background="#1A1A1A" 
+                                    BorderBrush="#333" 
+                                    BorderThickness="2" 
+                                    CornerRadius="12" 
+                                    Margin="10" 
+                                    Width="280" 
+                                    Height="420"
+                                    MouseEnter="DriverCard_MouseEnter"
+                                    MouseLeave="DriverCard_MouseLeave"
+                                    MouseDown="DriverCard_MouseDown">
+
+                                <Grid Background="Transparent">
+                                    <TextBlock Text="{Binding Skill}" Foreground="Red" FontSize="28" 
+                                               FontWeight="Bold" HorizontalAlignment="Right" 
+                                               Margin="0,10,15,0" Panel.ZIndex="10"/>
+
+                                    <Viewbox Stretch="Uniform" Margin="10,40,10,80">
+                                        <Grid Width="300" Height="400">
+                                            <Image Source="{Binding SuitPath}" VerticalAlignment="Bottom" Stretch="Uniform"/>
+                                            <Image Source="{Binding PhotoPath}" Width="220" VerticalAlignment="Top" 
+                                                   Margin="10,35,0,0" Stretch="Uniform"/>
                                         </Grid>
-                                    </Border>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </ScrollViewer>
+                                    </Viewbox>
+
+                                    <StackPanel VerticalAlignment="Bottom" Margin="10">
+                                        <TextBlock Text="{Binding Name}" Foreground="White" FontSize="18" 
+                                                   FontWeight="Bold" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="{Binding Team}" Foreground="#888" FontSize="11" 
+                                                   HorizontalAlignment="Center" Margin="0,2,0,5"/>
+
+                                        <Border Background="#222" CornerRadius="5" Padding="8,5" BorderBrush="#444" BorderThickness="1">
+                                            <Grid>
+                                                <TextBlock Text="VALUE" Foreground="#666" FontSize="9" 
+                                                           FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                                <TextBlock Text="{Binding FormattedCost}" Foreground="#00FF41" 
+                                                           FontSize="15" HorizontalAlignment="Right" FontWeight="Bold"/>
+                                            </Grid>
+                                        </Border>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </Window>

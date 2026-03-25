@@ -68,7 +68,7 @@ namespace F1_Manager_2026
                 "Minardi F1 Team" => folder + "suit_minardi.png",
                 "BMW Sauber F1 Team" => folder + "suit_bmw.png",
                 "Alfa Romeo F1 Team" => folder + "suit_alfa.png",
-                _ => folder + "suit_default.png"
+                _ => folder + "suit_F2.png"
             };
         }
     }

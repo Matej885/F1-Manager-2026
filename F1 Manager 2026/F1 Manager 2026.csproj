@@ -27,6 +27,7 @@
     <None Remove="Images\gasly.png" />
     <None Remove="Images\hadjar.png" />
     <None Remove="Images\hamilton.png" />
+    <None Remove="Images\helmet.png" />
     <None Remove="Images\hulkenberg.png" />
     <None Remove="Images\lawson.png" />
     <None Remove="Images\leclerc.png" />
@@ -53,6 +54,7 @@
     <None Remove="Images\suit_audi.png" />
     <None Remove="Images\suit_BMW.png" />
     <None Remove="Images\suit_cadillac.png" />
+    <None Remove="Images\suit_F2.png" />
     <None Remove="Images\suit_ferrari.png" />
     <None Remove="Images\suit_haas.png" />
     <None Remove="Images\suit_mclaren.png" />
@@ -119,6 +121,9 @@
     <Content Include="Images\hamilton.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\helmet.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\hulkenberg.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -183,6 +188,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\suit_cadillac.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\suit_F2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\suit_ferrari.png">
