@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Documents;
+using System.ComponentModel;
 
 namespace F1_Manager_2026.Picking_Team
 {
@@ -148,14 +149,13 @@ namespace F1_Manager_2026.Picking_Team
         {
             if (Team_Chosen == 0)
             {
-                MessageBox.Show("Please choose a team to continue.");
+                MessageBox.Show("Pick your team first!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             else
             {
                 if (Team_Chosen == 1)
                 {
                     PlayerTeam playerTeam = new PlayerTeam();
-                    MessageBox.Show("You have chosen Minardi F1 Team. Good luck in your career!");
                     GameState.InitializeTeam(1);
                     Drivers_Pick drivers_Pick = new Drivers_Pick();
                     drivers_Pick.Show();
@@ -163,7 +163,6 @@ namespace F1_Manager_2026.Picking_Team
                 }
                 else if (Team_Chosen == 2)
                 {
-                    MessageBox.Show("You have chosen Alfa Romeo F1 Team. Good luck in your career!");
                     GameState.InitializeTeam(2);
                     Drivers_Pick drivers_Pick = new Drivers_Pick();
                     drivers_Pick.Show();
@@ -171,7 +170,6 @@ namespace F1_Manager_2026.Picking_Team
                 }
                 else if (Team_Chosen == 3)
                 {
-                    MessageBox.Show("You have chosen BMW Sauber F1 Team. Good luck in your career!");
                     GameState.InitializeTeam(3);
                     Drivers_Pick drivers_Pick = new Drivers_Pick();
                     drivers_Pick.Show();
@@ -179,7 +177,6 @@ namespace F1_Manager_2026.Picking_Team
                 }
                 else if (Team_Chosen == 4)
                 {
-                    MessageBox.Show("You have chosen Siemens Racing F1 Team. Good luck in your career!");
                     GameState.InitializeTeam(4);
                     Drivers_Pick drivers_Pick = new Drivers_Pick();
                     drivers_Pick.Show();
