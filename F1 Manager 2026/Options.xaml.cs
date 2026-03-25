@@ -65,11 +65,7 @@ namespace F1_Manager_2026
             this.Close();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Test test = new Test();
-            test.Show();
-        }
+        
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {

@@ -73,14 +73,5 @@
             </Button>
         </StackPanel>
 
-        <Button Content="Testing" 
-                HorizontalAlignment="Right" 
-                VerticalAlignment="Bottom" 
-                Margin="0,0,50,50" 
-                Height="119" Width="280" 
-                Click="Button_Click"
-                Background="#80000000"
-                Foreground="White"/>
-
     </Grid>
 </Window>

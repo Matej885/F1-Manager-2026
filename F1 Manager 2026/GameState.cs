@@ -1,36 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace F1_Manager_2026
 {
-    public class GameState
+    public static class GameState
     {
-        public static int TeamChosen { get; set; }
+        // Toto je jediná inštancia dát tímu, ktorú budeme v hre používať
+        public static PlayerTeam PlayerTeamInstance { get; set; } = new PlayerTeam();
 
-
-        public static void InitializeTeam(int teamId)
+        public static void InitializeTeam(int choice)
         {
-            PlayerTeam playerTeam = new PlayerTeam();
-            TeamChosen = teamId;
+            // Resetujeme dáta
+            PlayerTeamInstance = new PlayerTeam();
 
-            switch (teamId)
+            switch (choice)
             {
-                case 1: 
-                     playerTeam.Budget = 80000000;
-                    playerTeam.teamName = "Minardi";
+                case 1:
+                    PlayerTeamInstance.teamName = "Minardi F1 Team";
+                    PlayerTeamInstance.Budget = 80000000;
                     break;
-                case 2: 
-                    playerTeam.Budget = 140000000;
-                    playerTeam.teamName = "Alfa Romeo";
+                case 2:
+                    PlayerTeamInstance.teamName = "Alfa Romeo F1 Team";
+                    PlayerTeamInstance.Budget = 140000000;
                     break;
-                case 3: 
-                    playerTeam.Budget = 180000000;
-                    playerTeam.teamName = "BMW";
+                case 3:
+                    PlayerTeamInstance.teamName = "BMW Sauber F1 Team";
+                    PlayerTeamInstance.Budget = 180000000;
                     break;
-                case 4: 
-                    playerTeam.Budget = 210000000;
-                    playerTeam.teamName = "Siemens";
+                case 4:
+                    PlayerTeamInstance.teamName = "Siemens Racing F1 Team";
+                    PlayerTeamInstance.Budget = 210000000;
                     break;
             }
         }
