@@ -18,16 +18,19 @@ namespace F1_Manager_2026
             {
                 case 1: 
                      playerTeam.Budget = 80000000;
-                    playerTeam.Logo = "";
+                    playerTeam.teamName = "Minardi";
                     break;
                 case 2: 
                     playerTeam.Budget = 140000000;
+                    playerTeam.teamName = "Alfa Romeo";
                     break;
                 case 3: 
                     playerTeam.Budget = 180000000;
+                    playerTeam.teamName = "BMW";
                     break;
                 case 4: 
                     playerTeam.Budget = 210000000;
+                    playerTeam.teamName = "Siemens";
                     break;
             }
         }

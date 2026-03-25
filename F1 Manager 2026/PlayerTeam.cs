@@ -12,7 +12,6 @@ namespace F1_Manager_2026
         public string driver2name = string.Empty;
         public string teamName = string.Empty;
         public string playername = string.Empty;
-
         public int driver1rating;
         public int driver1cost;
         public int Races = 0;

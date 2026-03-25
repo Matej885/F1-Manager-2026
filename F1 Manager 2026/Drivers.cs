@@ -61,18 +61,20 @@ namespace F1_Manager_2026
                 case "Prema": SuitPath = folder + "suit_prema.png"; break;
                 case "Van Amersfoort Racing": SuitPath = folder + "suit_var.png"; break;
                 case "AIX Racing": SuitPath = folder + "suit_aix.png"; break;
-                    case "Minardi": SuitPath = folder + "suit_minardi.png"; break;
-                    case "Siemens": SuitPath = folder + "suit_siemens.png"; break;
+                case "Minardi": SuitPath = folder + "suit_minardi.png"; break;
+                case "Siemens": SuitPath = folder + "suit_siemens.png"; break;
+                case "BMW": SuitPath = folder + "suit_bmw.png"; break;
+                    case "Alfa Romeo": SuitPath = folder + "suit_alfa.png"; break;
                 default: SuitPath = folder + "suit_default.png"; break;
             }
         }
 
         // VŠETCI JAZDCI DEFINOVANÍ AKO PUBLIC STATIC
-        public static Drivers Lando_Norris = new Drivers { Name = "Lando Norris", Number = 4, PhotoPath = "/Images/norris.png", Skill = 95, Team = "Siemens", Cost = 70000000 };
-        public static Drivers Oscar_Piastri = new Drivers { Name = "Oscar Piastri", Number = 81, PhotoPath = "/Images/piastri.png", Skill = 92, Team = "McLaren", Cost = 67000000 };
+        public static Drivers Lando_Norris = new Drivers { Name = "Lando Norris", Number = 4, PhotoPath = "/Images/norris.png", Skill = 95, Team = "McLaren", Cost = 70000000 };
+        public static Drivers Oscar_Piastri = new Drivers { Name = "Oscar Piastri", Number = 81, PhotoPath = "/Images/piastri.png", Skill = 92, Team = "McLareb", Cost = 67000000 };
         public static Drivers Charles_Leclerc = new Drivers { Name = "Charles Leclerc", Number = 16, PhotoPath = "/Images/leclerc.png", Skill = 94, Team = "Ferrari", Cost = 70000000 };
         public static Drivers Lewis_Hamilton = new Drivers { Name = "Lewis Hamilton", Number = 44, PhotoPath = "/Images/hamilton.png", Skill = 93, Team = "Ferrari", Cost = 83000000 };
-        public static Drivers Max_Verstappen = new Drivers { Name = "Max Verstappen", Number = 33, PhotoPath = "/Images/verstappen.png", Skill = 96, Team = "Siemens", Cost = 85000000 };
+        public static Drivers Max_Verstappen = new Drivers { Name = "Max Verstappen", Number = 33, PhotoPath = "/Images/verstappen.png", Skill = 96, Team = "Red Bull Racing", Cost = 85000000 };
         public static Drivers Isack_Hadjar = new Drivers { Name = "Isack Hadjar", Number = 6, PhotoPath = "/Images/hadjar.png", Skill = 80, Team = "Red Bull Racing", Cost = 1000000 };
         public static Drivers George_Russell = new Drivers { Name = "George Russell", Number = 63, PhotoPath = "/Images/russell.png", Skill = 90, Team = "Mercedes", Cost = 45000000 };
         public static Drivers Kimi_Antonelli = new Drivers { Name = "Kimi Antonelli", Number = 12, PhotoPath = "/Images/antonelli.png", Skill = 84, Team = "Mercedes", Cost = 38000000 };
