@@ -21,6 +21,8 @@ namespace F1_Manager_2026
         public string? SuitPath { get; private set; }
         public int Skill { get; set; }
         public int Cost { get; set; }
+        public int minprestige { get; set; }
+        public bool IsF2 { get; set; }
 
         public string? Team
         {

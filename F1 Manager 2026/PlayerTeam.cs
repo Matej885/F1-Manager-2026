@@ -2,15 +2,16 @@
 {
     public class PlayerTeam
     {
-        public string teamName = string.Empty;
-        public string driver2name = string.Empty;
-        public int driver2rating;
-        public int driver2cost;
-        public string driver1name = string.Empty;
-        public int driver1rating;
-        public int driver1cost;
+        public string teamName { get; set; } = "";
         public decimal Budget { get; set; }
+        public int Prestige { get; set; } // Tvoja prestíž
 
-        // Ostatné premenné (driver2, body, atď.) zostávajú rovnaké...
+        public string driver1name { get; set; } = "";
+        public int driver1rating { get; set; }
+        public int driver1cost { get; set; }
+
+        public string driver2name { get; set; } = "";
+        public int driver2rating { get; set; }
+        public int driver2cost { get; set; }
     }
 }
