@@ -49,10 +49,13 @@
     <None Remove="Images\stroll.png" />
     <None Remove="Images\suit_alpine.png" />
     <None Remove="Images\suit_astonmartin.png" />
+    <None Remove="Images\suit_audi.png" />
+    <None Remove="Images\suit_cadillac.png" />
     <None Remove="Images\suit_ferrari.png" />
     <None Remove="Images\suit_haas.png" />
     <None Remove="Images\suit_mclaren.png" />
     <None Remove="Images\suit_mercedes.png" />
+    <None Remove="Images\suit_RBJ.png" />
     <None Remove="Images\suit_williams1.png" />
     <None Remove="Images\Tire_Uncoloured_Difficulty.jpg" />
     <None Remove="Images\verstappen.png" />
@@ -171,6 +174,12 @@
     <Content Include="Images\suit_astonmartin.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\suit_audi.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\suit_cadillac.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\suit_ferrari.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -181,6 +190,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\suit_mercedes.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\suit_RBJ.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\suit_williams1.png">
