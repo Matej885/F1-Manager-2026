@@ -66,10 +66,15 @@
     <None Remove="Images\Tire_Uncoloured_Difficulty.jpg" />
     <None Remove="Images\verstappen.png" />
     <None Remove="Images\volume_off.png" />
-    <None Remove="Sounds\Options_Soundtrack.wav" />
+    <None Remove="Sounds\Down Under - Men At Work.wav" />
+    <None Remove="Sounds\More Than a Feeling - Boston.wav" />
+    <None Remove="Sounds\Real Gone - Sheryl Crow.wav" />
     <None Remove="Sounds\signing.wav" />
+    <None Remove="Sounds\Sound_Wave.wav" />
+    <None Remove="Sounds\The Chain - Fleetwood Mac.wav" />
     <None Remove="Videos\Loading_Screen_Source.mp4" />
     <None Remove="Videos\Options Video.mp4" />
+    <None Remove="Videos\Sound_Wave.mp4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -226,7 +231,22 @@
     <Content Include="Images\volume_on.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Sounds\Bad As I Used To Be - Chris Stapleton.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\Down Under - Men At Work.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\More Than a Feeling - Boston.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\Real Gone - Sheryl Crow.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Sounds\signing.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\The Chain - Fleetwood Mac.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Videos\Loading_Screen_Source.mp4">
@@ -238,7 +258,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Sounds\Options_Soundtrack.wav">
+    <Content Include="Sounds\Formula 1 Theme - Brian Tyler.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Videos\Sound_Wave.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

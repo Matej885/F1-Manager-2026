@@ -80,7 +80,10 @@ namespace F1_Manager_2026.Picking_Team
 
                 timesselected++;
                 ResetMoney();
-                if (timesselected == 2) this.Close();
+                if (timesselected == 2)
+                {
+
+                }
             }
         }
 

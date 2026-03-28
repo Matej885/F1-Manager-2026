@@ -73,7 +73,7 @@
         <StackPanel Grid.Column="2" Margin="20,120,40,0">
             <Label Content="TEAM BIOGRAPHY" Foreground="Red" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold" Margin="0,0,0,20"/>
             <TextBlock Name="Description_Text" TextWrapping="Wrap" Foreground="White" FontSize="16" FontFamily="Bahnschrift" TextAlignment="Justify" Height="400">
-                Tu sa zobrazia informácie o vybranom tíme. Vyberte jeden z tímov pomocou čísiel v strede obrazovky...
+                To see stats abou teams first select one of them. Each team has different budget, car performance and difficulty. You can also see team biography and current car preview. Choose wisely, because you will be with this team for whole career.
             </TextBlock>
 
             <Label Name="Difficulty_Label" Content="DIFFICULTY" Foreground="White" Margin="0,20,0,5" FontWeight="Bold"/>
