@@ -10,6 +10,7 @@ namespace F1_Manager_2026.Picking_Team
     public partial class Drivers_Pick : Window
     {
         public int timesselected = 0;
+        Functions functions = new Functions();
         public Drivers_Pick()
         {
             InitializeComponent();
@@ -82,13 +83,16 @@ namespace F1_Manager_2026.Picking_Team
                 ResetMoney();
                 if (timesselected == 2)
                 {
-
+                    Avatar_Pick d = new Avatar_Pick();
+                    d.Show();
+                    this.Close();
                 }
             }
         }
 
         private void DriverCard_MouseEnter(object sender, MouseEventArgs e)
         {
+            functions.Button_Effect();
             if (sender is Border b)
             {
                 b.BorderBrush = Brushes.Red;

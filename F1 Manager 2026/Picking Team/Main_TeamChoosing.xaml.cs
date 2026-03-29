@@ -20,6 +20,7 @@ namespace F1_Manager_2026.Picking_Team
     public partial class Main_TeamChoosing : Window
     {
         public int Team_Chosen = 0;
+        Functions functions = new Functions();
         public Main_TeamChoosing()
         {
             InitializeComponent();
@@ -152,6 +153,7 @@ namespace F1_Manager_2026.Picking_Team
             }
             else
             {
+                Database.Instance.PlayerTeamInstance.PlayerName = $"{Name_Label.Text} {Surname_Label.Text}";
                 if (Team_Chosen == 1)
                 {
                     PlayerTeam playerTeam = new PlayerTeam();
@@ -182,6 +184,11 @@ namespace F1_Manager_2026.Picking_Team
                     this.Close();
                 }
             }
+        }
+
+        private void Main_Button_MouseEnter(object sender, MouseEventArgs e)
+        {
+            functions.Button_Effect();
         }
     }
 }

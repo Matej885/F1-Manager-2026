@@ -15,7 +15,7 @@ namespace F1_Manager_2026
         private List<string> playlist;
         private int currentTrackIndex = 0;
         private Functions functions = new Functions();
-
+        Functions Functions = new Functions();
         public Options()
         {
             InitializeComponent();
@@ -71,6 +71,7 @@ namespace F1_Manager_2026
 
         private void Button_Click_4(object sender, RoutedEventArgs e) // Volume ON/OFF
         {
+            functions.Button_Effect();
             if (isplaying)
             {
                 soundPlayer.Stop();
@@ -132,6 +133,11 @@ namespace F1_Manager_2026
         private void Exit_Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Continue_Button_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Functions.Button_Effect();
         }
     }
 }

@@ -80,7 +80,7 @@
         <Border Grid.Row="0" Background="#1A1A1A" BorderBrush="#E10600" BorderThickness="0,0,0,3" Panel.ZIndex="10">
             <Grid Margin="40,0">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Images/f1_logo.png" Width="60" Margin="0,0,20,0"/>
+                    <Image Width="60" Margin="0,0,20,0"/>
                     <Label Content="F1 MANAGER 2026" Foreground="White" FontSize="32" 
                            VerticalAlignment="Center" FontWeight="Bold"/>
                 </StackPanel>
@@ -89,13 +89,13 @@
 
         <Grid Grid.Row="1">
             <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="80,0,0,120" Width="420">
-                <Button Name="Continue_Button" Content="CONTINUE" Height="75" Style="{StaticResource F1MenuButton}" Click="Continue_Button_Click"/>
-                <Button Name="Career_Create_Button" Content="NEW CAREER" Height="75" Style="{StaticResource F1MenuButton}" Click="Career_Create_Button_Click"/>
+                <Button Name="Continue_Button" Content="CONTINUE" Height="75" Style="{StaticResource F1MenuButton}" MouseEnter="Continue_Button_MouseEnter" Click="Continue_Button_Click"/>
+                <Button Name="Career_Create_Button" Content="NEW CAREER" Height="75" Style="{StaticResource F1MenuButton}" MouseEnter ="Continue_Button_MouseEnter" Click="Career_Create_Button_Click"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="80,0,0,45">
 
-                <Button Name="Volume_Button" Width="60" Height="60" Click="Button_Click_4" Cursor="Hand">
+                <Button Name="Volume_Button" Width="60" Height="60" Click="Button_Click_4" MouseEnter="Continue_Button_MouseEnter" Cursor="Hand">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border x:Name="volBorder" CornerRadius="8" Background="#1A1A1A" BorderBrush="#333" BorderThickness="2">
@@ -110,7 +110,7 @@
                     </Button.Template>
                 </Button>
 
-                <Button Name="Exit_Button" Width="160" Height="60" Margin="15,0,0,0" Click="Exit_Button_Click" Cursor="Hand">
+                <Button Name="Exit_Button" Width="160" Height="60" Margin="15,0,0,0" Click="Exit_Button_Click" MouseEnter="Continue_Button_MouseEnter" Cursor="Hand">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border x:Name="exitBorder" CornerRadius="8" Background="#1A1A1A" BorderBrush="#333" BorderThickness="2">
@@ -169,6 +169,7 @@
                     <Button Grid.Column="2" Name="Next_Song_Button" 
                             Content="▶" FontSize="20" 
                             Style="{StaticResource NextButtonStyle}"
+                            MouseEnter="Continue_Button_MouseEnter"
                             Click="Next_Song_Button_Click" Cursor="Hand"/>
                 </Grid>
             </Border>

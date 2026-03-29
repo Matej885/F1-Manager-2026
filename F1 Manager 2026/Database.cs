@@ -7,6 +7,11 @@ namespace F1_Manager_2026
 {
     public class Database : INotifyPropertyChanged
     {
+        public class PlayerAvatar
+        {
+            public string Name { get; set; }
+            public string PhotoPath { get; set; }
+        }
 
         private static Database instance = null;
         private static readonly object padlock = new object();
@@ -67,34 +72,51 @@ namespace F1_Manager_2026
                 new Driver { Name = "Franco Colapinto", Number = 43, PhotoPath = "/Images/colapinto.png", Skill = 59, Team = "Alpine", Cost = 500000, minprestige = 5, IsF2 = false },
                 new Driver { Name = "Arvid Lindblad", Number = 41, PhotoPath = "/Images/lindblad.png", Skill = 66, Team = "RB", Cost = 500000, minprestige = 5, IsF2 = false },
                 // F2 jazdci
-               new Driver { Name = "Rafael Câmara", Number = 1, PhotoPath = "/Images/helmet.png", Skill = 87, Team = "Invicta Racing", Cost = 500000, minprestige = 0, IsF2 = true },
-                new Driver { Name = "Joshua Dürksen", Number = 2, PhotoPath = "/Images/helmet.png", Skill = 83, Team = "Invicta Racing", Cost = 350000, minprestige = 0, IsF2 = true },
-                new Driver { Name = "Ritomo Miyata", Number = 3, PhotoPath = "/Images/helmet.png", Skill = 81, Team = "Hitech Pulse-Eight", Cost = 280000, minprestige = 0, IsF2 = true },
-                new Driver { Name = "Colton Herta", Number = 4, PhotoPath = "/Images/helmet.png", Skill = 89, Team = "Hitech Pulse-Eight", Cost = 800000, minprestige = 0, IsF2 = true },
-                new Driver { Name = "Noel León", Number = 5, PhotoPath = "/Images/helmet.png", Skill = 79, Team = "Campos Racing", Cost = 150000, minprestige = 5, IsF2 = true },
-                new Driver { Name = "Nikola Tsolov", Number = 6, PhotoPath = "/Images/helmet.png", Skill = 86, Team = "Campos Racing", Cost = 450000, minprestige = 20, IsF2 = true },
-                new Driver { Name = "Dino Beganovic", Number = 7, PhotoPath = "/Images/helmet.png", Skill = 84, Team = "DAMS Lucas Oil", Cost = 380000, minprestige = 15, IsF2 = true },
-                new Driver { Name = "Roman Bilinski", Number = 8, PhotoPath = "/Images/helmet.png", Skill = 78, Team = "DAMS Lucas Oil", Cost = 120000, minprestige = 5, IsF2 = true },
-                new Driver { Name = "Gabriele Minì", Number = 9, PhotoPath = "/Images/helmet.png", Skill = 85, Team = "MP Motorsport", Cost = 400000, minprestige = 15, IsF2 = true },
-                new Driver { Name = "Oliver Goethe", Number = 10, PhotoPath = "/Images/helmet.png", Skill = 82, Team = "MP Motorsport", Cost = 250000, minprestige = 10, IsF2 = true },
-                new Driver { Name = "Sebastián Montoya", Number = 11, PhotoPath = "/Images/helmet.png", Skill = 80, Team = "PREMA Racing", Cost = 220000, minprestige = 10, IsF2 = true },
+               new Driver { Name = "Rafael Câmara", Number = 1, PhotoPath = "/Images/helmet.png", Skill = 63, Team = "Invicta Racing", Cost = 500000, minprestige = 0, IsF2 = true },
+                new Driver { Name = "Joshua Dürksen", Number = 2, PhotoPath = "/Images/helmet.png", Skill = 59, Team = "Invicta Racing", Cost = 350000, minprestige = 0, IsF2 = true },
+                new Driver { Name = "Ritomo Miyata", Number = 3, PhotoPath = "/Images/helmet.png", Skill = 50, Team = "Hitech Pulse-Eight", Cost = 280000, minprestige = 0, IsF2 = true },
+                new Driver { Name = "Colton Herta", Number = 4, PhotoPath = "/Images/helmet.png", Skill = 60, Team = "Hitech Pulse-Eight", Cost = 800000, minprestige = 0, IsF2 = true },
+                new Driver { Name = "Noel León", Number = 5, PhotoPath = "/Images/helmet.png", Skill = 48, Team = "Campos Racing", Cost = 150000, minprestige = 5, IsF2 = true },
+                new Driver { Name = "Nikola Tsolov", Number = 6, PhotoPath = "/Images/helmet.png", Skill = 65, Team = "Campos Racing", Cost = 450000, minprestige = 20, IsF2 = true },
+                new Driver { Name = "Dino Beganovic", Number = 7, PhotoPath = "/Images/helmet.png", Skill = 53, Team = "DAMS Lucas Oil", Cost = 380000, minprestige = 15, IsF2 = true },
+                new Driver { Name = "Roman Bilinski", Number = 8, PhotoPath = "/Images/helmet.png", Skill = 55, Team = "DAMS Lucas Oil", Cost = 120000, minprestige = 5, IsF2 = true },
+                new Driver { Name = "Gabriele Minì", Number = 9, PhotoPath = "/Images/helmet.png", Skill = 58, Team = "MP Motorsport", Cost = 400000, minprestige = 15, IsF2 = true },
+                new Driver { Name = "Oliver Goethe", Number = 10, PhotoPath = "/Images/helmet.png", Skill = 63, Team = "MP Motorsport", Cost = 250000, minprestige = 10, IsF2 = true },
+                new Driver { Name = "Sebastián Montoya", Number = 11, PhotoPath = "/Images/helmet.png", Skill = 65, Team = "PREMA Racing", Cost = 220000, minprestige = 10, IsF2 = true },
                 new Driver { Name = "Mari Boya", Number = 12, PhotoPath = "/Images/helmet.png", Skill = 79, Team = "PREMA Racing", Cost = 180000, minprestige = 5, IsF2 = true },
-                new Driver { Name = "Martinius Stenshorne", Number = 14, PhotoPath = "/Images/helmet.png", Skill = 81, Team = "Rodin Motorsport", Cost = 240000, minprestige = 10, IsF2 = true },
-                new Driver { Name = "Alex Dunne", Number = 15, PhotoPath = "/Images/helmet.png", Skill = 83, Team = "Rodin Motorsport", Cost = 300000, minprestige = 15, IsF2 = true },
-                new Driver { Name = "Kush Maini", Number = 16, PhotoPath = "/Images/helmet.png", Skill = 82, Team = "ART Grand Prix", Cost = 260000, minprestige = 10, IsF2 = true },
-                new Driver { Name = "Tasanapol Inthraphuvasak", Number = 17, PhotoPath = "/Images/helmet.png", Skill = 77, Team = "ART Grand Prix", Cost = 900000, minprestige = 0, IsF2 = true },
-                new Driver { Name = "Emerson Fittipaldi Jr.", Number = 20, PhotoPath = "/Images/helmet.png", Skill = 76, Team = "AIX Racing", Cost = 850000, minprestige = 0, IsF2 = true },
-                new Driver { Name = "Cian Shields", Number = 21, PhotoPath = "/Images/helmet.png", Skill = 74, Team = "AIX Racing", Cost = 600000, minprestige = 0, IsF2 = true },
-                new Driver { Name = "Nico Varrone", Number = 22, PhotoPath = "/Images/helmet.png", Skill = 78, Team = "Van Amersfoort Racing", Cost = 110000, minprestige = 5, IsF2 = true },
-                new Driver { Name = "Rafael Villagómez", Number = 23, PhotoPath = "/Images/helmet.png", Skill = 75, Team = "Van Amersfoort Racing", Cost = 700000, minprestige = 0, IsF2 = true },
-                new Driver { Name = "Laurens van Hoepen", Number = 24, PhotoPath = "/Images/helmet.png", Skill = 80, Team = "Trident", Cost = 200000, minprestige = 5, IsF2 = true },
-                new Driver { Name = "John Bennett", Number = 25, PhotoPath = "/Images/helmet.png", Skill = 74, Team = "Trident", Cost = 650000, minprestige = 0, IsF2 = true }
+                new Driver { Name = "Martinius Stenshorne", Number = 14, PhotoPath = "/Images/helmet.png", Skill = 60, Team = "Rodin Motorsport", Cost = 240000, minprestige = 10, IsF2 = true },
+                new Driver { Name = "Alex Dunne", Number = 15, PhotoPath = "/Images/helmet.png", Skill = 63, Team = "Rodin Motorsport", Cost = 300000, minprestige = 15, IsF2 = true },
+                new Driver { Name = "Kush Maini", Number = 16, PhotoPath = "/Images/helmet.png", Skill = 46, Team = "ART Grand Prix", Cost = 260000, minprestige = 10, IsF2 = true },
+                new Driver { Name = "Tasanapol Inthraphuvasak", Number = 17, PhotoPath = "/Images/helmet.png", Skill = 49, Team = "ART Grand Prix", Cost = 900000, minprestige = 0, IsF2 = true },
+                new Driver { Name = "Emerson Fittipaldi Jr.", Number = 20, PhotoPath = "/Images/helmet.png", Skill = 53, Team = "AIX Racing", Cost = 850000, minprestige = 0, IsF2 = true },
+                new Driver { Name = "Cian Shields", Number = 21, PhotoPath = "/Images/helmet.png", Skill = 58, Team = "AIX Racing", Cost = 600000, minprestige = 0, IsF2 = true },
+                new Driver { Name = "Nico Varrone", Number = 22, PhotoPath = "/Images/helmet.png", Skill = 57, Team = "Van Amersfoort Racing", Cost = 110000, minprestige = 5, IsF2 = true },
+                new Driver { Name = "Rafael Villagómez", Number = 23, PhotoPath = "/Images/helmet.png", Skill = 58, Team = "Van Amersfoort Racing", Cost = 700000, minprestige = 0, IsF2 = true },
+                new Driver { Name = "Laurens van Hoepen", Number = 24, PhotoPath = "/Images/helmet.png", Skill = 56, Team = "Trident", Cost = 200000, minprestige = 5, IsF2 = true },
+                new Driver { Name = "John Bennett", Number = 25, PhotoPath = "/Images/helmet.png", Skill = 60, Team = "Trident", Cost = 650000, minprestige = 0, IsF2 = true }
+
+
             };
         }
+        public List<PlayerAvatar> Avatars { get; set; } = new List<PlayerAvatar>
+{
+    // MUŽSKÉ HLAVY
+    new PlayerAvatar { Name = "Man Head 1", PhotoPath = "/Images/Head1.png" },
+    new PlayerAvatar { Name = "Man Head 2", PhotoPath = "/Images/Head2.png" },
+    new PlayerAvatar { Name = "Man Head 3", PhotoPath = "/Images/Head3.png" },
+    new PlayerAvatar { Name = "Man Head 4", PhotoPath = "/Images/Head4.png" },
+    new PlayerAvatar { Name = "Man Head 5", PhotoPath = "/Images/Head5.png" },
+
+    // ŽENSKÉ HLAVY
+    new PlayerAvatar { Name = "Woman Head 1", PhotoPath = "/Images/Head6.png" },
+    new PlayerAvatar { Name = "Woman Head 2", PhotoPath = "/Images/Head6.png" }, // Ak máš Head7, zmeň si číslo
+    new PlayerAvatar { Name = "Woman Head 3", PhotoPath = "/Images/Head8.png" },
+    new PlayerAvatar { Name = "Woman Head 4", PhotoPath = "/Images/Head9.png" },
+    new PlayerAvatar { Name = "Woman Head 5", PhotoPath = "/Images/Head10.png" }
+};
         public void InitializeTeam(int choice)
         {
-            // Resetujeme dáta
-            PlayerTeamInstance = new PlayerTeam();
+            // Resetujeme dáta;
 
             switch (choice)
             {
@@ -102,21 +124,25 @@ namespace F1_Manager_2026
                     PlayerTeamInstance.teamName = "Minardi F1 Team";
                     PlayerTeamInstance.Budget = 20000000;
                     PlayerTeamInstance.Prestige = 20;
+                    PlayerTeamInstance.teamclothespath = "/Images/clothes_minardi.png";
                     break;
                 case 2:
                     PlayerTeamInstance.teamName = "Alfa Romeo F1 Team";
                     PlayerTeamInstance.Budget = 50000000;
                     PlayerTeamInstance.Prestige = 50;
+                    PlayerTeamInstance.teamclothespath = "/Images/clothes_alfaromeo.png";
                     break;
                 case 3:
                     PlayerTeamInstance.teamName = "BMW Sauber F1 Team";
                     PlayerTeamInstance.Budget = 80000000;
                     PlayerTeamInstance.Prestige = 70;
+                    PlayerTeamInstance.teamclothespath = "/Images/clothes_BMW.jpg";
                     break;
                 case 4:
                     PlayerTeamInstance.teamName = "Siemens Racing F1 Team";
                     PlayerTeamInstance.Budget = 120000000;
                     PlayerTeamInstance.Prestige = 90;
+                    PlayerTeamInstance.teamclothespath = "/Images/clothes_Siemens.jpg";
                     break;
             }
         }

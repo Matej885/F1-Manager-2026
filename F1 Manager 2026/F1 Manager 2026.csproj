@@ -21,6 +21,10 @@
     <None Remove="Images\bortoleto.png" />
     <None Remove="Images\bottas.png" />
     <None Remove="Images\bottas1.png" />
+    <None Remove="Images\clothes_alfaromeo.png" />
+    <None Remove="Images\clothes_BMW.jpg" />
+    <None Remove="Images\clothes_minardi.png" />
+    <None Remove="Images\clothes_Siemens.jpg" />
     <None Remove="Images\colapinto.png" />
     <None Remove="Images\coloured_tire_difficulty.png" />
     <None Remove="Images\F1 Manager 2026 logo.png" />
@@ -67,7 +71,9 @@
     <None Remove="Images\verstappen.png" />
     <None Remove="Images\volume_off.png" />
     <None Remove="Sounds\Down Under - Men At Work.wav" />
+    <None Remove="Sounds\Fortunate Son - Creedence Clearwater Revival.wav" />
     <None Remove="Sounds\More Than a Feeling - Boston.wav" />
+    <None Remove="Sounds\On_Button.wav" />
     <None Remove="Sounds\Real Gone - Sheryl Crow.wav" />
     <None Remove="Sounds\signing.wav" />
     <None Remove="Sounds\Sound_Wave.wav" />
@@ -111,6 +117,18 @@
     <Content Include="Images\bottas.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\clothes_alfaromeo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\clothes_BMW.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\clothes_minardi.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\clothes_Siemens.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\colapinto.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -124,6 +142,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\hamilton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Head1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\helmet.png">
@@ -237,7 +258,13 @@
     <Content Include="Sounds\Down Under - Men At Work.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Sounds\Fortunate Son - Creedence Clearwater Revival.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Sounds\More Than a Feeling - Boston.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\On_Button.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Sounds\Real Gone - Sheryl Crow.wav">
