@@ -1,61 +1,121 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Media;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Windows.Controls; // Pridané pre prácu s Image
 
 namespace F1_Manager_2026
 {
-    /// <summary>
-    /// Hlavné nastavenia hry, hráč si tu nastaví preferencie kým sa dostane do herného menu
-    /// 
-    /// </summary>
     public partial class Options : Window
     {
         public bool isplaying = true;
         public SoundPlayer soundPlayer;
+        private List<string> playlist;
+        private int currentTrackIndex = 0;
+        private Functions functions = new Functions();
+        Functions Functions = new Functions();
         public Options()
         {
             InitializeComponent();
+
+            playlist = functions.GetMusicList();
             soundPlayer = new SoundPlayer();
-            soundPlayer.SoundLocation = "Sounds/Options_Soundtrack.wav";
-            soundPlayer.PlayLooping();
+
+            // Spustenie základných prvkov
+            PlayCurrentTrack();
+
+            // Spustenie videí (vlnovka a pozadie)
+            Music_Visualizer.Play();
             options_Media_Element.Play();
-            ImageBrush brush = new ImageBrush();
-            brush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/volume_on.png"));
-            Volume_Button.Background = brush;
+
+            // Nastavenie počiatočnej ikony
+            UpdateVolumeButtonIcon();
         }
 
-        private void MediaRepeat(object sender, RoutedEventArgs e) //aby sa video po skončení spustilo znova
+        private void PlayCurrentTrack()
         {
-            // 1. Vráti video na začiatok
+            try
+            {
+                soundPlayer.SoundLocation = playlist[currentTrackIndex];
+                soundPlayer.PlayLooping();
+
+                if (Song_Title_Label != null)
+                {
+                    string name = System.IO.Path.GetFileNameWithoutExtension(playlist[currentTrackIndex]);
+                    Song_Title_Label.Text = name.Replace("_", " ").ToUpper();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Chyba pri prehrávaní hudby: " + ex.Message);
+            }
+        }
+
+        // --- HLAVNÁ ZMENA: Metóda na zmenu ikony ---
+        private void UpdateVolumeButtonIcon()
+        {
+            // Keďže je Image vo vnútri ControlTemplate, musíme ho tam nájsť
+            var volumeImg = Volume_Button.Template.FindName("Volume_Icon", Volume_Button) as Image;
+
+            if (volumeImg != null)
+            {
+                // Určíme názov súboru podľa stavu isplaying
+                string imageName = isplaying ? "volume_on.png" : "volume_off.png";
+
+                // Vytvoríme novú cestu k obrázku (pack URI je najistejšia cesta vo WPF)
+                volumeImg.Source = new BitmapImage(new Uri($"pack://application:,,,/Images/{imageName}"));
+            }
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e) // Volume ON/OFF
+        {
+            functions.Button_Effect();
+            if (isplaying)
+            {
+                soundPlayer.Stop();
+                isplaying = false;
+                Music_Visualizer.Pause();
+            }
+            else
+            {
+                PlayCurrentTrack();
+                isplaying = true;
+                Music_Visualizer.Play();
+            }
+
+            // Po každom kliknutí aktualizujeme ikonu
+            UpdateVolumeButtonIcon();
+        }
+
+        // --- Ostatné metódy zostávajú rovnaké ---
+        private void MediaRepeat(object sender, RoutedEventArgs e)
+        {
             options_Media_Element.Position = TimeSpan.FromSeconds(0);
-
-            // 2. Znova ho spustí
             options_Media_Element.Play();
         }
 
-        private void Continue_Button_Click(object sender, RoutedEventArgs e)
+        private void WaveRepeat(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Keď bude load system tak ti to načíta hru basically");
+            Music_Visualizer.Position = TimeSpan.FromSeconds(0);
+            Music_Visualizer.Play();
         }
 
-        private void Career_Create_Button_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Next_Song_Button_Click(object sender, RoutedEventArgs e)
         {
-            ImageBrush imageBrush = new ImageBrush();
-            imageBrush.ImageSource = new BitmapImage(new Uri("Images/New_Career_Photo_2.jpg", UriKind.Relative));
-            imageBrush.Stretch = Stretch.UniformToFill;
+            currentTrackIndex++;
+            if (currentTrackIndex >= playlist.Count) currentTrackIndex = 0;
 
-            Career_Create_Button.Background = imageBrush;
-            MessageBox.Show("Keď bude load system tak ti to loadne hru");
+            if (isplaying)
+            {
+                PlayCurrentTrack();
+            }
+            else
+            {
+                string name = System.IO.Path.GetFileNameWithoutExtension(playlist[currentTrackIndex]);
+                Song_Title_Label.Text = name.Replace("_", " ").ToUpper();
+            }
         }
 
         private void Career_Create_Button_Click(object sender, RoutedEventArgs e)
@@ -65,31 +125,19 @@ namespace F1_Manager_2026
             this.Close();
         }
 
-        
-
-        private void Button_Click_4(object sender, RoutedEventArgs e)
+        private void Continue_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (isplaying == true)
-            {
-                isplaying = false;
-                ImageBrush brush = new ImageBrush();
-                soundPlayer.Stop();
-                brush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/volume_off.png"));
-                Volume_Button.Background = brush;
-            }
-            else if (isplaying == false)
-            {
-                isplaying= true;
-                ImageBrush brush = new ImageBrush();
-                soundPlayer.PlayLooping();
-                brush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/volume_on.png"));
-                Volume_Button.Background = brush;
+            MessageBox.Show("Keď bude load system tak ti to načíta hru basically");
+        }
 
-                soundPlayer = new SoundPlayer();
-                soundPlayer.SoundLocation = "Sounds/Options_Soundtrack.wav";
-                soundPlayer.PlayLooping();
-            }
+        private void Exit_Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Continue_Button_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Functions.Button_Effect();
         }
     }
-
 }

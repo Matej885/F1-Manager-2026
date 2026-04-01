@@ -25,10 +25,10 @@
             <Label Content="TEAM PRINCIPAL PROFILE" Foreground="Red" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold" Margin="0,0,0,20"/>
 
             <Label Content="First Name:" Foreground="Gray" FontFamily="Bahnschrift"/>
-            <TextBox Text="Matej" Height="35" FontSize="18" Margin="0,5,0,15" Background="#252525" Foreground="White" BorderBrush="#444" VerticalContentAlignment="Center" Padding="5,0"/>
+            <TextBox Name = "Name_Label"  Text="Matej" Height="35" FontSize="18" Margin="0,5,0,15" Background="#252525" Foreground="White" BorderBrush="#444" VerticalContentAlignment="Center" Padding="5,0"/>
 
             <Label Content="Last Name:" Foreground="Gray" FontFamily="Bahnschrift"/>
-            <TextBox Text="Tichý" Height="35" FontSize="18" Margin="0,5,0,30" Background="#252525" Foreground="White" BorderBrush="#444" VerticalContentAlignment="Center" Padding="5,0"/>
+            <TextBox Name = "Surname_Label" Text="Tichý" Height="35" FontSize="18" Margin="0,5,0,30" Background="#252525" Foreground="White" BorderBrush="#444" VerticalContentAlignment="Center" Padding="5,0"/>
 
             <Border BorderBrush="#333" BorderThickness="1" Padding="10" CornerRadius="5" Margin="0,50,0,0">
                 <StackPanel>
@@ -42,10 +42,10 @@
             <Label Content="SELECT YOUR ORIGIN / TEAM" Foreground="White" FontSize="18" HorizontalAlignment="Center" FontFamily="Bahnschrift" Margin="0,0,0,20"/>
 
             <UniformGrid Columns="4" Width="400" Height="80">
-                <Button Content="1" Margin="5,0,5,5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" Click="Button_Click" Cursor="Hand" Height="70" VerticalAlignment="Bottom"/>
-                <Button Content="2" Margin="5,0,5,5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" Click="Button_Click_1" Cursor="Hand" Height="70" VerticalAlignment="Bottom"/>
-                <Button Content="3" Margin="5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" Click="Button_Click_2" Cursor="Hand"/>
-                <Button Content="4" Margin="5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" Click="Button_Click_3" Cursor="Hand"/>
+                <Button Name = "Main_Button" Content="1" Margin="5,0,5,5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" Click="Button_Click" MouseEnter="Main_Button_MouseEnter" Cursor="Hand" Height="70" VerticalAlignment="Bottom"/>
+                <Button Content="2" Margin="5,0,5,5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" Click="Button_Click_1" MouseEnter="Main_Button_MouseEnter" Cursor="Hand" Height="70" VerticalAlignment="Bottom"/>
+                <Button Content="3" Margin="5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" MouseEnter="Main_Button_MouseEnter" Click="Button_Click_2" Cursor="Hand"/>
+                <Button Content="4" Margin="5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" MouseEnter="Main_Button_MouseEnter" Click="Button_Click_3" Cursor="Hand"/>
             </UniformGrid>
 
             <Label Name="Team_Name_Label" Content="TEAM NAME" Margin="0,40,0,0" HorizontalAlignment="Center" Foreground="White" FontSize="36" FontWeight="Bold" FontFamily="Bahnschrift"/>
@@ -73,7 +73,7 @@
         <StackPanel Grid.Column="2" Margin="20,120,40,0">
             <Label Content="TEAM BIOGRAPHY" Foreground="Red" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold" Margin="0,0,0,20"/>
             <TextBlock Name="Description_Text" TextWrapping="Wrap" Foreground="White" FontSize="16" FontFamily="Bahnschrift" TextAlignment="Justify" Height="400">
-                Tu sa zobrazia informácie o vybranom tíme. Vyberte jeden z tímov pomocou čísiel v strede obrazovky...
+                To see stats abou teams first select one of them. Each team has different budget, car performance and difficulty. You can also see team biography and current car preview. Choose wisely, because you will be with this team for whole career.
             </TextBlock>
 
             <Label Name="Difficulty_Label" Content="DIFFICULTY" Foreground="White" Margin="0,20,0,5" FontWeight="Bold"/>
@@ -87,6 +87,7 @@
 
         <Button Content="CONFIRM SELECTION" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" 
                 Margin="0,0,40,40" Width="250" Height="60" Background="Red" Foreground="White" 
+                MouseEnter="Main_Button_MouseEnter"
                 FontSize="20" FontWeight="Bold" FontFamily="Bahnschrift" Click="Button_Click_4" Cursor="Hand">
             <Button.Resources>
                 <Style TargetType="Border">

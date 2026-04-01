@@ -18,9 +18,11 @@ namespace F1_Manager_2026
         public string? Name { get; set; }
         public int Number { get; set; }
         public string? PhotoPath { get; set; }
-        public string?   SuitPath { get; private set; }
+        public string? SuitPath { get; private set; }
         public int Skill { get; set; }
         public int Cost { get; set; }
+        public int minprestige { get; set; }
+        public bool IsF2 { get; set; }
 
         public string? Team
         {
@@ -36,14 +38,12 @@ namespace F1_Manager_2026
                 }
             }
         }
+        // TOTO JE TO, ČO VIDÍŠ V XAML
         public string FormattedCost
         {
-            get
-            {
-                double costValue = (Skill - 60) * 0.8;
-                return "COST: $" + costValue.ToString("F1") + "M";
-            }
+            get { return Cost.ToString("N0") + " $"; }
         }
+
         protected void OnPropertyChanged([CallerMemberName] string? name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
@@ -70,7 +70,7 @@ namespace F1_Manager_2026
                 "Minardi F1 Team" => folder + "suit_minardi.png",
                 "BMW Sauber F1 Team" => folder + "suit_bmw.png",
                 "Alfa Romeo F1 Team" => folder + "suit_alfa.png",
-                _ => folder + "suit_default.png"
+                _ => folder + "suit_F2.png"
             };
         }
     }

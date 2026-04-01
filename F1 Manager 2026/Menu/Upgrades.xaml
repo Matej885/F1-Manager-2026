@@ -1,0 +1,153 @@
+﻿<Window x:Class="F1_Manager_2026.Menu.Upgrades"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:F1_Manager_2026.Menu"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        WindowStyle="None"
+        Title="Team Facility Upgrades 2026" Height="1080" Width="1920">
+
+    <Grid Background="#0F0F0F">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="450"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.ColumnSpan="3" VerticalAlignment="Top" Height="80" Background="#1A1A1A" BorderBrush="Red" BorderThickness="0,0,0,3">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Content="TEAM R&amp;D FACILITIES" Foreground="White" FontSize="32" FontFamily="Bahnschrift" FontWeight="Bold"/>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Grid.Column="0" Margin="40,120,20,0">
+            <Label Content="NEXT SEASON RESEARCH" Foreground="Red" FontSize="22" FontFamily="Bahnschrift" FontWeight="Bold" Margin="0,0,0,10"/>
+            <Label Content="Focus on 2027 Regulations" Foreground="Gray" FontSize="14" FontFamily="Bahnschrift" Margin="0,0,0,20"/>
+
+            <Border Background="#1A1A1A" BorderBrush="#333" BorderThickness="1" CornerRadius="5" Padding="15" Margin="0,0,0,15">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="AERO: FRONT WING CONCEPT" Foreground="White" FontSize="16" FontFamily="Bahnschrift" FontWeight="Bold" Padding="0"/>
+                    <TextBlock Grid.Row="1" Text="Developing new vortex generators for improved outwash." Foreground="Gray" TextWrapping="Wrap" Margin="0,5,0,10"/>
+                    <ProgressBar Grid.Row="2" Height="10" Value="35" Minimum="0" Maximum="100" Background="#252525" Foreground="Red" BorderBrush="#444"/>
+                </Grid>
+            </Border>
+
+            <Border Background="#1A1A1A" BorderBrush="#333" BorderThickness="1" CornerRadius="5" Padding="15" Margin="0,0,0,15">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="UNDERFLOOR EFFICIENCY" Foreground="White" FontSize="16" FontFamily="Bahnschrift" FontWeight="Bold" Padding="0"/>
+                    <Button Grid.Row="1" Content="START RESEARCH (5.0M $$)" Background="Red" Foreground="White" FontFamily="Bahnschrift" FontWeight="Bold" Margin="0,10,0,0" Height="35" Click="Button_Click"/>
+                </Grid>
+            </Border>
+        </StackPanel>
+
+        <Border Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="40,0,0,40" Background="#1A1A1A" BorderBrush="LightGreen" BorderThickness="1" Padding="20" CornerRadius="5">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="AVAILABLE BUDGET:" Foreground="White" FontSize="18" FontFamily="Bahnschrift"/>
+                <Label Name="Budget" Content="0 $$$" Foreground="LightGreen" FontSize="18" FontWeight="Bold" FontFamily="Bahnschrift" Margin="10,0,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Grid.Column="1" Margin="20,120,20,0">
+            <Label Content="CURRENT SEASON DEVELOPMENT" Foreground="White" FontSize="22" HorizontalAlignment="Center" FontFamily="Bahnschrift" FontWeight="Bold" Margin="0,0,0,30"/>
+
+            <UniformGrid Columns="3" Height="300">
+                <Border Background="#1A1A1A" BorderBrush="#444" BorderThickness="1" Margin="10" CornerRadius="5" Padding="15">
+                    <StackPanel>
+                        <Image Name="Engine_Image" Height="88" Margin="0,0,0,10"/>
+                        <Label Content="POWER UNIT" Foreground="White" HorizontalAlignment="Center" FontFamily="Bahnschrift" FontWeight="Bold"/>
+                        <Label Name="Engine_UpgradeLevel" Content="LVL 0 / 5" Foreground="Red" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                        <Button Name="PowerUnit_Upgrade" Content="UPGRADE" Background="#222" Foreground="White" BorderBrush="#444" Margin="0,10,0,0" FontWeight="Bold" Click="PowerUnit_Upgrade_Click" Height="35"/>
+                    </StackPanel>
+                </Border>
+                <Border Background="#1A1A1A" BorderBrush="#444" BorderThickness="1" Margin="10" CornerRadius="5" Padding="15">
+                    <StackPanel>
+                        <Image Source="/Images/aerodynamics.png" Height="88" Margin="0,0,0,10"/>
+                        <Label Content="AERODYNAMICS" Foreground="White" HorizontalAlignment="Center" FontFamily="Bahnschrift" FontWeight="Bold"/>
+                        <Label Name="AeroUpgradeLevel" Content="LVL 0 / 5" Foreground="Red" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                        <Button Name="Aero_Upgrade" Content="UPGRADE" Background="#222" Foreground="White" BorderBrush="#444" Margin="0,10,0,0" Click="Aero_Upgrade_Click" FontWeight="Bold" Height="35"/>
+                    </StackPanel>
+                </Border>
+                <Border Background="#1A1A1A" BorderBrush="#444" BorderThickness="1" Margin="10" CornerRadius="5" Padding="15">
+                    <StackPanel>
+                        <Image Source="/Images/chassis.jpg" Height="88" Margin="0,0,0,10"/>
+                        <Label Content="CHASSIS" Foreground="White" HorizontalAlignment="Center" FontFamily="Bahnschrift" FontWeight="Bold"/>
+                        <Label Name="Chassis_UpgradeLevel" Content="LVL 0 / 5" Foreground="Red" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                        <Button Name="Chassis_Upgrade" Content="UPGRADE" Background="#222" Foreground="White" BorderBrush="#444" Margin="0,10,0,0" FontWeight="Bold" Click="Chassis_Upgrade_Click" Height="35"/>
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+
+            <Label Content="TECHNICAL PERFORMANCE ANALYSIS" Foreground="#555" FontSize="14" FontWeight="Bold" Margin="0,40,0,15" HorizontalAlignment="Center"/>
+            <UniformGrid Columns="2" Rows="2" Margin="10,0,10,0">
+                <Border Background="#151515" BorderBrush="#333" BorderThickness="1" Margin="5" Padding="15" CornerRadius="5">
+                    <Grid>
+                        <StackPanel>
+                            <Label Content="ESTIMATED MAX SPEED" Foreground="Gray" FontSize="12" FontFamily="Bahnschrift"/>
+                            <Label Name="Stat_MaxSpeed" Content="--- KM/H" Foreground="White" FontSize="24" FontWeight="Bold" FontFamily="Bahnschrift"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border Background="#151515" BorderBrush="#333" BorderThickness="1" Margin="5" Padding="15" CornerRadius="5">
+                    <Grid>
+                        <StackPanel>
+                            <Label Content="CORNERING GRIP" Foreground="Gray" FontSize="12" FontFamily="Bahnschrift"/>
+                            <Label Name="Stat_Grip" Content="--- G" Foreground="White" FontSize="24" FontWeight="Bold" FontFamily="Bahnschrift"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border Background="#151515" BorderBrush="#333" BorderThickness="1" Margin="5" Padding="15" CornerRadius="5">
+                    <Grid>
+                        <StackPanel>
+                            <Label Content="PU RELIABILITY" Foreground="Gray" FontSize="12" FontFamily="Bahnschrift"/>
+                            <Label Name="Stat_Reliability" Content="--%" Foreground="#FFD700" FontSize="24" FontWeight="Bold" FontFamily="Bahnschrift"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border Background="#151515" BorderBrush="#333" BorderThickness="1" Margin="5" Padding="15" CornerRadius="5">
+                    <Grid>
+                        <StackPanel>
+                            <Label Content="CAR TOTAL WEIGHT" Foreground="Gray" FontSize="12" FontFamily="Bahnschrift"/>
+                            <Label Name="Stat_Weight" Content="--- KG" Foreground="White" FontSize="24" FontWeight="Bold" FontFamily="Bahnschrift"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </UniformGrid>
+
+            <ProgressBar x:Name="AeroVisualBar" Visibility="Collapsed"/>
+            <ProgressBar x:Name="ChassisVisualBar" Visibility="Collapsed"/>
+            <ProgressBar x:Name="EngineVisualBar" Visibility="Collapsed"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Margin="20,120,40,0">
+            <Label Content="FACILITY STATUS" Foreground="Red" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold" Margin="0,0,0,20"/>
+            <Border Background="#1A1A1A" BorderBrush="#333" BorderThickness="1" CornerRadius="5" Padding="15">
+                <StackPanel>
+                    <TextBlock Name="WindTunnel_Text" Foreground="White" FontSize="14" FontFamily="Bahnschrift" Margin="0,0,0,10"/>
+                    <TextBlock Name="CFD_Text" Foreground="White" FontSize="14" FontFamily="Bahnschrift" Margin="0,0,0,10"/>
+                    <TextBlock Name="Dyno_Text" Foreground="White" FontSize="14" FontFamily="Bahnschrift" Margin="0,0,0,10"/>
+                </StackPanel>
+            </Border>
+            <Label Content="DEVELOPMENT LOG" Foreground="White" FontSize="18" FontFamily="Bahnschrift" Margin="0,30,0,10"/>
+            <Border Background="#050505" BorderBrush="#333" BorderThickness="1" Height="250" CornerRadius="3">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <TextBlock Name="Upgrades_Log" Foreground="Gray" FontSize="12" TextWrapping="Wrap" FontFamily="Consolas" Padding="10"/>
+                </ScrollViewer>
+            </Border>
+        </StackPanel>
+
+        <Button Content="BACK TO MENU" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+                Margin="0,0,40,40" Width="250" Height="60" Background="#222" Foreground="White" 
+                BorderBrush="White" BorderThickness="1" FontSize="20" FontWeight="Bold" Cursor="Hand"/>
+    </Grid>
+</Window>

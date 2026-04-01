@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:F1_Manager_2026"
         mc:Ignorable="d"
         Title="Options" 
         Height="1080" Width="1920"
@@ -11,67 +10,169 @@
         WindowState="Maximized"
         WindowStartupLocation="CenterScreen">
 
-    <Grid>
-        <MediaElement Name="options_Media_Element" 
-                      LoadedBehavior="Manual" 
-                      UnloadedBehavior="Manual" 
-                      Stretch="UniformToFill" 
-                      MediaEnded="MediaRepeat" 
-                      IsMuted="True" 
-                      Source="Videos/Options Video.mp4" />
+    <Window.Resources>
+        <Style x:Key="F1MenuButton" TargetType="Button">
+            <Setter Property="Background" Value="#1A1A1A"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Bahnschrift SemiBold"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="BorderBrush" Value="#333"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="35,0,0,0"/>
+            <Setter Property="Margin" Value="0,12"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="10">
+                            <ContentPresenter VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#E10600"/>
+                                <Setter Property="Foreground" Value="#E10600"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-        <Label Content="Manager 2026" 
-               HorizontalAlignment="Left" 
-               VerticalAlignment="Top" 
-               Margin="211,72,0,0" 
-               FontWeight="Bold" 
-               FontSize="24" 
-               FontFamily="Bahnschrift" 
-               Foreground="Red" 
-               Background="{x:Null}" 
-               Height="87" Width="472"/>
+        <Style x:Key="NextButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="btnBorder" Background="{TemplateBinding Background}" CornerRadius="0,10,10,0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="btnBorder" Property="Background" Value="#252525"/>
+                                <Setter Property="Foreground" Value="#E10600"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
 
-        <StackPanel VerticalAlignment="Bottom" 
-                    HorizontalAlignment="Left" 
-                    Margin="50,0,0,50" 
-                    Width="430">
+    <Grid Background="#0F0F0F">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-            <Button Name="Continue_Button" 
-                    Content="Continue" 
-                    Height="60" 
-                    FontSize="22" 
-                    FontWeight="Bold" 
-                    Margin="0,0,0,15"
-                    Click="Continue_Button_Click"
-                    Background="#80000000" 
-                    Foreground="White" 
-                    Cursor="Hand"/>
+        <MediaElement Grid.RowSpan="2" Name="options_Media_Element" 
+                      LoadedBehavior="Manual" UnloadedBehavior="Manual" 
+                      Stretch="UniformToFill" MediaEnded="MediaRepeat" 
+                      IsMuted="True" Source="Videos/Options Video.mp4" />
 
-            <Button Name="Career_Create_Button" 
-                    Content="New Career" 
-                    Height="260" 
-                    FontSize="22" 
-                    FontWeight="Bold" 
-                    Click="Career_Create_Button_Click"
-                    Foreground="White" 
-                    
-                    Cursor="Hand" 
-                    Background="#80000000"/>
+        <Rectangle Grid.RowSpan="2" Fill="#40000000"/>
 
-            <Button Name="Volume_Button" 
-                    Width="77" Height="60" 
-                    HorizontalAlignment="Left"
-                    Margin="0,15,0,0" 
-                    Click="Button_Click_4" 
-                    Cursor="Hand" 
-                    Background="#80000000">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-        </StackPanel>
+        <Border Grid.Row="0" Background="#1A1A1A" BorderBrush="#E10600" BorderThickness="0,0,0,3" Panel.ZIndex="10">
+            <Grid Margin="40,0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="60" Margin="0,0,20,0"/>
+                    <Label Content="F1 MANAGER 2026" Foreground="White" FontSize="32" 
+                           VerticalAlignment="Center" FontWeight="Bold"/>
+                </StackPanel>
+            </Grid>
+        </Border>
 
+        <Grid Grid.Row="1">
+            <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="80,0,0,120" Width="420">
+                <Button Name="Continue_Button" Content="CONTINUE" Height="75" Style="{StaticResource F1MenuButton}" MouseEnter="Continue_Button_MouseEnter" Click="Continue_Button_Click"/>
+                <Button Name="Career_Create_Button" Content="NEW CAREER" Height="75" Style="{StaticResource F1MenuButton}" MouseEnter ="Continue_Button_MouseEnter" Click="Career_Create_Button_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="80,0,0,45">
+
+                <Button Name="Volume_Button" Width="60" Height="60" Click="Button_Click_4" MouseEnter="Continue_Button_MouseEnter" Cursor="Hand">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="volBorder" CornerRadius="8" Background="#1A1A1A" BorderBrush="#333" BorderThickness="2">
+                                <Image x:Name="Volume_Icon" Source="/Images/volume_on.png" Margin="12"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="volBorder" Property="BorderBrush" Value="#E10600"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Name="Exit_Button" Width="160" Height="60" Margin="15,0,0,0" Click="Exit_Button_Click" MouseEnter="Continue_Button_MouseEnter" Cursor="Hand">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="exitBorder" CornerRadius="8" Background="#1A1A1A" BorderBrush="#333" BorderThickness="2">
+                                <TextBlock Text="EXIT GAME" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                           FontFamily="Bahnschrift SemiBold" FontSize="18"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="exitBorder" Property="BorderBrush" Value="#E10600"/>
+                                    <Setter Property="Foreground" Value="#E10600"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+
+            <Border HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                    Margin="0,0,60,45" Width="380" Height="90" 
+                    Background="#121212" CornerRadius="12" 
+                    BorderBrush="#333" BorderThickness="1.5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="60"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0" Margin="5">
+                        <Border CornerRadius="8" ClipToBounds="True">
+                            <MediaElement Name="Music_Visualizer" 
+                                          Source="Videos/Sound_Wave.mp4" 
+                                          LoadedBehavior="Manual" 
+                                          Stretch="UniformToFill" 
+                                          IsMuted="True" 
+                                          MediaEnded="WaveRepeat"/>
+                        </Border>
+                        <Border CornerRadius="8" Height="77" VerticalAlignment="Top">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="Transparent" Offset="0.5"/>
+                                    <GradientStop Color="#121212" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                    </Grid>
+
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,0">
+                        <TextBlock Text="NOW PLAYING" Foreground="#E10600" FontSize="10" 
+                                   FontWeight="Bold" FontFamily="Bahnschrift SemiBold"/>
+                        <TextBlock Name="Song_Title_Label" Text="Official F1 Theme" 
+                                   Foreground="White" FontSize="15" TextTrimming="CharacterEllipsis"
+                                   FontFamily="Bahnschrift SemiBold"/>
+                    </StackPanel>
+
+                    <Button Grid.Column="2" Name="Next_Song_Button" 
+                            Content="▶" FontSize="20" 
+                            Style="{StaticResource NextButtonStyle}"
+                            MouseEnter="Continue_Button_MouseEnter"
+                            Click="Next_Song_Button_Click" Cursor="Hand"/>
+                </Grid>
+            </Border>
+        </Grid>
     </Grid>
 </Window>
