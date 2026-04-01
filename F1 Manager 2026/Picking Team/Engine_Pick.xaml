@@ -1,0 +1,173 @@
+﻿<Window x:Class="F1_Manager_2026.Picking_Team.Engine_Pick"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:F1_Manager_2026.Picking_Team"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        WindowStyle="None"
+        Title="Select Your Power Unit Supplier" Height="1080" Width="1920">
+
+    <Grid Background="#0F0F0F">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#1A1A1A" BorderBrush="Red" BorderThickness="0,0,0,3" Padding="30,0">
+            <Grid>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <Label Content="OFFICIAL 2026 POWER UNIT SUPPLIERS" Foreground="White" FontSize="28" FontFamily="Bahnschrift" FontWeight="Bold" Padding="0"/>
+                    <Label Content="Choose your technical partner for the upcoming regulation era" Foreground="Gray" FontSize="14" FontFamily="Bahnschrift" Padding="0"/>
+                </StackPanel>
+                <Label Name="MoneyLabel" Content="" Foreground="LightGreen" FontSize="21" FontFamily="Bahnschrift" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold"/>
+            </Grid>
+        </Border>
+
+        <UniformGrid Grid.Row="1" Columns="5" Margin="20">
+
+            <Border Background="#1A1A1A" BorderBrush="#333" BorderThickness="1" CornerRadius="8" Margin="10" Padding="15">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Image Source="/Images/ferrari_engine.png" Height="80" Margin="0,10"/>
+                    <Label Grid.Row="1" Content="FERRARI" Foreground="#FF2828" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold" HorizontalAlignment="Center"/>
+
+                    <TextBlock Grid.Row="2" Text="Legendary Italian power. High peak performance but requires sophisticated cooling management. Perfect for teams with high aero efficiency." 
+                               Foreground="Gray" FontSize="12" TextWrapping="Wrap" TextAlignment="Center" Margin="5,10" FontFamily="Bahnschrift"/>
+
+                    <StackPanel Grid.Row="3" VerticalAlignment="Center">
+                        <TextBlock Text="RELIABILITY" Foreground="#555" FontSize="10" FontWeight="Bold"/>
+                        <Label Content="Solid" Foreground="White" FontSize="16" FontWeight="Bold" Padding="0,0,0,10"/>
+
+                        <TextBlock Text="POWER" Foreground="#555" FontSize="10" FontWeight="Bold"/>
+                        <ProgressBar Value="90" Height="8" Foreground="Red" Background="#222" BorderThickness="0" Margin="0,5,0,15"/>
+
+                        <Grid>
+                            <TextBlock Text="ANNUAL COST" Foreground="#555" FontSize="10" FontWeight="Bold"/>
+                            <TextBlock Text="25.0M $" Foreground="LightGreen" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right"/>
+                        </Grid>
+                    </StackPanel>
+
+                    <Button Name="Btn_Ferrari" Grid.Row="4" Content="SELECT" Background="#333" Foreground="White" Height="45" FontWeight="Bold" Cursor="Hand" Click="Btn_Ferrari_Click"/>
+                </Grid>
+            </Border>
+
+            <Border Background="#1A1A1A" BorderBrush="#333" BorderThickness="1" CornerRadius="8" Margin="10" Padding="15">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Image Source="/Images/mercedes_engine.jpg" Height="80" Margin="0,10"/>
+                    <Label Grid.Row="1" Content="MERCEDES" Foreground="#00D2BE" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Row="2" Text="The benchmark for reliability. Integrated ERS system provides seamless power delivery. The most expensive but safest choice for new teams." 
+                               Foreground="Gray" FontSize="12" TextWrapping="Wrap" TextAlignment="Center" Margin="5,10" FontFamily="Bahnschrift"/>
+                    <StackPanel Grid.Row="3" VerticalAlignment="Center">
+                        <TextBlock Text="RELIABILITY" Foreground="#555" FontSize="10" FontWeight="Bold"/>
+                        <Label Content="Superior" Foreground="White" FontSize="16" FontWeight="Bold" Padding="0,0,0,10"/>
+                        <TextBlock Text="POWER" Foreground="#555" FontSize="10" FontWeight="Bold"/>
+                        <ProgressBar Value="100" Height="8" Foreground="#00D2BE" Background="#222" BorderThickness="0" Margin="0,5,0,15"/>
+                        <Grid>
+                            <TextBlock Text="ANNUAL COST" Foreground="#555" FontSize="10" FontWeight="Bold"/>
+                            <TextBlock Text="28.5M $" Foreground="LightGreen" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right"/>
+                        </Grid>
+                    </StackPanel>
+                    <Button Name="Btn_Mercedes" Grid.Row="4" Content="SELECT" Background="#333" Foreground="White" Height="45" FontWeight="Bold" Cursor="Hand" Click="Btn_Mercedes_Click_1"/>
+                </Grid>
+            </Border>
+
+            <Border Background="#1A1A1A" BorderBrush="#333" BorderThickness="1" CornerRadius="8" Margin="10" Padding="15">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Image Source="/Images/honda_engine.jpg" Height="80" Margin="0,10"/>
+                    <Label Grid.Row="1" Content="HONDA RBPT" Foreground="White" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Row="2" Text="Maximum raw energy. Innovative combustion technology offers a weight advantage. Slightly higher vibration levels may affect chassis wear." 
+                               Foreground="Gray" FontSize="12" TextWrapping="Wrap" TextAlignment="Center" Margin="5,10" FontFamily="Bahnschrift"/>
+                    <StackPanel Grid.Row="3" VerticalAlignment="Center">
+                        <TextBlock Text="RELIABILITY" Foreground="#555" FontSize="10" FontWeight="Bold"/>
+                        <Label Content="Very Low" Foreground="White" FontSize="16" FontWeight="Bold" Padding="0,0,0,10"/>
+                        <TextBlock Text="POWER" Foreground="#555" FontSize="10" FontWeight="Bold"/>
+                        <ProgressBar Value="50" Height="8" Foreground="White" Background="#222" BorderThickness="0" Margin="0,5,0,15"/>
+                        <Grid>
+                            <TextBlock Text="ANNUAL COST" Foreground="#555" FontSize="10" FontWeight="Bold"/>
+                            <TextBlock Text="18.0M $" Foreground="LightGreen" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right"/>
+                        </Grid>
+                    </StackPanel>
+                    <Button Name="Btn_Honda" Grid.Row="4" Content="SELECT" Background="#333" Foreground="White" Height="45" FontWeight="Bold" Cursor="Hand" Click="Btn_Honda_Click_1"/>
+                </Grid>
+            </Border>
+
+            <Border Background="#1A1A1A" BorderBrush="#333" BorderThickness="1" CornerRadius="8" Margin="10" Padding="15">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Image Source="/Images/audi_engine.jpg" Height="80" Margin="0,10"/>
+                    <Label Grid.Row="1" Content="AUDI SPORT" Foreground="#F50537" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Row="2" Text="The 2026 newcomer. State-of-the-art electrical deployment but unproven long-term durability. Significant performance potential through R&amp;D." 
+                               Foreground="Gray" FontSize="12" TextWrapping="Wrap" TextAlignment="Center" Margin="5,10" FontFamily="Bahnschrift"/>
+                    <StackPanel Grid.Row="3" VerticalAlignment="Center">
+                        <TextBlock Text="RELIABILITY" Foreground="#555" FontSize="10" FontWeight="Bold"/>
+                        <Label Content="Unstable" Foreground="#F50537" FontSize="16" FontWeight="Bold" Padding="0,0,0,10"/>
+                        <TextBlock Text="POWER" Foreground="#555" FontSize="10" FontWeight="Bold"/>
+                        <ProgressBar Value="70" Height="8" Foreground="#F50537" Background="#222" BorderThickness="0" Margin="0,5,0,15"/>
+                        <Grid>
+                            <TextBlock Text="ANNUAL COST" Foreground="#555" FontSize="10" FontWeight="Bold"/>
+                            <TextBlock Text="21.0M $" Foreground="LightGreen" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right"/>
+                        </Grid>
+                    </StackPanel>
+                    <Button Name="Btn_Audi" Grid.Row="4" Content="SELECT" Background="#333" Foreground="White" Height="45" FontWeight="Bold" Cursor="Hand" Click="Btn_Audi_Click_1"/>
+                </Grid>
+            </Border>
+
+            <Border Background="#1A1A1A" BorderBrush="#333" BorderThickness="1" CornerRadius="8" Margin="10" Padding="15">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Image Source="/Images/renault_engine.jpg" Height="80" Margin="0,10"/>
+                    <Label Grid.Row="1" Content="RENAULT" Foreground="#FFF000" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Row="2" Text="Cost-effective solution. Reliable mid-field performer with lower ERS overhead. Ideal for teams focusing budget on chassis development." 
+                               Foreground="Gray" FontSize="12" TextWrapping="Wrap" TextAlignment="Center" Margin="5,10" FontFamily="Bahnschrift"/>
+                    <StackPanel Grid.Row="3" VerticalAlignment="Center">
+                        <TextBlock Text="RELIABILITY" Foreground="#555" FontSize="10" FontWeight="Bold"/>
+                        <Label Content="Stable" Foreground="White" FontSize="16" FontWeight="Bold" Padding="0,0,0,10"/>
+                        <TextBlock Text="POWER" Foreground="#555" FontSize="10" FontWeight="Bold"/>
+                        <ProgressBar Value="45" Height="8" Foreground="#FFF000" Background="#222" BorderThickness="0" Margin="0,5,0,15"/>
+                        <Grid>
+                            <TextBlock Text="ANNUAL COST" Foreground="#555" FontSize="10" FontWeight="Bold"/>
+                            <TextBlock Text="17.5M $" Foreground="LightGreen" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right"/>
+                        </Grid>
+                    </StackPanel>
+                    <Button Name="Btn_Renault" Grid.Row="4" Content="SELECT" Background="#333" Foreground="White" Height="45" FontWeight="Bold" Cursor="Hand" Click="Btn_Renault_Click_1"/>
+                </Grid>
+            </Border>
+
+        </UniformGrid>
+    </Grid>
+</Window>

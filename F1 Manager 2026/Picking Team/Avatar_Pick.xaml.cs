@@ -76,6 +76,8 @@ namespace F1_Manager_2026.Picking_Team
                     Database.Instance.PlayerTeamInstance.playerphotopath = tempSelectedPath;
                     Race_Simulation_Test raceSim = new Race_Simulation_Test();
                     raceSim.Show();
+                    Calendar calendar = new Calendar();
+                    calendar.Show();
                     this.Close();
                 }
             }

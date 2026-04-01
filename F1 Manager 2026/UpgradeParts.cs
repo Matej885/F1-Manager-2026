@@ -4,7 +4,7 @@ using System.Text;
 
 namespace F1_Manager_2026
 {
-    public class Upgrades
+    public class UpgradeParts
     {
         public class AllUpgrades
         {

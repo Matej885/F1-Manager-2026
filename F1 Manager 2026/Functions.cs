@@ -23,8 +23,6 @@ public class Functions
 
     public void Button_Effect()
     {
-        // 1. MediaPlayer nepoužíva .Source =, ale .Open()
-        // 2. Potrebuje Uri objekt, nie iba string
         effectPlayer.Open(new Uri("Sounds/On_Button.wav", UriKind.Relative));
 
         // Vrátime zvuk na začiatok, ak by sa klikalo rýchlo po sebe

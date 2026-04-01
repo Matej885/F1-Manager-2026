@@ -111,6 +111,7 @@ namespace F1_Manager_2026.Picking_Team
             Difficulty_Grid2.Source = new BitmapImage(new Uri("pack://application:,,,/Images/coloured_tire_difficulty.png", UriKind.Absolute));
             Difficulty_Grid3.Visibility = Visibility.Hidden;
             Difficulty_Grid4.Visibility = Visibility.Hidden;
+            Money_Description_Label.Content = "80,000,000 $";
             Description_Text.Text = "BMW - famously known in its prime as the BMW Sauber F1 Team. Although they competed for only four seasons, they achieved more than most. With 17 podiums and a legendary victory by Robert Kubica, they introduced world-class talents such as Sebastian Vettel and Jacques Villeneuve to the grid. Now, this powerhouse manufacturer from Germany returns to reclaim its spot on the podium. They need a leader who can make every penny count and foster a winning atmosphere within the team. Do you have what it takes to lead the German giant back to glory?";
             Team_Name_Label.Content = "BMW Sauber F1 Team";
         }
@@ -159,30 +160,25 @@ namespace F1_Manager_2026.Picking_Team
                     PlayerTeam playerTeam = new PlayerTeam();
                     Database.Instance.InitializeTeam(1);
                     Drivers_Pick drivers_Pick = new Drivers_Pick();
-                    drivers_Pick.Show();
-                    this.Close();
                 }
                 else if (Team_Chosen == 2)
                 {
                     Database.Instance.InitializeTeam(2);
                     Drivers_Pick drivers_Pick = new Drivers_Pick();
-                    drivers_Pick.Show();
-                    this.Close();
                 }
                 else if (Team_Chosen == 3)
                 {
                     Database.Instance.InitializeTeam(3);
                     Drivers_Pick drivers_Pick = new Drivers_Pick();
-                    drivers_Pick.Show();
-                    this.Close();
                 }
                 else if (Team_Chosen == 4)
                 {
                     Database.Instance.InitializeTeam(4);
                     Drivers_Pick drivers_Pick = new Drivers_Pick();
-                    drivers_Pick.Show();
-                    this.Close();
                 }
+                Engine_Pick engine_Pick = new Engine_Pick();
+                engine_Pick.Show();
+                this.Close();
             }
         }
 

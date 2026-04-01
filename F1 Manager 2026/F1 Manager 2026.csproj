@@ -10,47 +10,78 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\abudhabi.png" />
+    <None Remove="Images\aerodynamics.png" />
     <None Remove="Images\albon.png" />
     <None Remove="Images\AlfaRomeo-logo.jpg" />
     <None Remove="Images\AlfaRomeo_Car.jpg" />
     <None Remove="Images\alonso.png" />
     <None Remove="Images\antonelli.png" />
+    <None Remove="Images\audi_engine.jpg" />
+    <None Remove="Images\australia.png" />
+    <None Remove="Images\australia1.png" />
+    <None Remove="Images\austria.png" />
+    <None Remove="Images\azerbaijan.png" />
+    <None Remove="Images\barcelona.png" />
     <None Remove="Images\bearman.png" />
+    <None Remove="Images\belgium.png" />
     <None Remove="Images\BMW_Car.jpg" />
     <None Remove="Images\BMW_Logo.png" />
     <None Remove="Images\bortoleto.png" />
     <None Remove="Images\bottas.png" />
     <None Remove="Images\bottas1.png" />
+    <None Remove="Images\brazil.png" />
+    <None Remove="Images\britain.png" />
+    <None Remove="Images\canada.png" />
+    <None Remove="Images\canada1.png" />
+    <None Remove="Images\chassis.jpg" />
+    <None Remove="Images\china.png" />
     <None Remove="Images\clothes_alfaromeo.png" />
     <None Remove="Images\clothes_BMW.jpg" />
     <None Remove="Images\clothes_minardi.png" />
     <None Remove="Images\clothes_Siemens.jpg" />
     <None Remove="Images\colapinto.png" />
     <None Remove="Images\coloured_tire_difficulty.png" />
+    <None Remove="Images\cota.png" />
     <None Remove="Images\F1 Manager 2026 logo.png" />
+    <None Remove="Images\ferrari_engine.png" />
     <None Remove="Images\gasly.png" />
     <None Remove="Images\hadjar.png" />
     <None Remove="Images\hamilton.png" />
     <None Remove="Images\helmet.png" />
+    <None Remove="Images\honda_engine.jpg" />
     <None Remove="Images\hulkenberg.png" />
+    <None Remove="Images\hungary.png" />
+    <None Remove="Images\japan.png" />
     <None Remove="Images\lawson.png" />
     <None Remove="Images\leclerc.png" />
     <None Remove="Images\lindblad.png" />
+    <None Remove="Images\madrid.png" />
+    <None Remove="Images\mercedes_engine.jpg" />
+    <None Remove="Images\mexico.png" />
+    <None Remove="Images\miami.png" />
     <None Remove="Images\minardi-logo.png" />
     <None Remove="Images\Minardi_Car.jpg" />
+    <None Remove="Images\monaco.png" />
+    <None Remove="Images\monza.png" />
+    <None Remove="Images\netherlands.png" />
     <None Remove="Images\New_Career_Photo.jpg" />
     <None Remove="Images\New_Career_Photo_2.jpg" />
     <None Remove="Images\norris.png" />
     <None Remove="Images\ocon.png" />
     <None Remove="Images\perez.png" />
     <None Remove="Images\piastri.png" />
+    <None Remove="Images\qatar.png" />
     <None Remove="Images\RB_suit.png" />
     <None Remove="Images\redbull_suit.jpg" />
     <None Remove="Images\redbull_suit.png" />
+    <None Remove="Images\renault_engine.jpg" />
     <None Remove="Images\russell.png" />
     <None Remove="Images\sainz.png" />
+    <None Remove="Images\saudi_arabia.png" />
     <None Remove="Images\Siemens-logo.png" />
     <None Remove="Images\Siemens_Car.jpg" />
+    <None Remove="Images\singapore.png" />
     <None Remove="Images\stroll.png" />
     <None Remove="Images\suit_alfa.png" />
     <None Remove="Images\suit_alpine.png" />
@@ -68,6 +99,7 @@
     <None Remove="Images\suit_siemens.png" />
     <None Remove="Images\suit_williams1.png" />
     <None Remove="Images\Tire_Uncoloured_Difficulty.jpg" />
+    <None Remove="Images\vegas.png" />
     <None Remove="Images\verstappen.png" />
     <None Remove="Images\volume_off.png" />
     <None Remove="Sounds\Down Under - Men At Work.wav" />
@@ -87,6 +119,9 @@
     <Resource Include="Images\F1 Manager 2026 logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Images\abudhabi.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\albon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -102,7 +137,25 @@
     <Content Include="Images\antonelli.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\audi_engine.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\australia1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\austria.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\azerbaijan.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\barcelona.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\bearman.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\belgium.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\BMW_Car.jpg">
@@ -115,6 +168,21 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\bottas.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\brazil.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\britain.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\canada1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\chassis.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\china.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\clothes_alfaromeo.png">
@@ -135,6 +203,12 @@
     <Content Include="Images\coloured_tire_difficulty.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\cota.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ferrari_engine.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\gasly.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -150,7 +224,16 @@
     <Content Include="Images\helmet.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\honda_engine.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\hulkenberg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\hungary.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\japan.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\lawson.png">
@@ -162,10 +245,31 @@
     <Content Include="Images\lindblad.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\madrid.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\mercedes_engine.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\mexico.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\miami.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\minardi-logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Minardi_Car.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\monaco.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\monza.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\netherlands.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\norris.png">
@@ -180,7 +284,13 @@
     <Content Include="Images\piastri.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\qatar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\RB_suit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\renault_engine.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\russell.png">
@@ -189,10 +299,16 @@
     <Content Include="Images\sainz.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\saudi_arabia.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Siemens-logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Siemens_Car.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\singapore.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\stroll.png">
@@ -243,6 +359,9 @@
     <Content Include="Images\suit_williams1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\vegas.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\verstappen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -289,6 +408,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Videos\Sound_Wave.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\bahrain.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\aerodynamics.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
