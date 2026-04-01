@@ -114,16 +114,21 @@ namespace F1_Manager_2026.Menu
             if (db.PlayerTeamInstance.Budget < actual_engine_cost)
             {
                 PowerUnit_Upgrade.Content = "Low on Cash!";
+                PowerUnit_Upgrade.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
+                PowerUnit_Upgrade.Foreground = Brushes.Red;
                 PowerUnit_Upgrade.IsEnabled = false;
             }
             else if (!db.PlayerFacilities.powertrainDyno_Enabled) // Ak nie je funkčné
             {
                 PowerUnit_Upgrade.Content = "In Development";
+                PowerUnit_Upgrade.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
+                PowerUnit_Upgrade.Foreground = Brushes.Red;
                 PowerUnit_Upgrade.IsEnabled = false; // TU SA TO VYPNE
             }
             else
             {
                 PowerUnit_Upgrade.Content = $"Cost: {actual_engine_cost:N0} $";
+                PowerUnit_Upgrade.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
                 PowerUnit_Upgrade.IsEnabled = true;
             }
 
@@ -131,11 +136,15 @@ namespace F1_Manager_2026.Menu
             if (db.PlayerTeamInstance.Budget < actual_chassis_cost)
             {
                 Chassis_Upgrade.Content = "Low on Cash!";
+                Chassis_Upgrade.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
+                Chassis_Upgrade.Foreground = Brushes.Red;
                 Chassis_Upgrade.IsEnabled = false;
             }
             else if (!db.PlayerFacilities.CFD_Enabled)
             {
                 Chassis_Upgrade.Content = "In Development";
+                Chassis_Upgrade.Foreground = Brushes.Red;
+                Chassis_Upgrade.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
                 Chassis_Upgrade.IsEnabled = false; // TU SA TO VYPNE
             }
             else

@@ -8,7 +8,8 @@
         WindowStyle="None" 
         Title="Drivers_Pick" 
         Height="1080" 
-        Width="1920">
+        Width="1920"
+        Closing="Window_Closing">
 
     <Grid Background="#0F0F0F">
         <Grid.RowDefinitions>

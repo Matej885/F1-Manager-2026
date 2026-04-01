@@ -73,6 +73,7 @@
     <None Remove="Images\piastri.png" />
     <None Remove="Images\qatar.png" />
     <None Remove="Images\RB_suit.png" />
+    <None Remove="Images\redbull_engine.jpg" />
     <None Remove="Images\redbull_suit.jpg" />
     <None Remove="Images\redbull_suit.png" />
     <None Remove="Images\renault_engine.jpg" />
@@ -288,6 +289,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\RB_suit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\redbull_engine.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\renault_engine.jpg">

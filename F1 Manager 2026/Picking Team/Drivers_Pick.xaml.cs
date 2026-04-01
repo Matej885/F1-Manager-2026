@@ -1,4 +1,5 @@
-﻿using System.Media;
+﻿using System.ComponentModel;
+using System.Media;
 using System.Numerics;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,6 +11,7 @@ namespace F1_Manager_2026.Picking_Team
     public partial class Drivers_Pick : Window
     {
         public int timesselected = 0;
+        public bool navigation = false;
         Functions functions = new Functions();
         public Drivers_Pick()
         {
@@ -85,11 +87,18 @@ namespace F1_Manager_2026.Picking_Team
                 {
                     Avatar_Pick d = new Avatar_Pick();
                     d.Show();
+                    navigation=true;
                     this.Close();
                 }
             }
         }
-
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            if (!navigation)
+            {
+                Application.Current.Shutdown();
+            }
+        }
         private void DriverCard_MouseEnter(object sender, MouseEventArgs e)
         {
             functions.Button_Effect();
