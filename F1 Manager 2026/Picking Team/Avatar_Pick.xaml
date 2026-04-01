@@ -97,6 +97,7 @@
                     </Grid>
                 </Border>
             </Grid>
+            <Button  Background="DarkRed"  FontSize="10" Content="Close game" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="23" Width="76" Click="Button_Click" Grid.Column="1"/>
         </Grid>
     </Grid>
 </Window>

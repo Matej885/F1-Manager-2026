@@ -100,5 +100,10 @@ namespace F1_Manager_2026.Picking_Team
         {
             SelectEngine("Renault", "renault_engine.jpg", 85, 80, 17500000);
         }
+
+        private void Button_Click_Close(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

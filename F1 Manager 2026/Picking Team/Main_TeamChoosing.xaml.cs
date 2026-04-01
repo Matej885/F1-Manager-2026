@@ -186,5 +186,10 @@ namespace F1_Manager_2026.Picking_Team
         {
             functions.Button_Effect();
         }
+
+        private void Button_Click_Close(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

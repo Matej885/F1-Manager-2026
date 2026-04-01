@@ -46,6 +46,10 @@ namespace F1_Manager_2026
                     return instance;
                 }
             }
+            set
+            {
+                instance = value;
+            }
         }
         public class Facilities
         {
@@ -209,24 +213,28 @@ namespace F1_Manager_2026
                     PlayerTeamInstance.Budget = 20000000;
                     PlayerTeamInstance.Prestige = 0;
                     PlayerTeamInstance.teamclothespath = "/Images/clothes_minardi.png";
+                    PlayerTeamInstance.PathToCar = "/Images/Minardi_Car.jpg";
                     break;
                 case 2:
                     PlayerTeamInstance.teamName = "Alfa Romeo F1 Team";
                     PlayerTeamInstance.Budget = 50000000;
                     PlayerTeamInstance.Prestige = 40;
                     PlayerTeamInstance.teamclothespath = "/Images/clothes_alfaromeo.png";
+                    PlayerTeamInstance.PathToCar = "/Images/AlfaRomeo-logo.jpg";
                     break;
                 case 3:
                     PlayerTeamInstance.teamName = "BMW Sauber F1 Team";
                     PlayerTeamInstance.Budget = 80000000;
                     PlayerTeamInstance.Prestige = 70;
                     PlayerTeamInstance.teamclothespath = "/Images/clothes_BMW.jpg";
+                    PlayerTeamInstance.PathToCar = "/Images/BMW_Car.jpg";
                     break;
                 case 4:
                     PlayerTeamInstance.teamName = "Siemens Racing F1 Team";
                     PlayerTeamInstance.Prestige = 120;
                     PlayerTeamInstance.Budget = 120000000;
                     PlayerTeamInstance.teamclothespath = "/Images/clothes_Siemens.jpg";
+                    PlayerTeamInstance.PathToCar = "/Images/Siemens_Car.jpg";
                     break;
             }
         }

@@ -8,7 +8,8 @@
         WindowState="Maximized"
         WindowStyle="None"
         Icon= "/Images/F1 Manager 2026 logo.png"
-        Title="F1 Manager 2026" Height="1080" Width="1920">
+        Title="F1 Manager 2026" Height="1080" Width="1920"
+        MouseDown="Window_MouseDown">
     <Grid Background="Black">
         <MediaElement Name="Loading_Screen_Intro_Media_Element" 
                   LoadedBehavior="Manual" 
@@ -17,17 +18,5 @@
                   MediaEnded="MediaRepeat"
                   Stretch="UniformToFill" />
 
-        <Button Content="Skip" 
-            HorizontalAlignment="Right" 
-            VerticalAlignment="Bottom" 
-            Width="120"
-            Height="40"
-            FontSize="16" 
-            FontWeight="Bold" 
-            BorderBrush="White" 
-            Background="{x:Null}" 
-            Click="Button_Click" 
-            Cursor="Hand" 
-            FontFamily="Bahnschrift" Foreground="White"/>
     </Grid>
 </Window>

@@ -4,7 +4,9 @@ using System.Media;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Controls; // Pridané pre prácu s Image
+using System.Windows.Controls;
+using F1_Manager_2026.Menu; // Pridané pre prácu s Image
+using System.IO;
 
 namespace F1_Manager_2026
 {
@@ -127,12 +129,22 @@ namespace F1_Manager_2026
 
         private void Continue_Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Keď bude load system tak ti to načíta hru basically");
+            if (!File.Exists("save.json"))
+            {
+                MessageBox.Show("Nemas vytvoreny ziaden save", "Warning!!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            Database.Instance = SaveGame.Load();
+            MainCareerMenu mainCareerMenu = new MainCareerMenu();
+            mainCareerMenu.Show();
+            this.Close();
+            
+            
         }
 
         private void Exit_Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Application.Current.Shutdown();
         }
 
         private void Continue_Button_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)

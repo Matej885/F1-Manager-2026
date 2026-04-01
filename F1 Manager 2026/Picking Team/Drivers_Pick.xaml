@@ -25,7 +25,7 @@
                     <TextBlock Text="TEAM BUDGET:" Foreground="#888" FontSize="14" 
                                VerticalAlignment="Center" Margin="0,5,15,0" FontWeight="Bold"/>
                     <Border Background="#222" CornerRadius="5" Padding="15,5" BorderBrush="#00FF41" BorderThickness="1">
-                        <TextBlock x:Name="BudgetDisplay" Text="0 $" Foreground="#00FF41" 
+                        <TextBlock x:Name="BudgetDisplayy" Text="0 $" Foreground="#00FF41" 
                                    FontSize="24" FontWeight="Bold" FontFamily="Consolas"/>
                     </Border>
                 </StackPanel>
@@ -127,6 +127,7 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </ScrollViewer>
+            <Button  Background="DarkRed"  FontSize="10" Content="Close game" HorizontalAlignment="Left" Margin="10,947,0,0" VerticalAlignment="Bottom" Height="23" Width="76" Click="Button_Click"/>
         </Grid>
     </Grid>
 </Window>
