@@ -11,11 +11,6 @@ using System.Windows.Shapes;
 
 namespace F1_Manager_2026
 {
-    /// <summary>
-    /// Toto okno slúží iba ako úvodná obrazovka, ktorá sa zobrazí pri spustení hry. 
-    /// Spustí sa F1 Intro a po jeho skončení sa automaticky načíta hlavné menu hry.
-    /// Video sa dá preskočiť kliknutím na tláčítko "Skip Button", ktoré je v pravo dole
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -23,7 +18,7 @@ namespace F1_Manager_2026
             InitializeComponent();
             var a = Database.Instance.DriverList;
             Loading_Screen_Intro_Media_Element.Play();
-            
+
         }
         private void MediaElement_MediaFailed(object sender, ExceptionRoutedEventArgs e)
         {

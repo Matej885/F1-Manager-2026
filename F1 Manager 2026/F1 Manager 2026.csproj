@@ -71,6 +71,7 @@
     <None Remove="Images\ocon.png" />
     <None Remove="Images\perez.png" />
     <None Remove="Images\piastri.png" />
+    <None Remove="Images\Program_icon.png" />
     <None Remove="Images\qatar.png" />
     <None Remove="Images\RB_suit.png" />
     <None Remove="Images\redbull_suit.jpg" />
@@ -420,6 +421,12 @@
 
   <ItemGroup>
     <Content Include="Images\aerodynamics.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\Program_icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
