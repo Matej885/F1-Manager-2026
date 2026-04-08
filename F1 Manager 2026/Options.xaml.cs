@@ -7,6 +7,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Controls;
 using F1_Manager_2026.Menu; // Pridané pre prácu s Image
 using System.IO;
+using Microsoft.Win32;
 
 namespace F1_Manager_2026
 {
@@ -122,6 +123,7 @@ namespace F1_Manager_2026
 
         private void Career_Create_Button_Click(object sender, RoutedEventArgs e)
         {
+            SaveGame.DeleteSave();
             Picking_Team.Main_TeamChoosing _TeamChoosing = new Picking_Team.Main_TeamChoosing();
             _TeamChoosing.Show();
             this.Close();
