@@ -36,5 +36,8 @@
         public string? driver2name { get; set; }
         public int driver2cost { get; set; }
         public int driver2rating { get; set; }
+        public string PathToCar { get; set; }
+        public string PathToDriver1 { get; set; }
+        public string PathToDriver2 { get; set; }
     }
 }

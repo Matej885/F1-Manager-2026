@@ -5,6 +5,9 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Controls;
+using F1_Manager_2026.Menu; // Pridané pre prácu s Image
+using System.IO;
+using Microsoft.Win32;
 
 namespace F1_Manager_2026
 {
@@ -95,7 +98,7 @@ namespace F1_Manager_2026
 
         private void Career_Create_Button_Click(object sender, RoutedEventArgs e)
         {
-            functions.Button_Effect();
+            SaveGame.DeleteSave();
             Picking_Team.Main_TeamChoosing _TeamChoosing = new Picking_Team.Main_TeamChoosing();
             _TeamChoosing.Show();
             this.Close();
@@ -103,8 +106,17 @@ namespace F1_Manager_2026
 
         private void Continue_Button_Click(object sender, RoutedEventArgs e)
         {
-            functions.Button_Effect();
-            // Tu bude tvoj load systém
+            if (!File.Exists("save.json"))
+            {
+                MessageBox.Show("Nemas vytvoreny ziaden save", "Warning!!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            Database.Instance = SaveGame.Load();
+            MainCareerMenu mainCareerMenu = new MainCareerMenu();
+            mainCareerMenu.Show();
+            this.Close();
+            
+            
         }
 
         private void Exit_Button_Click(object sender, RoutedEventArgs e)

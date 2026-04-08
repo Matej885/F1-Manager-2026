@@ -13,6 +13,9 @@ namespace F1_Manager_2026.Picking_Team
         public int timesselected = 0;
         public bool navigation = false;
         Functions functions = new Functions();
+
+        public object BudgetDisplay { get; private set; }
+
         public Drivers_Pick()
         {
             InitializeComponent();
@@ -22,7 +25,7 @@ namespace F1_Manager_2026.Picking_Team
 
         private void ResetMoney()
         {
-            BudgetDisplay.Text = $"{Database.Instance.PlayerTeamInstance.Budget.ToString("N0")}$";
+            BudgetDisplayy.Text = $"{Database.Instance.PlayerTeamInstance.Budget.ToString("N0")}$";
         }
         private void LoadDataToUI()
         {
@@ -69,12 +72,14 @@ namespace F1_Manager_2026.Picking_Team
                     p.driver1name = kliknuty.Name;
                     p.driver1cost = kliknuty.Cost;
                     p.driver1rating = kliknuty.Skill;
+                    p.PathToDriver1 = kliknuty.PhotoPath;
                 }
                 else if (timesselected == 1)
                 {
                     p.driver2name = kliknuty.Name;
                     p.driver2cost = kliknuty.Cost;
                     p.driver2rating = kliknuty.Skill;
+                    p.PathToDriver2 = kliknuty.PhotoPath;
                     MessageBox.Show($"You have signed a contract with {Database.Instance.PlayerTeamInstance.driver1name} for {Database.Instance.PlayerTeamInstance.driver1cost.ToString("N0")} $ and {Database.Instance.PlayerTeamInstance.driver2name} for {Database.Instance.PlayerTeamInstance.driver2cost.ToString("N0")} $", "Congratulations", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
 
@@ -119,5 +124,12 @@ namespace F1_Manager_2026.Picking_Team
                 b.Background = new SolidColorBrush(Color.FromRgb(26, 26, 26));
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        
     }
 }

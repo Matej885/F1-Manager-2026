@@ -1,4 +1,5 @@
-﻿using F1_Manager_2026.Race_Simulation;
+﻿using F1_Manager_2026.Menu;
+using F1_Manager_2026.Race_Simulation;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -74,10 +75,8 @@ namespace F1_Manager_2026.Picking_Team
                 if (Database.Instance?.PlayerTeamInstance != null)
                 {
                     Database.Instance.PlayerTeamInstance.playerphotopath = tempSelectedPath;
-                    Race_Simulation_Test raceSim = new Race_Simulation_Test();
-                    raceSim.Show();
-                    Calendar calendar = new Calendar();
-                    calendar.Show();
+                   MainCareerMenu mainCareerMenu = new MainCareerMenu();
+                    mainCareerMenu.Show();
                     this.Close();
                 }
             }
@@ -108,6 +107,11 @@ namespace F1_Manager_2026.Picking_Team
                 b.BorderThickness = new Thickness(1);
                 b.Background = new SolidColorBrush(Color.FromRgb(26, 26, 26));
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

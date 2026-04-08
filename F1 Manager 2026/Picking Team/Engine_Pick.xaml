@@ -190,5 +190,6 @@
             </Border>
 
         </UniformGrid>
+        <Button  Background="DarkRed"  FontSize="10" Content="Close game" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,957,10,0" Width="76" Click="Button_Click_Close" Grid.Row="1"/>
     </Grid>
 </Window>

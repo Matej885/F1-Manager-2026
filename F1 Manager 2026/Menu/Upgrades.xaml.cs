@@ -189,5 +189,17 @@ namespace F1_Manager_2026.Menu
         {
             MessageBox.Show("Pridať do Next Season Data udaje");
         }
+
+        private void Button_Click_Close(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainCareerMenu mainCareerMenu = new MainCareerMenu();
+            mainCareerMenu.Show();
+            this.Close();
+        }
     }
 }

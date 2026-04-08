@@ -36,12 +36,13 @@ namespace F1_Manager_2026
             options.Show();
             this.Close();
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Loading_Screen_Intro_Media_Element.Stop();
             Options options = new Options();
             options.Show();
             this.Close();
         }
+
     }
 }
