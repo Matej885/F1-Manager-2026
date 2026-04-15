@@ -179,6 +179,7 @@ namespace F1_Manager_2026.Picking_Team
                 Engine_Pick engine_Pick = new Engine_Pick();
                 
                 engine_Pick.Show();
+                SaveGame.Save(Database.Instance);
                 this.Close();
             }
         }

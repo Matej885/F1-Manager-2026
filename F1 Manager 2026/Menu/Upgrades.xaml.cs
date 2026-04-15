@@ -199,6 +199,7 @@ namespace F1_Manager_2026.Menu
         {
             MainCareerMenu mainCareerMenu = new MainCareerMenu();
             mainCareerMenu.Show();
+            SaveGame.Save(Database.Instance);
             this.Close();
         }
     }

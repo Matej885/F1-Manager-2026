@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media.Imaging;
-using System.Windows.Ink; // Potrebné pre prácu s InkCanvas (podpisom)
+using System.Windows.Ink;
+using F1_Manager_2026.Menu; // Potrebné pre prácu s InkCanvas (podpisom)
 
 namespace F1_Manager_2026.Picking_Team
 {
@@ -84,11 +85,10 @@ namespace F1_Manager_2026.Picking_Team
             }
 
             // Úspešné podpísanie
-            MessageBox.Show("Kontrakt bol úspešne podpísaný! Vitajte v sezóne 2026.",
-                            "F1 Manager 2026",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Information);
-            Application.Current.Shutdown();
+            MainCareerMenu mainCareerMenu = new MainCareerMenu();
+            mainCareerMenu.Show();
+            SaveGame.Save(Database.Instance);
+            this.Close();
         }
     }
 }

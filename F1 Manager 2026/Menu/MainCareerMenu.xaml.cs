@@ -64,21 +64,11 @@ namespace F1_Manager_2026.Menu
         {
             Upgrades upgrades = new Upgrades();
             upgrades.Show();
+            SaveGame.Save(Database.Instance);
             this.Close();
         }
 
-        public void Button_Click_Save(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                SaveGame.Save(Database.Instance);
-                MessageBox.Show("Hra úspešne uložená!", "Save Game", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Chyba pri ukladaní: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
+        
 
         private void Button_Click_1(object sender, RoutedEventArgs e) // EXIT
         {
@@ -95,7 +85,18 @@ namespace F1_Manager_2026.Menu
 
         private void Button_Click_Calendar(object sender, RoutedEventArgs e)
         {
+            Calendar calendar = new Calendar();
+            calendar.Show();
+            SaveGame.Save(Database.Instance);
+            this.Close();
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Options options = new Options();
+            options.Show();
+            SaveGame.Save(Database.Instance);
+            this.Close();
         }
     }
 }

@@ -154,7 +154,7 @@
                     <Button Content="STAFF" Style="{StaticResource NavButtonStyle}"/>
                     <Button Content="CALENDAR" Click="Button_Click_Calendar" Style="{StaticResource NavButtonStyle}"/>
                     <Button Content="STANDINGS" Style="{StaticResource NavButtonStyle}"/>
-                    <Button Content="SAVE" Click="Button_Click_Save" Style="{StaticResource NavButtonStyle}"/>
+                    <Button Content="MENU"  Style="{StaticResource NavButtonStyle}" Click="Button_Click"/>
                     <Button Content="EXIT" Click="Button_Click_1" Style="{StaticResource NavButtonStyle}" Foreground="#E10600"/>
                 </UniformGrid>
             </Grid>
