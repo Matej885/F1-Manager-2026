@@ -76,35 +76,53 @@
                 <StackPanel Grid.Column="0">
                     <TextBlock Text="DRIVER LINEUP" Foreground="#E10600" FontSize="14" FontWeight="Bold" Margin="0,0,0,20"/>
 
-                    <Border Background="#0F0F0F" BorderBrush="#222" BorderThickness="1" Height="416" Margin="0,0,0,25">
-                        <Grid>
-                            <TextBlock Name="RatingLabel1" Text="92" Foreground="#333" FontSize="110" FontWeight="Black" Margin="10,-20,0,0" HorizontalAlignment="Left" Opacity="0.5"/>
-                            <Grid Width="300" Height="380" VerticalAlignment="Bottom">
-                                <Image Name="Driver1_Suit" Stretch="Uniform" VerticalAlignment="Bottom"/>
-                                <Image Name="Driver1_Face" Width="210" Stretch="Uniform" VerticalAlignment="Top" Margin="5,30,0,0"/>
-                            </Grid>
-                            <Border VerticalAlignment="Bottom" Background="#CC0A0A0A" Padding="15">
-                                <StackPanel>
-                                    <TextBlock Name="NameLabel1" Text="CHARLES LECLERC" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"/>
-                                    <ProgressBar Name="Progress1" Value="92" Height="3" Foreground="#E10600" Background="#222" BorderThickness="0" Margin="30,8,30,0"/>
-                                </StackPanel>
-                            </Border>
+                    <Border Background="#0F0F0F" BorderBrush="#222" BorderThickness="1" Height="420" Margin="0,0,0,20">
+                        <Grid Background="Transparent">
+                            <TextBlock Name="RatingLabel1" Text="92" Foreground="#E10600" FontSize="28" 
+                                       FontWeight="Bold" HorizontalAlignment="Right" 
+                                       Margin="0,10,15,0" Panel.ZIndex="10"/>
+
+                            <Viewbox Stretch="Uniform" Margin="10,40,10,80">
+                                <Grid Width="300" Height="400">
+                                    <Image Name="Driver1_Suit" VerticalAlignment="Bottom" Stretch="Uniform"/>
+                                    <Image Name="Driver1_Face" Width="220" VerticalAlignment="Top" 
+                                           Margin="10,35,0,0" Stretch="Uniform"/>
+                                </Grid>
+                            </Viewbox>
+
+                            <StackPanel VerticalAlignment="Bottom" Margin="10">
+                                <TextBlock Name="NameLabel1" Text="CHARLES LECLERC" Foreground="White" FontSize="18" 
+                                           FontWeight="Bold" HorizontalAlignment="Center"/>
+                            </StackPanel>
                         </Grid>
                     </Border>
 
-                    <Border Background="#0F0F0F" BorderBrush="#222" BorderThickness="1" Height="364">
-                        <Grid>
-                            <TextBlock Name="RatingLabel2" Text="88" Foreground="#333" FontSize="110" FontWeight="Black" Margin="10,-20,0,0" HorizontalAlignment="Left" Opacity="0.5"/>
-                            <Grid Width="300" Height="380" VerticalAlignment="Bottom">
-                                <Image Name="Driver2_Suit" Stretch="Uniform" VerticalAlignment="Bottom"/>
-                                <Image Name="Driver2_Face" Width="210" Stretch="Uniform" VerticalAlignment="Top" Margin="5,30,0,0"/>
-                            </Grid>
-                            <Border VerticalAlignment="Bottom" Background="#CC0A0A0A" Padding="15">
-                                <StackPanel>
-                                    <TextBlock Name="NameLabel2" Text="LEWIS HAMILTON" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"/>
-                                    <ProgressBar Name="Progress2" Value="88" Height="3" Foreground="#E10600" Background="#333" BorderThickness="0" Margin="30,8,30,0"/>
-                                </StackPanel>
-                            </Border>
+                    <Border Background="#0F0F0F" BorderBrush="#222" BorderThickness="1" Height="420">
+                        <Grid Background="Transparent">
+                            <TextBlock Name="RatingLabel2" Text="88" Foreground="#E10600" FontSize="28" 
+                                       FontWeight="Bold" HorizontalAlignment="Right" 
+                                       Margin="0,10,15,0" Panel.ZIndex="10"/>
+
+                            <Viewbox Stretch="Uniform" Margin="10,40,10,80">
+                                <Grid Width="300" Height="400">
+                                    <Image Name="Driver2_Suit" VerticalAlignment="Bottom" Stretch="Uniform"/>
+                                    <Image Name="Driver2_Face" Width="220" VerticalAlignment="Top" 
+                                           Margin="10,35,0,0" Stretch="Uniform"/>
+                                </Grid>
+                            </Viewbox>
+
+                            <StackPanel VerticalAlignment="Bottom" Margin="10">
+                                <TextBlock Name="NameLabel2" Text="LEWIS HAMILTON" Foreground="White" FontSize="18" 
+                                           FontWeight="Bold" HorizontalAlignment="Center"/>
+                                <TextBlock Text="SCUDERIA FERRARI" Foreground="#888" FontSize="11" 
+                                           HorizontalAlignment="Center" Margin="0,2,0,5"/>
+                                <Border Background="#222" CornerRadius="5" Padding="8,5" BorderBrush="#444" BorderThickness="1">
+                                    <Grid>
+                                        <TextBlock Text="VALUE" Foreground="#666" FontSize="9" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                        <TextBlock Name="ValueLabel2" Text="$ 32,000,000" Foreground="#00FF41" FontSize="15" HorizontalAlignment="Right" FontWeight="Bold"/>
+                                    </Grid>
+                                </Border>
+                            </StackPanel>
                         </Grid>
                     </Border>
                 </StackPanel>
@@ -112,21 +130,8 @@
                 <Grid Grid.Column="1" Margin="50,0">
                     <StackPanel VerticalAlignment="Center">
                         <TextBlock Name="Car_Model_Name" Text="SF-26" Foreground="White" FontSize="60" FontWeight="Black" HorizontalAlignment="Center" Opacity="0.1"/>
-                        <Image Name="Main_Car_Preview" Height="450" Stretch="Uniform" Margin="0,-60,0,0"/>
-                        <UniformGrid Columns="3" Margin="0,40,0,0">
-                            <StackPanel>
-                                <TextBlock Text="TOP SPEED" Foreground="#555" HorizontalAlignment="Center"/>
-                                <TextBlock Text="342 KM/H" Foreground="White" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
-                            </StackPanel>
-                            <StackPanel>
-                                <TextBlock Text="ACCEL" Foreground="#555" HorizontalAlignment="Center"/>
-                                <TextBlock Text="1.82s" Foreground="White" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
-                            </StackPanel>
-                            <StackPanel>
-                                <TextBlock Text="RELIABILITY" Foreground="#555" HorizontalAlignment="Center"/>
-                                <TextBlock Text="88%" Foreground="#FFD700" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </UniformGrid>
+                        <Image Name="Main_Car_Preview" Height="446" Stretch="Uniform" Margin="0,-60,0,0"/>
+                        <UniformGrid Columns="3" Margin="0,40,0,0"/>
                     </StackPanel>
                 </Grid>
 
@@ -141,7 +146,7 @@
                     </Border>
                     <Border Background="#0A0A0A" BorderBrush="#222" BorderThickness="1" Height="380" Margin="0,40,0,0">
                         <TextBlock Padding="20" Foreground="#888" FontSize="13" TextWrapping="Wrap">
-                            [INFO] System Ready.<LineBreak/>[FINANCE] Budget stable.
+                            [INFO] System Ready.<LineBreak/>[FINANCE] Budget stable.<LineBreak/>[ENGINE] All systems operational.
                         </TextBlock>
                     </Border>
                 </StackPanel>

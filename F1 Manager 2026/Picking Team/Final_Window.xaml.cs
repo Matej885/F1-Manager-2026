@@ -14,10 +14,13 @@ namespace F1_Manager_2026.Picking_Team
 
             // Načítame dáta hneď pri štarte okna
             LoadContractData();
+            Options options = new Options();
+            Options.soundPlayer.Stop(); 
         }
 
         private void LoadContractData()
         {
+
             // Získame dáta z tvojej databázy (Singleton inštancia)
             var team = Database.Instance.PlayerTeamInstance;
 
@@ -46,7 +49,7 @@ namespace F1_Manager_2026.Picking_Team
                 // Tímové oblečenie (Suit) - aplikujeme na oboch jazdcov
                 if (!string.IsNullOrEmpty(team.suitpath))
                 {
-                    BitmapImage suitImg = new BitmapImage(new Uri(team.teamclothespath, UriKind.RelativeOrAbsolute));
+                    BitmapImage suitImg = new BitmapImage(new Uri(team.suitpath, UriKind.RelativeOrAbsolute));
                     ImgDriver1Suit.Source = suitImg;
                     ImgDriver2Suit.Source = suitImg;
                 }

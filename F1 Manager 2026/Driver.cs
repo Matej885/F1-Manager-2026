@@ -23,6 +23,9 @@ namespace F1_Manager_2026
         public int Cost { get; set; }
         public int minprestige { get; set; }
         public bool IsF2 { get; set; }
+        public int Points { get; set; }
+        public int Wins { get; set; }
+        public int Podiums { get; set; }
 
         public string? Team
         {
