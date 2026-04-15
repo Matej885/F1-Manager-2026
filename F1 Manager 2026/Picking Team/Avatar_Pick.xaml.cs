@@ -75,8 +75,8 @@ namespace F1_Manager_2026.Picking_Team
                 if (Database.Instance?.PlayerTeamInstance != null)
                 {
                     Database.Instance.PlayerTeamInstance.playerphotopath = tempSelectedPath;
-                   MainCareerMenu mainCareerMenu = new MainCareerMenu();
-                    mainCareerMenu.Show();
+                    Final_Window finalWindow = new Final_Window();
+                    finalWindow.Show();
                     this.Close();
                 }
             }

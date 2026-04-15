@@ -95,7 +95,7 @@ namespace F1_Manager_2026.Picking_Team
         {
             base.OnClosed(e);
 
-            // Ak je toto jediné/posledné okno a niekto ho zavrie (Alt+F4),
+            // Ak je toto jediné/posledné okno a niekto ho zavrie (Alt+F4), 
             // zavoláme vypnutie celej aplikácie, čo aktivuje Kill() v App.xaml.cs
             if (Application.Current.Windows.Count == 0)
             {

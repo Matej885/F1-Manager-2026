@@ -106,7 +106,7 @@ namespace F1_Manager_2026
 
         private void Continue_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (!File.Exists("save.json"))
+            if (!File.Exists("SaveGameF1MNGR.json"))
             {
                 MessageBox.Show("Nemas vytvoreny ziaden save", "Warning!!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

@@ -80,7 +80,6 @@ namespace F1_Manager_2026.Picking_Team
                     p.driver2cost = kliknuty.Cost;
                     p.driver2rating = kliknuty.Skill;
                     p.PathToDriver2 = kliknuty.PhotoPath;
-                    MessageBox.Show($"You have signed a contract with {Database.Instance.PlayerTeamInstance.driver1name} for {Database.Instance.PlayerTeamInstance.driver1cost.ToString("N0")} $ and {Database.Instance.PlayerTeamInstance.driver2name} for {Database.Instance.PlayerTeamInstance.driver2cost.ToString("N0")} $", "Congratulations", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
 
                 kliknuty.Team = p.teamName;

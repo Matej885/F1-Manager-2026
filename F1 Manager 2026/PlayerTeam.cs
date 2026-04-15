@@ -24,6 +24,7 @@
         public string Engine_Path { get; set; }
         public string playerphotopath { get; set; } = "/Images/Head1.png";
         public string teamclothespath { get; set; } = "/Images/suit_default.png";
+        public string suitpath { get; set; }
 
         // Motor detaily
         public string EngineName { get; set; }
@@ -34,7 +35,7 @@
         public int driver1cost { get; set; }
         public int driver1rating { get; set; }
         public string? driver2name { get; set; }
-        public int driver2cost { get; set; }
+        public int driver2cost { get; set; }    
         public int driver2rating { get; set; }
         public string PathToCar { get; set; }
         public string PathToDriver1 { get; set; }

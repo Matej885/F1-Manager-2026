@@ -154,7 +154,7 @@ namespace F1_Manager_2026.Picking_Team
             }
             else
             {
-                Database.Instance.PlayerTeamInstance.PlayerName = $"{Name_Label.Text} {Surname_Label.Text}";
+                Database.Instance.PlayerTeamInstance.PlayerName = $"{Name_Label.Text}";
                 if (Team_Chosen == 1)
                 {
                     PlayerTeam playerTeam = new PlayerTeam();
