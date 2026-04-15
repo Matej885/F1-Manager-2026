@@ -16,8 +16,6 @@ namespace F1_Manager_2026
 
             // Nastavenie dátového kontextu na tvoju databázu tratí
             this.DataContext = Database.Instance;
-            Upgrades upgrades = new Upgrades();
-            upgrades.Show();
         }
         private void Track_Click(object sender, RoutedEventArgs e)
         {
@@ -36,6 +34,13 @@ namespace F1_Manager_2026
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close(); 
+        }
+
+        private void Button_Back_Click(object sender, RoutedEventArgs e)
+        {
+            MainCareerMenu mainMenu = new MainCareerMenu();
+            mainMenu.Show();
+            this.Close();
         }
     }
 }

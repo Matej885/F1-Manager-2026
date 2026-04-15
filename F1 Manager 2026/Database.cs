@@ -59,6 +59,7 @@ namespace F1_Manager_2026
             public bool WindTunnel_Enabled { get; set; } = true;
             public int powertrainDyno_Level { get; set; } = 1;
             public bool powertrainDyno_Enabled { get; set; } = true;
+            public List<string> DevelopmentLog { get; set; }
         }
         // --- PROPERTIES ---
         public PlayerTeam PlayerTeamInstance { get; set; } = new PlayerTeam();
@@ -104,62 +105,65 @@ namespace F1_Manager_2026
                 new F1Team { Name = "Haas", Rating = 200, LogoPath = "/Images/haas.png" },
                 new F1Team { Name = "Cadillac", Rating = 110, LogoPath = "/Images/cadillac.png" }
             };
+            PlayerFacilities.DevelopmentLog = new List<string>
+            {
+          
+            };
 
             // JAZDCI S PRESTÍŽOU (minprestige ostáva)
             DriverList = new ObservableCollection<Driver>
 {
     // --- F1 ELITA (Skill 190+) ---
-    new Driver { Name = "Max Verstappen", Number = 33, PhotoPath = "/Images/verstappen.png", Skill = 210, Team = "Red Bull Racing", Cost = 100000000, minprestige = 85, IsF2 = false },
-    new Driver { Name = "Lewis Hamilton", Number = 44, PhotoPath = "/Images/hamilton.png", Skill = 190, Team = "Ferrari", Cost = 95000000, minprestige = 80, IsF2 = false },
-    new Driver { Name = "Charles Leclerc", Number = 16, PhotoPath = "/Images/leclerc.png", Skill = 205, Team = "Ferrari", Cost = 90000000, minprestige = 80, IsF2 = false },
-    new Driver { Name = "Fernando Alonso", Number = 14, PhotoPath = "/Images/alonso.png", Skill = 190, Team = "Aston Martin", Cost = 82000000, minprestige = 60, IsF2 = false },
-    new Driver { Name = "George Russell", Number = 63, PhotoPath = "/Images/russell.png", Skill = 195, Team = "Mercedes", Cost = 75000000, minprestige = 75, IsF2 = false },
-    new Driver { Name = "Carlos Sainz", Number = 55, PhotoPath = "/Images/sainz.png", Skill = 195, Team = "Williams", Cost = 75000000, minprestige = 65, IsF2 = false },
+    new Driver { Name = "Max Verstappen", Number = 1, PhotoPath = "/Images/verstappen.png", Skill = 210, Team = "Red Bull Racing", Cost = 100000000, minprestige = 85, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Lewis Hamilton", Number = 44, PhotoPath = "/Images/hamilton.png", Skill = 190, Team = "Ferrari", Cost = 95000000, minprestige = 80, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Charles Leclerc", Number = 16, PhotoPath = "/Images/leclerc.png", Skill = 205, Team = "Ferrari", Cost = 90000000, minprestige = 80, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Fernando Alonso", Number = 14, PhotoPath = "/Images/alonso.png", Skill = 190, Team = "Aston Martin", Cost = 82000000, minprestige = 60, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "George Russell", Number = 63, PhotoPath = "/Images/russell.png", Skill = 195, Team = "Mercedes", Cost = 75000000, minprestige = 75, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Carlos Sainz", Number = 55, PhotoPath = "/Images/sainz.png", Skill = 195, Team = "Williams", Cost = 75000000, minprestige = 65, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
 
     // --- STRED POĽA (Skill 160 - 185) ---
-    new Driver { Name = "Lando Norris", Number = 4, PhotoPath = "/Images/norris.png", Skill = 180, Team = "McLaren", Cost = 85000000, minprestige = 75, IsF2 = false },
-    new Driver { Name = "Oscar Piastri", Number = 81, PhotoPath = "/Images/piastri.png", Skill = 175, Team = "McLaren", Cost = 67000000, minprestige = 60, IsF2 = false },
-    new Driver { Name = "Kimi Antonelli", Number = 12, PhotoPath = "/Images/antonelli.png", Skill = 190, Team = "Mercedes", Cost = 65000000, minprestige = 55, IsF2 = false },
-    new Driver { Name = "Oliver Bearman", Number = 87, PhotoPath = "/Images/bearman.png", Skill = 180, Team = "Haas", Cost = 32000000, minprestige = 35, IsF2 = false },
-    new Driver { Name = "Pierre Gasly", Number = 10, PhotoPath = "/Images/gasly.png", Skill = 172, Team = "Alpine", Cost = 35000000, minprestige = 45, IsF2 = false },
-    new Driver { Name = "Gabriel Bortoleto", Number = 5, PhotoPath = "/Images/bortoleto.png", Skill = 170, Team = "Audi", Cost = 4500000, minprestige = 15, IsF2 = false },
-    new Driver { Name = "Alex Albon", Number = 23, PhotoPath = "/Images/albon.png", Skill = 168, Team = "Williams", Cost = 50000000, minprestige = 40, IsF2 = false },
-    new Driver { Name = "Isack Hadjar", Number = 6, PhotoPath = "/Images/hadjar.png", Skill = 165, Team = "Red Bull Racing", Cost = 4000000, minprestige = 15, IsF2 = false },
+    new Driver { Name = "Lando Norris", Number = 4, PhotoPath = "/Images/norris.png", Skill = 180, Team = "McLaren", Cost = 85000000, minprestige = 75, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Oscar Piastri", Number = 81, PhotoPath = "/Images/piastri.png", Skill = 175, Team = "McLaren", Cost = 67000000, minprestige = 60, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Kimi Antonelli", Number = 12, PhotoPath = "/Images/antonelli.png", Skill = 190, Team = "Mercedes", Cost = 65000000, minprestige = 55, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Oliver Bearman", Number = 87, PhotoPath = "/Images/bearman.png", Skill = 180, Team = "Haas", Cost = 32000000, minprestige = 35, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Pierre Gasly", Number = 10, PhotoPath = "/Images/gasly.png", Skill = 172, Team = "Alpine", Cost = 35000000, minprestige = 45, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Gabriel Bortoleto", Number = 5, PhotoPath = "/Images/bortoleto.png", Skill = 170, Team = "Audi", Cost = 4500000, minprestige = 15, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Alex Albon", Number = 23, PhotoPath = "/Images/albon.png", Skill = 168, Team = "Williams", Cost = 50000000, minprestige = 40, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Isack Hadjar", Number = 6, PhotoPath = "/Images/hadjar.png", Skill = 165, Team = "Red Bull Racing", Cost = 4000000, minprestige = 15, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
 
     // --- CHVOST POĽA (Skill 100 - 155) ---
-    new Driver { Name = "Sergio Perez", Number = 11, PhotoPath = "/Images/perez.png", Skill = 155, Team = "Cadillac", Cost = 30000000, minprestige = 30, IsF2 = false },
-    new Driver { Name = "Valtteri Bottas", Number = 77, PhotoPath = "/Images/bottas.png", Skill = 152, Team = "Cadillac", Cost = 25000000, minprestige = 25, IsF2 = false },
-    new Driver { Name = "Arvid Lindblad", Number = 41, PhotoPath = "/Images/lindblad.png", Skill = 150, Team = "RB", Cost = 500000, minprestige = 5, IsF2 = false },
-    new Driver { Name = "Liam Lawson", Number = 30, PhotoPath = "/Images/lawson.png", Skill = 148, Team = "RB", Cost = 9000000, minprestige = 20, IsF2 = false },
-    new Driver { Name = "Nico Hulkenberg", Number = 27, PhotoPath = "/Images/hulkenberg.png", Skill = 145, Team = "Audi", Cost = 30000000, minprestige = 35, IsF2 = false },
-    new Driver { Name = "Esteban Ocon", Number = 31, PhotoPath = "/Images/ocon.png", Skill = 140, Team = "Haas", Cost = 10000000, minprestige = 30, IsF2 = false },
-    new Driver { Name = "Franco Colapinto", Number = 43, PhotoPath = "/Images/colapinto.png", Skill = 135, Team = "Alpine", Cost = 500000, minprestige = 5, IsF2 = false },
-    new Driver { Name = "Lance Stroll", Number = 18, PhotoPath = "/Images/stroll.png", Skill = 120, Team = "Aston Martin", Cost = 1000000, minprestige = 10, IsF2 = false },
+    new Driver { Name = "Sergio Perez", Number = 11, PhotoPath = "/Images/perez.png", Skill = 155, Team = "Cadillac", Cost = 30000000, minprestige = 30, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Valtteri Bottas", Number = 77, PhotoPath = "/Images/bottas.png", Skill = 152, Team = "Cadillac", Cost = 25000000, minprestige = 25, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Arvid Lindblad", Number = 41, PhotoPath = "/Images/lindblad.png", Skill = 150, Team = "RB", Cost = 500000, minprestige = 5, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Liam Lawson", Number = 30, PhotoPath = "/Images/lawson.png", Skill = 148, Team = "RB", Cost = 9000000, minprestige = 20, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Nico Hulkenberg", Number = 27, PhotoPath = "/Images/hulkenberg.png", Skill = 145, Team = "Audi", Cost = 30000000, minprestige = 35, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Esteban Ocon", Number = 31, PhotoPath = "/Images/ocon.png", Skill = 140, Team = "Haas", Cost = 10000000, minprestige = 30, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Franco Colapinto", Number = 43, PhotoPath = "/Images/colapinto.png", Skill = 135, Team = "Alpine", Cost = 500000, minprestige = 5, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Lance Stroll", Number = 18, PhotoPath = "/Images/stroll.png", Skill = 120, Team = "Aston Martin", Cost = 1000000, minprestige = 10, IsF2 = false, Points = 0, Wins = 0, Podiums = 0 },
 
-    // --- F2 JAZDCI (Skill pod 90 - aby neplietli F1 simuláciu) ---
-    new Driver { Name = "Laurens van Hoepen", Number = 24, PhotoPath = "/Images/helmet.png", Skill = 88, Team = "Free Agent", Cost = 200000, minprestige = 5, IsF2 = true },
-    new Driver { Name = "Roman Bilinski", Number = 8, PhotoPath = "/Images/helmet.png", Skill = 85, Team = "Free Agent", Cost = 120000, minprestige = 5, IsF2 = true },
-    new Driver { Name = "Gabriele Minì", Number = 9, PhotoPath = "/Images/helmet.png", Skill = 82, Team = "Free Agent", Cost = 400000, minprestige = 15, IsF2 = true },
-    new Driver { Name = "Cian Shields", Number = 21, PhotoPath = "/Images/helmet.png", Skill = 80, Team = "Free Agent", Cost = 600000, minprestige = 0, IsF2 = true },
-    new Driver { Name = "Oliver Goethe", Number = 10, PhotoPath = "/Images/helmet.png", Skill = 78, Team = "Free Agent", Cost = 250000, minprestige = 10, IsF2 = true },
-    new Driver { Name = "Mari Boya", Number = 12, PhotoPath = "/Images/helmet.png", Skill = 75, Team = "Free Agent", Cost = 180000, minprestige = 5, IsF2 = true },
-    new Driver { Name = "Alex Dunne", Number = 15, PhotoPath = "/Images/helmet.png", Skill = 74, Team = "Free Agent", Cost = 300000, minprestige = 15, IsF2 = true },
-    new Driver { Name = "Sebastián Montoya", Number = 11, PhotoPath = "/Images/helmet.png", Skill = 72, Team = "Free Agent", Cost = 220000, minprestige = 10, IsF2 = true },
-    new Driver { Name = "Nikola Tsolov", Number = 6, PhotoPath = "/Images/helmet.png", Skill = 70, Team = "Free Agent", Cost = 450000, minprestige = 20, IsF2 = true },
-    new Driver { Name = "Rafael Villagómez", Number = 23, PhotoPath = "/Images/helmet.png", Skill = 68, Team = "Free Agent", Cost = 700000, minprestige = 0, IsF2 = true },
-    new Driver { Name = "Dino Beganovic", Number = 7, PhotoPath = "/Images/helmet.png", Skill = 65, Team = "Free Agent", Cost = 380000, minprestige = 15, IsF2 = true },
-    new Driver { Name = "John Bennett", Number = 25, PhotoPath = "/Images/helmet.png", Skill = 63, Team = "Free Agent", Cost = 650000, minprestige = 0, IsF2 = true },
-    new Driver { Name = "Rafael Câmara", Number = 1, PhotoPath = "/Images/helmet.png", Skill = 62, Team = "Free Agent", Cost = 500000, minprestige = 0, IsF2 = true },
-    new Driver { Name = "Kush Maini", Number = 16, PhotoPath = "/Images/helmet.png", Skill = 60, Team = "Free Agent", Cost = 260000, minprestige = 10, IsF2 = true },
-    new Driver { Name = "Joshua Dürksen", Number = 2, PhotoPath = "/Images/helmet.png", Skill = 59, Team = "Free Agent", Cost = 350000, minprestige = 0, IsF2 = true },
-    new Driver { Name = "Colton Herta", Number = 4, PhotoPath = "/Images/helmet.png", Skill = 58, Team = "Free Agent", Cost = 800000, minprestige = 0, IsF2 = true },
-    new Driver { Name = "Martinius Stenshorne", Number = 14, PhotoPath = "/Images/helmet.png", Skill = 55, Team = "Free Agent", Cost = 240000, minprestige = 10, IsF2 = true },
-    new Driver { Name = "Emerson Fittipaldi Jr.", Number = 20, PhotoPath = "/Images/helmet.png", Skill = 52, Team = "Free Agent", Cost = 850000, minprestige = 0, IsF2 = true },
-    new Driver { Name = "Nico Varrone", Number = 22, PhotoPath = "/Images/helmet.png", Skill = 50, Team = "Free Agent", Cost = 110000, minprestige = 5, IsF2 = true },
-    new Driver { Name = "Ritomo Miyata", Number = 3, PhotoPath = "/Images/helmet.png", Skill = 48, Team = "Free Agent", Cost = 280000, minprestige = 0, IsF2 = true },
-    new Driver { Name = "Tasanapol Inthraphuvasak", Number = 17, PhotoPath = "/Images/helmet.png", Skill = 45, Team = "Free Agent", Cost = 900000, minprestige = 0, IsF2 = true },
-    new Driver { Name = "Noel León", Number = 5, PhotoPath = "/Images/helmet.png", Skill = 40, Team = "Free Agent", Cost = 150000, minprestige = 5, IsF2 = true }
-
+    // --- F2 JAZDCI ---
+    new Driver { Name = "Laurens van Hoepen", Number = 24, PhotoPath = "/Images/helmet.png", Skill = 88, Team = "Free Agent", Cost = 200000, minprestige = 5, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Roman Bilinski", Number = 8, PhotoPath = "/Images/helmet.png", Skill = 85, Team = "Free Agent", Cost = 120000, minprestige = 5, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Gabriele Minì", Number = 9, PhotoPath = "/Images/helmet.png", Skill = 82, Team = "Free Agent", Cost = 400000, minprestige = 15, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Cian Shields", Number = 21, PhotoPath = "/Images/helmet.png", Skill = 80, Team = "Free Agent", Cost = 600000, minprestige = 0, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Oliver Goethe", Number = 88, PhotoPath = "/Images/helmet.png", Skill = 78, Team = "Free Agent", Cost = 250000, minprestige = 10, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Mari Boya", Number = 13, PhotoPath = "/Images/helmet.png", Skill = 75, Team = "Free Agent", Cost = 180000, minprestige = 5, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Alex Dunne", Number = 15, PhotoPath = "/Images/helmet.png", Skill = 74, Team = "Free Agent", Cost = 300000, minprestige = 15, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Sebastián Montoya", Number = 86, PhotoPath = "/Images/helmet.png", Skill = 72, Team = "Free Agent", Cost = 220000, minprestige = 10, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Nikola Tsolov", Number = 99, PhotoPath = "/Images/helmet.png", Skill = 70, Team = "Free Agent", Cost = 450000, minprestige = 20, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Rafael Villagómez", Number = 32, PhotoPath = "/Images/helmet.png", Skill = 68, Team = "Free Agent", Cost = 700000, minprestige = 0, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Dino Beganovic", Number = 7, PhotoPath = "/Images/helmet.png", Skill = 65, Team = "Free Agent", Cost = 380000, minprestige = 15, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "John Bennett", Number = 25, PhotoPath = "/Images/helmet.png", Skill = 63, Team = "Free Agent", Cost = 650000, minprestige = 0, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Rafael Câmara", Number = 45, PhotoPath = "/Images/helmet.png", Skill = 62, Team = "Free Agent", Cost = 500000, minprestige = 0, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Kush Maini", Number = 36, PhotoPath = "/Images/helmet.png", Skill = 60, Team = "Free Agent", Cost = 260000, minprestige = 10, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Joshua Dürksen", Number = 20, PhotoPath = "/Images/helmet.png", Skill = 59, Team = "Free Agent", Cost = 350000, minprestige = 0, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Colton Herta", Number = 98, PhotoPath = "/Images/helmet.png", Skill = 58, Team = "Free Agent", Cost = 800000, minprestige = 0, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Martinius Stenshorne", Number = 34, PhotoPath = "/Images/helmet.png", Skill = 55, Team = "Free Agent", Cost = 240000, minprestige = 10, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Emerson Fittipaldi Jr.", Number = 50, PhotoPath = "/Images/helmet.png", Skill = 52, Team = "Free Agent", Cost = 850000, minprestige = 0, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Nico Varrone", Number = 22, PhotoPath = "/Images/helmet.png", Skill = 50, Team = "Free Agent", Cost = 110000, minprestige = 5, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Ritomo Miyata", Number = 3, PhotoPath = "/Images/helmet.png", Skill = 48, Team = "Free Agent", Cost = 280000, minprestige = 0, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Tasanapol Inthraphuvasak", Number = 17, PhotoPath = "/Images/helmet.png", Skill = 45, Team = "Free Agent", Cost = 900000, minprestige = 0, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 },
+    new Driver { Name = "Noel León", Number = 19, PhotoPath = "/Images/helmet.png", Skill = 40, Team = "Free Agent", Cost = 150000, minprestige = 5, IsF2 = true, Points = 0, Wins = 0, Podiums = 0 }
 };
 
 

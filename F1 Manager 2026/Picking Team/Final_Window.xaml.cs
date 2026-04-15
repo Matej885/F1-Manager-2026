@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media.Imaging;
-using System.Windows.Ink; // Potrebné pre prácu s InkCanvas (podpisom)
+using System.Windows.Ink;
+using F1_Manager_2026.Menu; // Potrebné pre prácu s InkCanvas (podpisom)
 
 namespace F1_Manager_2026.Picking_Team
 {
@@ -13,10 +14,13 @@ namespace F1_Manager_2026.Picking_Team
 
             // Načítame dáta hneď pri štarte okna
             LoadContractData();
+            Options options = new Options();
+            Options.soundPlayer.Stop(); 
         }
 
         private void LoadContractData()
         {
+
             // Získame dáta z tvojej databázy (Singleton inštancia)
             var team = Database.Instance.PlayerTeamInstance;
 
@@ -45,7 +49,7 @@ namespace F1_Manager_2026.Picking_Team
                 // Tímové oblečenie (Suit) - aplikujeme na oboch jazdcov
                 if (!string.IsNullOrEmpty(team.suitpath))
                 {
-                    BitmapImage suitImg = new BitmapImage(new Uri(team.teamclothespath, UriKind.RelativeOrAbsolute));
+                    BitmapImage suitImg = new BitmapImage(new Uri(team.suitpath, UriKind.RelativeOrAbsolute));
                     ImgDriver1Suit.Source = suitImg;
                     ImgDriver2Suit.Source = suitImg;
                 }
@@ -82,13 +86,9 @@ namespace F1_Manager_2026.Picking_Team
             {
                 return;
             }
-
-            // Úspešné podpísanie
-            MessageBox.Show("Kontrakt bol úspešne podpísaný! Vitajte v sezóne 2026.",
-                            "F1 Manager 2026",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Information);
-            Application.Current.Shutdown();
+            MainCareerMenu mainCareerMenu = new MainCareerMenu();
+            mainCareerMenu.Show();
+            this.Close();
         }
     }
 }

@@ -41,6 +41,15 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Button Margin="8" Height="100" Background="#111111" BorderBrush="#333333" BorderThickness="2" Cursor="Hand" Click="Track_Click">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                                BorderThickness="{TemplateBinding BorderThickness}">
+                                            <ContentPresenter />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,0">
                                     <TextBlock Text="{Binding Round, StringFormat={}{0:00}}" Foreground="#FF0000" FontSize="32" FontWeight="Black" Margin="0,0,20,0"/>
                                     <StackPanel VerticalAlignment="Center">
@@ -54,52 +63,92 @@
                 </ItemsControl>
             </ScrollViewer>
 
-            <Border Grid.Column="1" Background="#0A0A0A" BorderBrush="#FF0000" BorderThickness="2,0,0,0" Padding="50,40"
-                    DataContext="{Binding SelectedTrack}">
-                <StackPanel>
-                    <TextBlock Text="SELECTED CIRCUIT" Foreground="#FF0000" FontWeight="Bold" FontSize="13" Margin="0,0,0,20"/>
+            <Border Grid.Column="1" Background="#0A0A0A" BorderBrush="#FF0000" BorderThickness="2,0,0,0" Padding="50,40">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
 
-                    <Border Height="280" Background="White" CornerRadius="5" BorderBrush="#222222" BorderThickness="1" Margin="0,0,0,30">
-                        <Grid>
-                            <TextBlock Text="" Foreground="#DDD" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
-                            <Image Source="{Binding ImagePath}" 
-                                   Stretch="Uniform" 
-                                   Margin="15"
-                                   RenderOptions.BitmapScalingMode="HighQuality"/>
-                        </Grid>
-                    </Border>
+                    <StackPanel Grid.Row="0" DataContext="{Binding SelectedTrack}">
+                        <TextBlock Text="SELECTED CIRCUIT" Foreground="#FF0000" FontWeight="Bold" FontSize="13" Margin="0,0,0,20"/>
 
-                    <TextBlock Text="{Binding Name}" Foreground="White" FontSize="34" FontWeight="Black" TextWrapping="Wrap"/>
-                    <TextBlock Text="{Binding CircuitName}" Foreground="#FF0000" FontSize="16" FontWeight="Bold" Margin="0,8,0,40"/>
+                        <Border Height="280" Background="White" CornerRadius="5" BorderBrush="#222222" BorderThickness="1" Margin="0,0,0,30">
+                            <Grid>
+                                <Image Source="{Binding ImagePath}" 
+                                       Stretch="Uniform" 
+                                       Margin="15"
+                                       RenderOptions.BitmapScalingMode="HighQuality"/>
+                            </Grid>
+                        </Border>
 
-                    <UniformGrid Columns="2">
-                        <StackPanel Margin="0,15">
-                            <TextBlock Text="LAPS" Foreground="#444" FontSize="12" FontWeight="Bold"/>
-                            <TextBlock Text="{Binding Laps}" Foreground="White" FontSize="28" FontWeight="Bold"/>
-                        </StackPanel>
-                        <StackPanel Margin="0,15">
-                            <TextBlock Text="DISTANCE" Foreground="#444" FontSize="12" FontWeight="Bold"/>
-                            <TextBlock Text="{Binding RaceDistance}" Foreground="White" FontSize="22" FontWeight="Bold"/>
-                        </StackPanel>
-                        <StackPanel Margin="0,15">
-                            <TextBlock Text="TRACK LENGTH" Foreground="#444" FontSize="12" FontWeight="Bold"/>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Length}" Foreground="White" FontSize="22" FontWeight="Bold"/>
-                                <TextBlock Text=" KM" Foreground="White" FontSize="12" VerticalAlignment="Bottom" Margin="4,0,0,3"/>
+                        <TextBlock Text="{Binding Name}" Foreground="White" FontSize="34" FontWeight="Black" TextWrapping="Wrap"/>
+                        <TextBlock Text="{Binding CircuitName}" Foreground="#FF0000" FontSize="16" FontWeight="Bold" Margin="0,8,0,40"/>
+
+                        <UniformGrid Columns="2">
+                            <StackPanel Margin="0,15">
+                                <TextBlock Text="LAPS" Foreground="#444" FontSize="12" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding Laps}" Foreground="White" FontSize="28" FontWeight="Bold"/>
                             </StackPanel>
+                            <StackPanel Margin="0,15">
+                                <TextBlock Text="DISTANCE" Foreground="#444" FontSize="12" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding RaceDistance}" Foreground="White" FontSize="22" FontWeight="Bold"/>
+                            </StackPanel>
+                            <StackPanel Margin="0,15">
+                                <TextBlock Text="TRACK LENGTH" Foreground="#444" FontSize="12" FontWeight="Bold"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Length}" Foreground="White" FontSize="22" FontWeight="Bold"/>
+                                    <TextBlock Text=" KM" Foreground="White" FontSize="12" VerticalAlignment="Bottom" Margin="4,0,0,3"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </UniformGrid>
+
+                        <Separator Background="#222" Margin="0,40"/>
+
+                        <TextBlock Text="TYRE ALLOCATION" Foreground="#444" FontSize="12" FontWeight="Bold" Margin="0,0,0,20"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse Width="24" Height="24" Fill="#FF0000" Margin="0,0,10,0"/>
+                            <Ellipse Width="24" Height="24" Fill="#F1C40F" Margin="0,0,10,0"/>
+                            <Ellipse Width="24" Height="24" Fill="#FFFFFF" Margin="0,0,10,0"/>
+                            <TextBlock Text="C5 - C4 - C3" Foreground="White" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Margin="10,0,0,0"/>
                         </StackPanel>
-                    </UniformGrid>
-
-                    <Separator Background="#222" Margin="0,40"/>
-
-                    <TextBlock Text="TYRE ALLOCATION" Foreground="#444" FontSize="12" FontWeight="Bold" Margin="0,0,0,20"/>
-                    <StackPanel Orientation="Horizontal">
-                        <Ellipse Width="24" Height="24" Fill="#FF0000" Margin="0,0,10,0"/>
-                        <Ellipse Width="24" Height="24" Fill="#F1C40F" Margin="0,0,10,0"/>
-                        <Ellipse Width="24" Height="24" Fill="#FFFFFF" Margin="0,0,10,0"/>
-                        <TextBlock Text="C5 - C4 - C3" Foreground="White" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Margin="10,0,0,0"/>
                     </StackPanel>
-                </StackPanel>
+
+                    <StackPanel Grid.Row="1" Margin="0,40,0,0">
+                        <Button Content="BACK TO MAIN MENU" 
+                                Height="60" 
+                                Background="#111" 
+                                Foreground="White" 
+                                FontWeight="Bold"
+                                FontSize="16"
+                                BorderBrush="#333"
+                                Cursor="Hand"
+                                Click="Button_Back_Click">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Background="{TemplateBinding Background}" 
+                                                        BorderBrush="{TemplateBinding BorderBrush}" 
+                                                        BorderThickness="1" 
+                                                        CornerRadius="3">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#E10600"/>
+                                            <Setter Property="BorderBrush" Value="#E10600"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </StackPanel>
+                </Grid>
             </Border>
         </Grid>
     </Grid>
