@@ -1,4 +1,5 @@
-﻿using System.Media;
+﻿using System.ComponentModel;
+using System.Media;
 using System.Numerics;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,6 +11,7 @@ namespace F1_Manager_2026.Picking_Team
     public partial class Drivers_Pick : Window
     {
         public int timesselected = 0;
+        public bool navigation = false;
         Functions functions = new Functions();
 
         public object BudgetDisplay { get; private set; }
@@ -78,7 +80,6 @@ namespace F1_Manager_2026.Picking_Team
                     p.driver2cost = kliknuty.Cost;
                     p.driver2rating = kliknuty.Skill;
                     p.PathToDriver2 = kliknuty.PhotoPath;
-                    MessageBox.Show($"You have signed a contract with {Database.Instance.PlayerTeamInstance.driver1name} for {Database.Instance.PlayerTeamInstance.driver1cost.ToString("N0")} $ and {Database.Instance.PlayerTeamInstance.driver2name} for {Database.Instance.PlayerTeamInstance.driver2cost.ToString("N0")} $", "Congratulations", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
 
                 kliknuty.Team = p.teamName;
@@ -90,11 +91,18 @@ namespace F1_Manager_2026.Picking_Team
                 {
                     Avatar_Pick d = new Avatar_Pick();
                     d.Show();
+                    navigation=true;
                     this.Close();
                 }
             }
         }
-
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            if (!navigation)
+            {
+                Application.Current.Shutdown();
+            }
+        }
         private void DriverCard_MouseEnter(object sender, MouseEventArgs e)
         {
             functions.Button_Effect();

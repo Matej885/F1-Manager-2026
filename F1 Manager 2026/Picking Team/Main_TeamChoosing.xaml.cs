@@ -154,7 +154,7 @@ namespace F1_Manager_2026.Picking_Team
             }
             else
             {
-                Database.Instance.PlayerTeamInstance.PlayerName = $"{Name_Label.Text} {Surname_Label.Text}";
+                Database.Instance.PlayerTeamInstance.PlayerName = $"{Name_Label.Text}";
                 if (Team_Chosen == 1)
                 {
                     PlayerTeam playerTeam = new PlayerTeam();
@@ -177,6 +177,7 @@ namespace F1_Manager_2026.Picking_Team
                     Drivers_Pick drivers_Pick = new Drivers_Pick();
                 }
                 Engine_Pick engine_Pick = new Engine_Pick();
+                
                 engine_Pick.Show();
                 this.Close();
             }

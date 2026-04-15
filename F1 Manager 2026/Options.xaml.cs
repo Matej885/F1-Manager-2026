@@ -14,26 +14,22 @@ namespace F1_Manager_2026
     public partial class Options : Window
     {
         public bool isplaying = true;
-        public SoundPlayer soundPlayer;
+        // Public static aby sme k nemu mali prístup z iných okien pri zatváraní
+        public static SoundPlayer soundPlayer = new SoundPlayer();
+
         private List<string> playlist;
         private int currentTrackIndex = 0;
         private Functions functions = new Functions();
-        Functions Functions = new Functions();
+
         public Options()
         {
             InitializeComponent();
-
             playlist = functions.GetMusicList();
-            soundPlayer = new SoundPlayer();
-
-            // Spustenie základných prvkov
             PlayCurrentTrack();
 
-            // Spustenie videí (vlnovka a pozadie)
-            Music_Visualizer.Play();
-            options_Media_Element.Play();
+            if (Music_Visualizer != null) Music_Visualizer.Play();
+            if (options_Media_Element != null) options_Media_Element.Play();
 
-            // Nastavenie počiatočnej ikony
             UpdateVolumeButtonIcon();
         }
 
@@ -41,36 +37,34 @@ namespace F1_Manager_2026
         {
             try
             {
-                soundPlayer.SoundLocation = playlist[currentTrackIndex];
-                soundPlayer.PlayLooping();
-
-                if (Song_Title_Label != null)
+                if (playlist != null && playlist.Count > 0)
                 {
-                    string name = System.IO.Path.GetFileNameWithoutExtension(playlist[currentTrackIndex]);
-                    Song_Title_Label.Text = name.Replace("_", " ").ToUpper();
+                    soundPlayer.SoundLocation = playlist[currentTrackIndex];
+                    soundPlayer.Play();
+                    if (Song_Title_Label != null)
+                    {
+                        string name = System.IO.Path.GetFileNameWithoutExtension(playlist[currentTrackIndex]);
+                        Song_Title_Label.Text = name.Replace("_", " ").ToUpper();
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Chyba pri prehrávaní hudby: " + ex.Message);
+                MessageBox.Show("Chyba: " + ex.Message);
             }
         }
 
-        // --- HLAVNÁ ZMENA: Metóda na zmenu ikony ---
         private void UpdateVolumeButtonIcon()
         {
-            // Keďže je Image vo vnútri ControlTemplate, musíme ho tam nájsť
             var volumeImg = Volume_Button.Template.FindName("Volume_Icon", Volume_Button) as Image;
-
             if (volumeImg != null)
             {
-                // Určíme názov súboru podľa stavu isplaying
                 string imageName = isplaying ? "volume_on.png" : "volume_off.png";
-
-                // Vytvoríme novú cestu k obrázku (pack URI je najistejšia cesta vo WPF)
                 volumeImg.Source = new BitmapImage(new Uri($"pack://application:,,,/Images/{imageName}"));
             }
         }
+
+        // --- EVENTY VOLANÉ Z XAML ---
 
         private void Button_Click_4(object sender, RoutedEventArgs e) // Volume ON/OFF
         {
@@ -79,46 +73,27 @@ namespace F1_Manager_2026
             {
                 soundPlayer.Stop();
                 isplaying = false;
-                Music_Visualizer.Pause();
+                if (Music_Visualizer != null) Music_Visualizer.Pause();
             }
             else
             {
                 PlayCurrentTrack();
                 isplaying = true;
-                Music_Visualizer.Play();
+                if (Music_Visualizer != null) Music_Visualizer.Play();
             }
-
-            // Po každom kliknutí aktualizujeme ikonu
             UpdateVolumeButtonIcon();
-        }
-
-        // --- Ostatné metódy zostávajú rovnaké ---
-        private void MediaRepeat(object sender, RoutedEventArgs e)
-        {
-            options_Media_Element.Position = TimeSpan.FromSeconds(0);
-            options_Media_Element.Play();
-        }
-
-        private void WaveRepeat(object sender, RoutedEventArgs e)
-        {
-            Music_Visualizer.Position = TimeSpan.FromSeconds(0);
-            Music_Visualizer.Play();
         }
 
         private void Next_Song_Button_Click(object sender, RoutedEventArgs e)
         {
+            functions.Button_Effect();
             currentTrackIndex++;
             if (currentTrackIndex >= playlist.Count) currentTrackIndex = 0;
 
-            if (isplaying)
-            {
-                PlayCurrentTrack();
-            }
-            else
-            {
-                string name = System.IO.Path.GetFileNameWithoutExtension(playlist[currentTrackIndex]);
-                Song_Title_Label.Text = name.Replace("_", " ").ToUpper();
-            }
+            PlayCurrentTrack();
+            isplaying = true;
+            UpdateVolumeButtonIcon();
+            if (Music_Visualizer != null) Music_Visualizer.Play();
         }
 
         private void Career_Create_Button_Click(object sender, RoutedEventArgs e)
@@ -151,7 +126,21 @@ namespace F1_Manager_2026
 
         private void Continue_Button_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            Functions.Button_Effect();
+            functions.Button_Effect();
+        }
+
+        // --- OPAKOVANIE VIDEÍ ---
+
+        private void MediaRepeat(object sender, RoutedEventArgs e)
+        {
+            options_Media_Element.Position = TimeSpan.FromSeconds(0);
+            options_Media_Element.Play();
+        }
+
+        private void WaveRepeat(object sender, RoutedEventArgs e)
+        {
+            Music_Visualizer.Position = TimeSpan.FromSeconds(0);
+            Music_Visualizer.Play();
         }
     }
 }

@@ -74,6 +74,7 @@
     <None Remove="Images\Program_icon.png" />
     <None Remove="Images\qatar.png" />
     <None Remove="Images\RB_suit.png" />
+    <None Remove="Images\redbull_engine.jpg" />
     <None Remove="Images\redbull_suit.jpg" />
     <None Remove="Images\redbull_suit.png" />
     <None Remove="Images\renault_engine.jpg" />
@@ -103,6 +104,7 @@
     <None Remove="Images\vegas.png" />
     <None Remove="Images\verstappen.png" />
     <None Remove="Images\volume_off.png" />
+    <None Remove="Images\WorkTable.png" />
     <None Remove="Sounds\Down Under - Men At Work.wav" />
     <None Remove="Sounds\Fortunate Son - Creedence Clearwater Revival.wav" />
     <None Remove="Sounds\More Than a Feeling - Boston.wav" />
@@ -291,6 +293,9 @@
     <Content Include="Images\RB_suit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\redbull_engine.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\renault_engine.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -370,6 +375,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\volume_on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\WorkTable.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Sounds\Bad As I Used To Be - Chris Stapleton.wav">

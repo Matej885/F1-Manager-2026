@@ -90,8 +90,8 @@
 
         <Grid Grid.Row="1">
             <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="80,0,0,120" Width="420">
-                <Button Name="Continue_Button" Content="CONTINUE" Height="75" Style="{StaticResource F1MenuButton}" MouseEnter="Continue_Button_MouseEnter" Click="Continue_Button_Click"/>
-                <Button Name="Career_Create_Button" Content="NEW CAREER" Height="75" Style="{StaticResource F1MenuButton}" MouseEnter ="Continue_Button_MouseEnter" Click="Career_Create_Button_Click"/>
+                <Button x:Name="Continue_Button" Content="CONTINUE" Height="75" Style="{StaticResource F1MenuButton}" MouseEnter="Continue_Button_MouseEnter" Click="Continue_Button_Click"/>
+                <Button x:Name="Career_Create_Button" Content="NEW CAREER" Height="75" Style="{StaticResource F1MenuButton}" MouseEnter ="Continue_Button_MouseEnter" Click="Career_Create_Button_Click"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="80,0,0,45">
