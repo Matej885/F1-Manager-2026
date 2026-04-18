@@ -111,7 +111,8 @@ namespace F1_Manager_2026
                 MessageBox.Show("Nemas vytvoreny ziaden save", "Warning!!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            Database.Instance = SaveGame.Load();
+            SaveGame.Load();            
+            var db = Database.Instance;  
             MainCareerMenu mainCareerMenu = new MainCareerMenu();
             mainCareerMenu.Show();
             this.Close();
