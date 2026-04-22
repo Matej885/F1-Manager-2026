@@ -8,7 +8,8 @@
         WindowStyle="None"
         Title="F1 Manager 2026" 
         Height="1080" Width="1920"
-        Background="#050505">
+        Background="#050505"
+        Icon="/Images/Program_icon.png">
 
     <Window.Resources>
         <Style x:Key="NavButtonStyle" TargetType="Button">

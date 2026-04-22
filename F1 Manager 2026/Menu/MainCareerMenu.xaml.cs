@@ -191,5 +191,11 @@ namespace F1_Manager_2026.Menu
             if (IsSimulating) StopSimulation();
             // Navigácia pre Staff okno
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Options options = new Options();
+            options.Show();
+        }
     }
 }
