@@ -115,6 +115,7 @@ namespace F1_Manager_2026
             var db = Database.Instance;  
             MainCareerMenu mainCareerMenu = new MainCareerMenu();
             mainCareerMenu.Show();
+            soundPlayer.Stop();
             this.Close();
             
             

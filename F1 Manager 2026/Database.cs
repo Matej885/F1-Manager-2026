@@ -71,6 +71,12 @@ namespace F1_Manager_2026
             public int powertrainDyno_Level { get; set; } = 1;
             public bool powertrainDyno_Enabled { get; set; } = true;
             public List<string> DevelopmentLog { get; set; }
+            public int EngineUpgradeDaysLeft { get; set; } = -1;
+            public int NextEngineUpgrade {  get; set; } = -1;
+            public int AeroUpgradeDaysLeft { get; set; } = -1;
+            public int NextAeroUpgrade { get; set; } = -1;
+            public int ChassisUpgradeDaysLeft { get; set; } = -1;
+            public int NextChassisUpgrade { get; set; } = -1;
         }
 
         // --- PROPERTIES ---

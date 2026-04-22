@@ -108,7 +108,7 @@
                         </WrapPanel>
                     </StackPanel>
 
-                    <Button x:Name="BtnContinue" HorizontalAlignment="Right" VerticalAlignment="Bottom" Cursor="Hand" Click="BtnContinue_Click">
+                    <Button Name="BtnContinue" HorizontalAlignment="Right" VerticalAlignment="Bottom" Cursor="Hand" Click="BtnContinue_Click">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border x:Name="btnBorder" Background="#8B0000" Padding="40,20" CornerRadius="3">

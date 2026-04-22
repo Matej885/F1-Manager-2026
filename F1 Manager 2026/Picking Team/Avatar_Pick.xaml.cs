@@ -88,8 +88,8 @@ namespace F1_Manager_2026.Picking_Team
 
         private void Card_MouseEnter(object sender, MouseEventArgs e)
         {
-            // Sem môžeš dať zvuk pre hover, ak ho máš v Functions
-            // functions.Hover_Effect(); 
+            Functions functions = new Functions();
+            functions.Button_Effect(); 
 
             if (sender is Border b)
             {

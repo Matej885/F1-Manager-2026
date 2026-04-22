@@ -104,14 +104,20 @@
     <None Remove="Images\verstappen.png" />
     <None Remove="Images\volume_off.png" />
     <None Remove="Images\WorkTable.png" />
+    <None Remove="Sounds\Creedence Clearwater Revival - Lookin%27 Out My Back Door.wav" />
     <None Remove="Sounds\Down Under - Men At Work.wav" />
+    <None Remove="Sounds\Figure.09 - Linkin Park.wav" />
     <None Remove="Sounds\Fortunate Son - Creedence Clearwater Revival.wav" />
+    <None Remove="Sounds\Johnny B. Goode - Chuck Berry.wav" />
+    <None Remove="Sounds\Lynyrd Skynyrd - Free Bird.wav" />
     <None Remove="Sounds\More Than a Feeling - Boston.wav" />
+    <None Remove="Sounds\Ocean Man - Ween.wav" />
     <None Remove="Sounds\On_Button.wav" />
     <None Remove="Sounds\Real Gone - Sheryl Crow.wav" />
     <None Remove="Sounds\signing.wav" />
     <None Remove="Sounds\Sound_Wave.wav" />
     <None Remove="Sounds\The Chain - Fleetwood Mac.wav" />
+    <None Remove="Sounds\The Cure - Just Like Heaven.wav" />
     <None Remove="Videos\Loading_Screen_Source.mp4" />
     <None Remove="Videos\Options Video.mp4" />
     <None Remove="Videos\Sound_Wave.mp4" />
@@ -382,13 +388,28 @@
     <Content Include="Sounds\Bad As I Used To Be - Chris Stapleton.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Sounds\Creedence Clearwater Revival - Lookin' Out My Back Door.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Sounds\Down Under - Men At Work.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\Figure.09 - Linkin Park.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Sounds\Fortunate Son - Creedence Clearwater Revival.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Sounds\Johnny B. Goode - Chuck Berry.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\Lynyrd Skynyrd - Free Bird.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Sounds\More Than a Feeling - Boston.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\Ocean Man - Ween.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Sounds\On_Button.wav">
@@ -401,6 +422,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Sounds\The Chain - Fleetwood Mac.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\The Cure - Just Like Heaven.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Videos\Loading_Screen_Source.mp4">

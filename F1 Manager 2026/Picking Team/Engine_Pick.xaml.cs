@@ -107,5 +107,11 @@ namespace F1_Manager_2026.Picking_Team
         {
             Application.Current.Shutdown();
         }
+
+        private void Btn_Ferrari_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Functions functions = new Functions();
+            functions.Button_Effect();
+        }
     }
 }

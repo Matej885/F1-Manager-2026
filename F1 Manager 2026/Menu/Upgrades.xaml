@@ -96,7 +96,7 @@
                             <TextBlock Text="POWER UNIT" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"/>
                             <TextBlock Name="Engine_UpgradeLevel" Text="LEVEL 0 / 5" Foreground="Red" FontSize="14" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                         </StackPanel>
-                        <Button Name="PowerUnit_Upgrade" Content="INITIATE UPGRADE" Style="{StaticResource F1ButtonStyle}" Height="45" VerticalAlignment="Bottom" Click="PowerUnit_Upgrade_Click"/>
+                        <Button Name="PowerUnit_Upgrade" MouseEnter="PowerUnit_Upgrade_MouseEnter" Content="INITIATE UPGRADE" Style="{StaticResource F1ButtonStyle}" Height="45" VerticalAlignment="Bottom" Click="PowerUnit_Upgrade_Click"/>
                     </Grid>
                 </Border>
 
@@ -109,7 +109,7 @@
                             <TextBlock Text="AERODYNAMICS" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"/>
                             <TextBlock Name="AeroUpgradeLevel" Text="LEVEL 0 / 5" Foreground="Red" FontSize="14" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                         </StackPanel>
-                        <Button Name="Aero_Upgrade" Content="INITIATE UPGRADE" Style="{StaticResource F1ButtonStyle}" Height="45" VerticalAlignment="Bottom" Click="Aero_Upgrade_Click"/>
+                        <Button Name="Aero_Upgrade" MouseEnter="PowerUnit_Upgrade_MouseEnter" Content="INITIATE UPGRADE" Style="{StaticResource F1ButtonStyle}" Height="45" VerticalAlignment="Bottom" Click="Aero_Upgrade_Click"/>
                     </Grid>
                 </Border>
 
@@ -122,7 +122,7 @@
                             <TextBlock Text="CHASSIS" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"/>
                             <TextBlock Name="Chassis_UpgradeLevel" Text="LEVEL 0 / 5" Foreground="Red" FontSize="14" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                         </StackPanel>
-                        <Button Name="Chassis_Upgrade" Content="INITIATE UPGRADE" Style="{StaticResource F1ButtonStyle}" Height="45" VerticalAlignment="Bottom" Click="Chassis_Upgrade_Click"/>
+                        <Button Name="Chassis_Upgrade" MouseEnter="PowerUnit_Upgrade_MouseEnter" Content="INITIATE UPGRADE" Style="{StaticResource F1ButtonStyle}" Height="45" VerticalAlignment="Bottom" Click="Chassis_Upgrade_Click"/>
                     </Grid>
                 </Border>
             </UniformGrid>
@@ -141,11 +141,11 @@
             </Border>
         </StackPanel>
 
-        <Button Content="RETURN TO HQ" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+        <Button Content="RETURN TO HQ" MouseEnter="PowerUnit_Upgrade_MouseEnter" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" 
                 Margin="0,0,40,40" Width="300" Height="70" Background="Transparent" Foreground="White" 
                 BorderBrush="White" BorderThickness="2" FontSize="18" FontWeight="Bold" Cursor="Hand" Click="Button_Click_Back" />
 
-        <Button Content="EXIT" Grid.Column="2" Background="#440000" Foreground="Gray" FontSize="10" 
+        <Button Content="EXIT" MouseEnter="PowerUnit_Upgrade_MouseEnter" Grid.Column="2" Background="#440000" Foreground="Gray" FontSize="10" 
                 HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" 
                 Width="60" Height="20" Click="Button_Click_Close" BorderThickness="0"/>
     </Grid>

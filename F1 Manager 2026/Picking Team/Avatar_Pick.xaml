@@ -78,7 +78,7 @@
                             </Grid>
                         </Viewbox>
 
-                        <Button Content="CONFIRM SELECTION" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                        <Button Content="CONFIRM SELECTION" MouseEnter="Card_MouseEnter" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
                                 Margin="40" Padding="30,15" Background="Red" Foreground="White" FontSize="20"
                                 FontWeight="Bold" Click="Confirm_Click" Cursor="Hand" FontFamily="Bahnschrift">
                             <Button.Template>
@@ -97,7 +97,7 @@
                     </Grid>
                 </Border>
             </Grid>
-            <Button  Background="DarkRed"  FontSize="10" Content="Close game" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="23" Width="76" Click="Button_Click" Grid.Column="1"/>
+            <Button  Background="DarkRed" MouseEnter="Card_MouseEnter"  FontSize="10" Content="Close game" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="23" Width="76" Click="Button_Click" Grid.Column="1"/>
         </Grid>
     </Grid>
 </Window>
