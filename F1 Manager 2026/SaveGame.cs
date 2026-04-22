@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using System.IO;
 using F1_Manager_2026;
-
 
 namespace F1_Manager_2026
 {
@@ -15,36 +11,70 @@ namespace F1_Manager_2026
     {
         private static string subor = "SaveGameF1MNGR.json";
 
+        /// <summary>
+        /// Uloží aktuálnu inštanciu databázy do JSON súboru.
+        /// </summary>
         public static void Save(Database database)
         {
-            // Serializuje objekt Player do JSON formátu a uloží ho do súboru
-            string json = JsonSerializer.Serialize(database, new JsonSerializerOptions
+            try
             {
-                WriteIndented = true
-            });
+                string json = JsonSerializer.Serialize(database, new JsonSerializerOptions
+                {
+                    WriteIndented = true
+                });
 
-            File.WriteAllText(subor, json);
+                File.WriteAllText(subor, json);
+            }
+            catch (Exception ex)
+            {
+                // V reálnej aplikácii by tu bolo logovanie
+                System.Diagnostics.Debug.WriteLine($"Chyba pri ukladaní: {ex.Message}");
+            }
         }
 
-        public static Database Load()
+        /// <summary>
+        /// Načíta dáta zo súboru a preleje ich priamo do Database.Instance.
+        /// </summary>
+        public static void Load()
         {
-            // Načíta uloženú hru zo súboru, ak existuje, inak vráti null
             if (!File.Exists(subor))
             {
-                return null;
+                return;
             }
 
-            string json = File.ReadAllText(subor);
-            return JsonSerializer.Deserialize<Database>(json);
+            try
+            {
+                string json = File.ReadAllText(subor);
+                Database loadedDatabase = JsonSerializer.Deserialize<Database>(json);
+
+                if (loadedDatabase != null)
+                {
+                    // KRITICKÝ KROK: Priradenie načítaných dát do globálneho Singletonu
+                    Database.Instance = loadedDatabase;
+
+                    // POISTKA: Kalendár sa zvyčajne do JSONu neukladá celý (alebo môže byť null),
+                    // preto ho po načítaní pre istotu znovu inicializujeme.
+                    if (Database.Instance.Calendar2026 == null || Database.Instance.Calendar2026.Count == 0)
+                    {
+                        Database.Instance.FillCalendar();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Chyba pri načítaní: {ex.Message}");
+            }
         }
+
+        /// <summary>
+        /// Odstráni uloženú hru.
+        /// </summary>
         public static void DeleteSave()
         {
-            // Odstráni súbor so save hrou, ak existuje
             if (File.Exists(subor))
             {
                 File.Delete(subor);
             }
         }
     }
-
 }

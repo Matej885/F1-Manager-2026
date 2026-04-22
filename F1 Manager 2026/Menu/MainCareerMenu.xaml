@@ -138,14 +138,14 @@
                 <StackPanel Grid.Column="2">
                     <Border Background="#111" Padding="25" BorderBrush="#E10600" BorderThickness="2,0,0,0">
                         <StackPanel>
-                            <TextBlock Text="NEXT GP" Foreground="#555" FontSize="12" FontWeight="Bold"/>
-                            <TextBlock Name="NextRaceLabel" Text="BAHRAIN GP" Foreground="White" FontSize="32" FontWeight="Black"/>
-                            <TextBlock Name="DateLabel" Text="MARCH 26 - 28" Foreground="#E10600" FontSize="14" FontWeight="Bold" Margin="0,5,0,20"/>
-                            <Button Name="BtnSimulate" Content="CONTINUE SESSION" Style="{StaticResource NavButtonStyle}" Height="50"/>
+                            <TextBlock Text="Day:" Foreground="#555" FontSize="12" FontWeight="Bold"/>
+                            <TextBlock Name="DayLabel" Text="1" Foreground="White" FontSize="32" FontWeight="Black"/>
+                            <TextBlock Name="YearLabel" Text="2026" Foreground="#E10600" FontSize="14" FontWeight="Bold" Margin="0,5,0,20"/>
+                            <Button Name="BtnSimulate" Content="SIMULATE DAYS" Style="{StaticResource NavButtonStyle}" Height="50" Click="BtnSimulate_Click"/>
                         </StackPanel>
                     </Border>
                     <Border Background="#0A0A0A" BorderBrush="#222" BorderThickness="1" Height="380" Margin="0,40,0,0">
-                        <TextBlock Padding="20" Foreground="#888" FontSize="13" TextWrapping="Wrap">
+                        <TextBlock Name= "Development_Log" Padding="20" Foreground="#888" FontSize="13" TextWrapping="Wrap">
                             [INFO] System Ready.<LineBreak/>[FINANCE] Budget stable.<LineBreak/>[ENGINE] All systems operational.
                         </TextBlock>
                     </Border>
