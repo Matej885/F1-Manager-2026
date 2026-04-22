@@ -49,12 +49,15 @@ namespace F1_Manager_2026.Menu
             int actual_aero_cost = aero_cost * db.PlayerTeamInstance.AeroUpgradeLevel;
 
             Random random = new Random();
-            db.PlayerTeamInstance.AeroPower += random.Next(1, 10);
+            int strenght = random.Next(1, 10);
             db.PlayerTeamInstance.Budget -= actual_aero_cost;
-            db.PlayerTeamInstance.AeroUpgradeLevel++;
             db.PlayerFacilities.WindTunnel_Enabled = false;
-
-            LogUpgrade("Aerodynamics");
+            db.AddDevelopmentLog($"Aerodynamics upgrade started. It will take between 30 and 40 days to complete. Your money has been deducted.");
+            LogUpgrade("Aerodynamics", "30 - 40");
+            Random rnd = new Random();
+            int daysleft = rnd.Next(30, 40);
+            db.PlayerFacilities.AeroUpgradeDaysLeft = daysleft;
+            db.PlayerFacilities.NextAeroUpgrade = strenght;
             CheckMoney();
         }
 
@@ -64,12 +67,15 @@ namespace F1_Manager_2026.Menu
             int actual_engine_cost = basicenginecost * db.PlayerTeamInstance.Engine_UpgradeLevel;
 
             Random random = new Random();
-            db.PlayerTeamInstance.EnginePower += random.Next(1, 20);
+            int strenght = random.Next(1, 20);
             db.PlayerTeamInstance.Budget -= actual_engine_cost;
-            db.PlayerTeamInstance.Engine_UpgradeLevel++;
             db.PlayerFacilities.powertrainDyno_Enabled = false;
-
-            LogUpgrade("Power Unit");
+            db.AddDevelopmentLog($"Power Unit upgrade started. It will take between 50 and 60 days to complete. Your money has been deducted.");
+            LogUpgrade("Power Unit", "50 - 60");
+            Random rnd = new Random();
+            int daysleft = rnd.Next(50, 60);
+            db.PlayerFacilities.EngineUpgradeDaysLeft = daysleft;
+            db.PlayerFacilities.NextEngineUpgrade = strenght;
             CheckMoney();
         }
 
@@ -79,18 +85,21 @@ namespace F1_Manager_2026.Menu
             int actual_chassis_cost = chassis_cost * db.PlayerTeamInstance.ChassisUpgradeLevel;
 
             Random random = new Random();
-            db.PlayerTeamInstance.AeroPower += random.Next(1, 15);
+            int strenght = random.Next(1, 15);
             db.PlayerTeamInstance.Budget -= actual_chassis_cost;
-            db.PlayerTeamInstance.ChassisUpgradeLevel++;
             db.PlayerFacilities.CFD_Enabled = false;
-
-            LogUpgrade("Chassis");
+            db.AddDevelopmentLog($"Chassis upgrade started. It will take between 20 and 30 days to complete. Your money has been deducted.");
+            LogUpgrade("Chassis", "20 - 30");
+            Random rnd = new Random();
+            int daysleft = rnd.Next(20, 30);
+            db.PlayerFacilities.ChassisUpgradeDaysLeft = daysleft;
+            db.PlayerFacilities.NextChassisUpgrade = strenght; 
             CheckMoney();
         }
 
-        private void LogUpgrade(string partName)
+        private void LogUpgrade(string partName, string timeleft)
         {
-            Upgrades_Log.Text += Environment.NewLine + $"[{DateTime.Now:HH:mm:ss}]: Your {partName} is in development! It will be ready soon.";
+            Upgrades_Log.Text += Environment.NewLine + $"[{DateTime.Now:HH:mm:ss}]: Your {partName} is in development! It will be ready between {timeleft} days.";
         }
 
         private void CheckMoney()
@@ -179,6 +188,12 @@ namespace F1_Manager_2026.Menu
         private void Button_Click_Close(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void PowerUnit_Upgrade_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Functions functions = new Functions();
+            functions.Button_Effect();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

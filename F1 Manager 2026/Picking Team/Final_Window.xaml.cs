@@ -2,7 +2,8 @@
 using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Windows.Ink;
-using F1_Manager_2026.Menu; // Potrebné pre prácu s InkCanvas (podpisom)
+using F1_Manager_2026.Menu;
+using System.Windows.Media; // Potrebné pre prácu s InkCanvas (podpisom)
 
 namespace F1_Manager_2026.Picking_Team
 {
@@ -79,15 +80,27 @@ namespace F1_Manager_2026.Picking_Team
             SignatureCanvas.Strokes.Clear();
         }
 
-        private void BtnContinue_Click(object sender, RoutedEventArgs e)
+        private async void BtnContinue_Click(object sender, RoutedEventArgs e)
         {
-            // Kontrola, či hráč reálne niečo nakreslil na InkCanvas
+            // 1. Check if signature exists
             if (SignatureCanvas.Strokes.Count == 0)
             {
                 return;
             }
 
-            // Úspešné podpísanie
+            // 2. Play the sound
+            MediaPlayer mediaPlayer = new MediaPlayer();
+            mediaPlayer.Open(new Uri("Sounds/signing.wav", UriKind.Relative));
+            mediaPlayer.Play();
+            mediaPlayer.Volume = 1;
+            // 3. Prevent multiple clicks during the wait
+            BtnContinue.IsEnabled = false;
+
+            // 4. Wait 2 seconds (non-blocking)
+            // This uses 'await' which requires the 'async' keyword in the method header
+            await Task.Delay(2000);
+
+            // 5. Navigate and Close
             MainCareerMenu mainCareerMenu = new MainCareerMenu();
             mainCareerMenu.Show();
             SaveGame.Save(Database.Instance);

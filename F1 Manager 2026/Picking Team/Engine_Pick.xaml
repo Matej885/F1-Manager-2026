@@ -51,7 +51,7 @@
                             <TextBlock Text="25.0M $" Foreground="LightGreen" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right"/>
                         </Grid>
                     </StackPanel>
-                    <Button Name="Btn_Ferrari" Grid.Row="4" Content="SELECT" Background="#333" Foreground="White" Height="45" FontWeight="Bold" Cursor="Hand" Click="Btn_Ferrari_Click"/>
+                    <Button Name="Btn_Ferrari" MouseEnter="Btn_Ferrari_MouseEnter" Grid.Row="4" Content="SELECT" Background="#333" Foreground="White" Height="45" FontWeight="Bold" Cursor="Hand" Click="Btn_Ferrari_Click"/>
                 </Grid>
             </Border>
 
@@ -78,7 +78,7 @@
                             <TextBlock Text="28.5M $" Foreground="LightGreen" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right"/>
                         </Grid>
                     </StackPanel>
-                    <Button Name="Btn_Mercedes" Grid.Row="4" Content="SELECT" Background="#333" Foreground="White" Height="45" FontWeight="Bold" Cursor="Hand" Click="Btn_Mercedes_Click_1"/>
+                    <Button Name="Btn_Mercedes" MouseEnter="Btn_Ferrari_MouseEnter" Grid.Row="4" Content="SELECT" Background="#333" Foreground="White" Height="45" FontWeight="Bold" Cursor="Hand" Click="Btn_Mercedes_Click_1"/>
                 </Grid>
             </Border>
 
@@ -105,7 +105,7 @@
                             <TextBlock Text="18.0M $" Foreground="LightGreen" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right"/>
                         </Grid>
                     </StackPanel>
-                    <Button Name="Btn_Honda" Grid.Row="4" Content="SELECT" Background="#333" Foreground="White" Height="45" FontWeight="Bold" Cursor="Hand" Click="Btn_Honda_Click_1"/>
+                    <Button Name="Btn_Honda" MouseEnter="Btn_Ferrari_MouseEnter" Grid.Row="4" Content="SELECT" Background="#333" Foreground="White" Height="45" FontWeight="Bold" Cursor="Hand" Click="Btn_Honda_Click_1"/>
                 </Grid>
             </Border>
 
@@ -132,7 +132,7 @@
                             <TextBlock Text="21.0M $" Foreground="LightGreen" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right"/>
                         </Grid>
                     </StackPanel>
-                    <Button Name="Btn_Audi" Grid.Row="4" Content="SELECT" Background="#333" Foreground="White" Height="45" FontWeight="Bold" Cursor="Hand" Click="Btn_Audi_Click_1"/>
+                    <Button Name="Btn_Audi" Grid.Row="4" MouseEnter="Btn_Ferrari_MouseEnter" Content="SELECT" Background="#333" Foreground="White" Height="45" FontWeight="Bold" Cursor="Hand" Click="Btn_Audi_Click_1"/>
                 </Grid>
             </Border>
 
@@ -159,7 +159,7 @@
                             <TextBlock Text="17.5M $" Foreground="LightGreen" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right"/>
                         </Grid>
                     </StackPanel>
-                    <Button Name="Btn_Renault" Grid.Row="4" Content="SELECT" Background="#333" Foreground="White" Height="45" FontWeight="Bold" Cursor="Hand" Click="Btn_Renault_Click_1"/>
+                    <Button Name="Btn_Renault" Grid.Row="4" MouseEnter="Btn_Ferrari_MouseEnter" Content="SELECT" Background="#333" Foreground="White" Height="45" FontWeight="Bold" Cursor="Hand" Click="Btn_Renault_Click_1"/>
                 </Grid>
             </Border>
 
@@ -186,7 +186,7 @@
                             <TextBlock Text="23.0M $" Foreground="LightGreen" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right"/>
                         </Grid>
                     </StackPanel>
-                    <Button Name="Btn_Ford" Grid.Row="4" Content="SELECT" Background="#333" Foreground="White" Height="45" FontWeight="Bold" Cursor="Hand" Click="Btn_Ford_Click"/>
+                    <Button Name="Btn_Ford" Grid.Row="4" MouseEnter="Btn_Ferrari_MouseEnter" Content="SELECT" Background="#333" Foreground="White" Height="45" FontWeight="Bold" Cursor="Hand" Click="Btn_Ford_Click"/>
                 </Grid>
             </Border>
 
