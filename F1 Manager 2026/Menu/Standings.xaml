@@ -96,7 +96,7 @@
                                Margin="10,0,0,0"/>
                 </StackPanel>
 
-                <Button Content="BACK TO HQ" 
+                <Button Name = "BackButton"  Content="BACK TO HQ" 
                         HorizontalAlignment="Right" 
                         VerticalAlignment="Center" 
                         Style="{StaticResource BackButtonStyle}" 

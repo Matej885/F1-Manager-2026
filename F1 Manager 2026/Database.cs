@@ -14,6 +14,7 @@ namespace F1_Manager_2026
     public class DayInfo
     {
         public int Day { get; set; } = 1; // Začíname dňom 1
+        public bool EndOfSeason { get; set; } = false;
         public bool IsSpecialEvent { get; set; } = false;
     }
 
