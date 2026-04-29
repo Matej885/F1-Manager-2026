@@ -6,6 +6,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using System.IO;
+using F1_Manager_2026.Picking_Team;
 
 namespace F1_Manager_2026.Menu
 {
@@ -194,11 +195,20 @@ namespace F1_Manager_2026.Menu
             if (db.Calendar2026.Any(t => t.RaceDay >= db.CurrentDayInfo.Day && t.RaceDay <= db.CurrentDayInfo.Day + 2)) return;
             if (db.CurrentDayInfo.Day >= 20)
             {
-                
+                timer.Stop();
+                BtnSimulate.Content = "CONTINUE";
+                IsSimulating = false;
+                Engine_Pick EP = new Engine_Pick();
+                EP.Show();
+                db.CurrentDayInfo.Day = 1;
+                this.Close();
             }
-            timer.Start();
-            BtnSimulate.Content = "STOP";
-            IsSimulating = true;
+            else
+            {
+                timer.Start();
+                BtnSimulate.Content = "STOP";
+                IsSimulating = true;
+            }
         }
 
         private void BtnSimulate_Click(object sender, RoutedEventArgs e)
