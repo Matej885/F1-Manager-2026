@@ -137,6 +137,9 @@ namespace F1_Manager_2026.Menu
             if (isRaceUpcoming || db.CurrentDayInfo.IsSpecialEvent || nextDay > 273)
             {
                 StopSimulation();
+                Race_Simulation.Race_Simulation _Simulation = new Race_Simulation.Race_Simulation();
+                _Simulation.Show();
+                this.Close();
                 return;
             }
 
@@ -189,7 +192,10 @@ namespace F1_Manager_2026.Menu
         {
             var db = Database.Instance;
             if (db.Calendar2026.Any(t => t.RaceDay >= db.CurrentDayInfo.Day && t.RaceDay <= db.CurrentDayInfo.Day + 2)) return;
-
+            if (db.CurrentDayInfo.Day >= 20)
+            {
+                
+            }
             timer.Start();
             BtnSimulate.Content = "STOP";
             IsSimulating = true;
@@ -264,7 +270,14 @@ namespace F1_Manager_2026.Menu
             new Standings().Show();
             this.Close();
         }
-
+        private void SeasonEnd(object  sender, EventArgs e)
+        {
+            var db = Database.Instance;
+            db.CurrentDayInfo.EndOfSeason = true;
+            MessageBox.Show("This is the end of the season. Let´s see who won it.");
+            Standings standings = new Standings();
+            standings.Show();
+        }
         private void Button_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
             Functions functions = new Functions();

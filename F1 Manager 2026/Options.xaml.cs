@@ -15,7 +15,7 @@ namespace F1_Manager_2026
     {
         public bool isplaying = true;
         // Public static aby sme k nemu mali prístup z iných okien pri zatváraní
-        public static SoundPlayer soundPlayer = new SoundPlayer();
+        public static MediaPlayer soundPlayer = new MediaPlayer();
 
         private List<string> playlist;
         private int currentTrackIndex = 0;
@@ -39,7 +39,7 @@ namespace F1_Manager_2026
             {
                 if (playlist != null && playlist.Count > 0)
                 {
-                    soundPlayer.SoundLocation = playlist[currentTrackIndex];
+                    soundPlayer.Open(new Uri(playlist[currentTrackIndex], UriKind.RelativeOrAbsolute));
                     soundPlayer.Play();
                     if (Song_Title_Label != null)
                     {

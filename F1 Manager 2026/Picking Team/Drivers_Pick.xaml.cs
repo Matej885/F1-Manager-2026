@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using F1_Manager_2026.Menu;
+using System.ComponentModel;
 using System.Media;
 using System.Numerics;
 using System.Windows;
@@ -21,6 +22,7 @@ namespace F1_Manager_2026.Picking_Team
             InitializeComponent();
             LoadDataToUI();
             ResetMoney();
+            timesselected = 0;
         }
 
         private void ResetMoney()
@@ -87,6 +89,11 @@ namespace F1_Manager_2026.Picking_Team
 
                 timesselected++;
                 ResetMoney();
+                if (db.CurrentDayInfo.EndOfSeason == true)
+                {
+                    MainCareerMenu mainCareerMenu = new MainCareerMenu();
+                    mainCareerMenu.Show();
+                }
                 if (timesselected == 2)
                 {
                     Avatar_Pick d = new Avatar_Pick();

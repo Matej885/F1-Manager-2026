@@ -1,4 +1,5 @@
-﻿using System;
+﻿using F1_Manager_2026.Picking_Team;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -16,6 +17,11 @@ namespace F1_Manager_2026.Menu
         public Standings()
         {
             InitializeComponent();
+            var db = Database.Instance;
+            if (db.CurrentDayInfo.EndOfSeason == true)
+            {
+                BackButton.Content = "Continue to boss negotiation"; 
+            }
             LoadStandingsData();
             this.DataContext = this; // Dôležité pre fungovanie {Binding ...}
         }
@@ -37,8 +43,18 @@ namespace F1_Manager_2026.Menu
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            MainCareerMenu mainMenu = new MainCareerMenu();
-            mainMenu.Show();
+            var db = Database.Instance;
+            if (db.CurrentDayInfo.EndOfSeason == true)
+            {
+               Engine_Pick DP = new Engine_Pick();
+                this.Close();
+                DP.Show();
+            }
+            else
+            {
+                MainCareerMenu mainMenu = new MainCareerMenu();
+                mainMenu.Show();
+            }
             this.Close();
         }
     }

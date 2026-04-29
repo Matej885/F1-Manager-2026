@@ -19,11 +19,7 @@ public class Functions
             musicPath + "Formula 1 Theme - Brian Tyler.wav",
             musicPath + "Down Under - Men At Work.wav",
             musicPath + "Figure.09 - Linkin Park.wav",
-            musicPath + "Lynyrd Skynyrd - Free Bird.wav",
             musicPath + "The Cure - Just Like Heaven.wav",
-            musicPath + "Creedence Clearwater Revival - Lookin' Out My Back Door.wav",
-            musicPath + "Ocean Man - Ween.wav",
-            musicPath + "Johnny B. Goode - Chuck Berry.wav",
         };
     }
 
