@@ -16,7 +16,10 @@
     <None Remove="Images\AlfaRomeo-logo.jpg" />
     <None Remove="Images\AlfaRomeo_Car.jpg" />
     <None Remove="Images\alonso.png" />
+    <None Remove="Images\alpine.png" />
     <None Remove="Images\antonelli.png" />
+    <None Remove="Images\astonmartin.png" />
+    <None Remove="Images\audi.png" />
     <None Remove="Images\audi_engine.jpg" />
     <None Remove="Images\australia.png" />
     <None Remove="Images\australia1.png" />
@@ -32,6 +35,7 @@
     <None Remove="Images\bottas1.png" />
     <None Remove="Images\brazil.png" />
     <None Remove="Images\britain.png" />
+    <None Remove="Images\cadillac.png" />
     <None Remove="Images\canada.png" />
     <None Remove="Images\canada1.png" />
     <None Remove="Images\chassis.jpg" />
@@ -44,8 +48,10 @@
     <None Remove="Images\coloured_tire_difficulty.png" />
     <None Remove="Images\cota.png" />
     <None Remove="Images\F1 Manager 2026 logo.png" />
+    <None Remove="Images\ferrari.png" />
     <None Remove="Images\ferrari_engine.png" />
     <None Remove="Images\gasly.png" />
+    <None Remove="Images\haas.png" />
     <None Remove="Images\hadjar.png" />
     <None Remove="Images\hamilton.png" />
     <None Remove="Images\helmet.png" />
@@ -57,6 +63,8 @@
     <None Remove="Images\leclerc.png" />
     <None Remove="Images\lindblad.png" />
     <None Remove="Images\madrid.png" />
+    <None Remove="Images\mclaren.png" />
+    <None Remove="Images\mercedes.png" />
     <None Remove="Images\mercedes_engine.jpg" />
     <None Remove="Images\mexico.png" />
     <None Remove="Images\miami.png" />
@@ -73,7 +81,9 @@
     <None Remove="Images\piastri.png" />
     <None Remove="Images\Program_icon.png" />
     <None Remove="Images\qatar.png" />
+    <None Remove="Images\rb.png" />
     <None Remove="Images\RB_suit.png" />
+    <None Remove="Images\redbull.png" />
     <None Remove="Images\redbull_engine.jpg" />
     <None Remove="Images\redbull_suit.jpg" />
     <None Remove="Images\redbull_suit.png" />
@@ -104,6 +114,7 @@
     <None Remove="Images\vegas.png" />
     <None Remove="Images\verstappen.png" />
     <None Remove="Images\volume_off.png" />
+    <None Remove="Images\williams.png" />
     <None Remove="Images\WorkTable.png" />    <None Remove="Sounds\Figure.09  - Linkin Park.wav" />    <None Remove="Sounds\Figure.09 - Linkin Park.wav" />    <None Remove="Sounds\Johnny B. Goode - Chuck Berry.wav" />
     <None Remove="Sounds\Johnny B. Goode - ChuckBerry.wav" />
     <None Remove="Sounds\Ocean Man -  Ween.wav" />
@@ -132,7 +143,16 @@
     <Content Include="Images\alonso.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\alpine.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\antonelli.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\astonmartin.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\audi.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\audi_engine.jpg">
@@ -204,6 +224,9 @@
     <Content Include="Images\cota.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\ferrari.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\ferrari_engine.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -246,6 +269,12 @@
     <Content Include="Images\madrid.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\mclaren.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\mercedes.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\mercedes_engine.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -285,7 +314,13 @@
     <Content Include="Images\qatar.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\rb.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\RB_suit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\redbull.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\redbull_engine.jpg">
@@ -372,6 +407,9 @@
     <Content Include="Images\volume_on.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\williams.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\WorkTable.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -445,6 +483,18 @@
 
   <ItemGroup>
     <Content Include="Images\Program_icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\haas.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\cadillac.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

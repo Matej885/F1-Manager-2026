@@ -296,8 +296,8 @@ namespace F1_Manager_2026.Menu
             var db = Database.Instance;
             db.CurrentDayInfo.EndOfSeason = true;
             MessageBox.Show("This is the end of the season. Let´s see who won it.");
-            Standings standings = new Standings();
-            standings.Show();
+            WCC wcc = new WCC();
+            wcc.Show();
         }
         private void Button_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {

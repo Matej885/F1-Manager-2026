@@ -124,7 +124,7 @@ namespace F1_Manager_2026
                 new F1Team { Name = "Audi", Rating = 140, LogoPath = "/Images/audi.png" },
                 new F1Team { Name = "Alpine", Rating = 155, LogoPath = "/Images/alpine.png" },
                 new F1Team { Name = "Williams", Rating = 135, LogoPath = "/Images/williams.png" },
-                new F1Team { Name = "RB", Rating = 145, LogoPath = "/Images/rb.png" },
+                new F1Team { Name = "RB", Rating = 145, LogoPath = "/Images/rb.jpg" },
                 new F1Team { Name = "Haas", Rating = 200, LogoPath = "/Images/haas.png" },
                 new F1Team { Name = "Cadillac", Rating = 110, LogoPath = "/Images/cadillac.png" }
             };
