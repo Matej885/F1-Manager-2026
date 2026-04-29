@@ -18,7 +18,7 @@ namespace F1_Manager_2026.Menu
         {
             InitializeComponent();
             var db = Database.Instance;
-            if (db.CurrentDayInfo.EndOfSeason = true)
+            if (db.CurrentDayInfo.EndOfSeason == true)
             {
                 BackButton.Content = "Continue to boss negotiation"; 
             }
@@ -44,13 +44,17 @@ namespace F1_Manager_2026.Menu
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             var db = Database.Instance;
-            if (db.CurrentDayInfo.EndOfSeason = true)
+            if (db.CurrentDayInfo.EndOfSeason == true)
             {
-                Drivers_Pick DP = new Drivers_Pick();
+               Engine_Pick DP = new Engine_Pick();
+                this.Close();
                 DP.Show();
             }
-            MainCareerMenu mainMenu = new MainCareerMenu();
-            mainMenu.Show();
+            else
+            {
+                MainCareerMenu mainMenu = new MainCareerMenu();
+                mainMenu.Show();
+            }
             this.Close();
         }
     }

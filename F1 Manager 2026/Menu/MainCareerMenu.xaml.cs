@@ -192,9 +192,9 @@ namespace F1_Manager_2026.Menu
         {
             var db = Database.Instance;
             if (db.Calendar2026.Any(t => t.RaceDay >= db.CurrentDayInfo.Day && t.RaceDay <= db.CurrentDayInfo.Day + 2)) return;
-            if (db.CurrentDayInfo.Day >= 280)
+            if (db.CurrentDayInfo.Day >= 20)
             {
-                //dddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+                
             }
             timer.Start();
             BtnSimulate.Content = "STOP";
