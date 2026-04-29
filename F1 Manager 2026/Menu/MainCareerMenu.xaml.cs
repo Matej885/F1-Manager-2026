@@ -247,11 +247,7 @@ namespace F1_Manager_2026.Menu
             this.Close();
         }
 
-        private void Button_Click_Save(object sender, RoutedEventArgs e)
-        {
-            if (IsSimulating) StopSimulation();
-            SaveGame.Save(Database.Instance);
-        }
+       
 
         private void Button_Click_1(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
 
