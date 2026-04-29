@@ -22,7 +22,20 @@ namespace F1_Manager_2026.Picking_Team
             InitializeComponent();
             LoadDataToUI();
             ResetMoney();
+            var db = Database.Instance;
             timesselected = 0;
+            if (db.CurrentDayInfo.EndOfSeason == true)
+            {
+                 
+            }
+            db.PlayerTeamInstance.driver1name = "";
+            db.PlayerTeamInstance.driver1cost = 0;
+            db.PlayerTeamInstance.driver1rating = 0;
+            db.PlayerTeamInstance.PathToDriver1 = "";
+            db.PlayerTeamInstance.driver2name = "";
+            db.PlayerTeamInstance.driver2cost = 0;
+            db.PlayerTeamInstance.driver2rating = 0;
+            db.PlayerTeamInstance.PathToDriver2 = "";
         }
 
         private void ResetMoney()

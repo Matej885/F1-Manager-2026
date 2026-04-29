@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Xml.Linq;
 
 namespace F1_Manager_2026.Picking_Team
 {
@@ -14,6 +15,12 @@ namespace F1_Manager_2026.Picking_Team
         public Engine_Pick()
         {
             InitializeComponent();
+
+            var db = Database.Instance;
+            db.PlayerTeamInstance.EngineName = "";
+            db.PlayerTeamInstance.Engine_Path = "";
+            db.PlayerTeamInstance.EnginePower = 0;
+            db.PlayerTeamInstance.EngineReliability = 0;
 
             _enginePrices = new Dictionary<Button, decimal>
             {
