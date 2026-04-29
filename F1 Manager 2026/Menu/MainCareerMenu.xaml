@@ -199,11 +199,12 @@
                         </StackPanel>
                     </Grid>
 
-                    <UniformGrid Grid.Column="1" Columns="5" Margin="40,20,0,20">
+                    <UniformGrid Grid.Column="1" Columns="6" Margin="40,20,0,20">
                         <Button Content="UPGRADES" Click="Button_Click_Upgrade" MouseEnter="Button_MouseEnter" Style="{StaticResource NavButtonStyle}" Margin="5,0"/>
                         <Button Content="CALENDAR" Click="Button_Click_Calendar" MouseEnter="Button_MouseEnter" Style="{StaticResource NavButtonStyle}" Margin="5,0"/>
-                        <Button Content="STANDINGS" Style="{StaticResource NavButtonStyle}" Click="Button_Click" MouseEnter="Button_MouseEnter" Margin="5,0"/>
-                        <Button Content="MAIN MENU" Click="Button_Click_Save" MouseEnter="Button_MouseEnter" Style="{StaticResource NavButtonStyle}" Margin="5,0"/>
+                        <Button Content="WDC" Style="{StaticResource NavButtonStyle}" Click="Button_Click_WDC" MouseEnter="Button_MouseEnter" Margin="5,0"/>
+                        <Button Content="WCC" Style="{StaticResource NavButtonStyle}" Click="Button_Click_WCC" MouseEnter="Button_MouseEnter" Margin="5,0"/>
+                        <Button Content="MAIN MENU" Click="Button_Click_MainMenu" MouseEnter="Button_MouseEnter" Style="{StaticResource NavButtonStyle}" Margin="5,0"/>
                         <Button Content="EXIT" Click="Button_Click_1" MouseEnter="Button_MouseEnter" Style="{StaticResource NavButtonStyle}" Foreground="#E10600" Margin="5,0"/>
                     </UniformGrid>
                 </Grid>

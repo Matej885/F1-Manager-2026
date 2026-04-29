@@ -193,7 +193,7 @@ namespace F1_Manager_2026.Menu
         {
             var db = Database.Instance;
             if (db.Calendar2026.Any(t => t.RaceDay >= db.CurrentDayInfo.Day && t.RaceDay <= db.CurrentDayInfo.Day + 2)) return;
-            if (db.CurrentDayInfo.Day >= 20)
+            if (db.CurrentDayInfo.Day >= 280)
             {
                 timer.Stop();
                 BtnSimulate.Content = "CONTINUE";
@@ -276,6 +276,21 @@ namespace F1_Manager_2026.Menu
             new Standings().Show();
             this.Close();
         }
+
+        private void Button_Click_WDC(object sender, RoutedEventArgs e)
+        {
+            if (IsSimulating) StopSimulation();
+            new Standings().Show();
+            this.Close();
+        }
+
+        private void Button_Click_WCC(object sender, RoutedEventArgs e)
+        {
+            if (IsSimulating) StopSimulation();
+            new WCC().Show();
+            this.Close();
+        }
+
         private void SeasonEnd(object  sender, EventArgs e)
         {
             var db = Database.Instance;
@@ -290,7 +305,7 @@ namespace F1_Manager_2026.Menu
             functions.Button_Effect();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_MainMenu(object sender, RoutedEventArgs e)
         {
             Options options = new Options();
             options.Show();
