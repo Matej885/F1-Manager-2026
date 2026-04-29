@@ -201,6 +201,7 @@ namespace F1_Manager_2026.Menu
                 Engine_Pick EP = new Engine_Pick();
                 EP.Show();
                 db.CurrentDayInfo.Day = 1;
+                db.CurrentDayInfo.EndOfSeason = true;
                 this.Close();
             }
             else

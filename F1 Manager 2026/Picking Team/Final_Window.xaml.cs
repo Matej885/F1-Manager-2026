@@ -101,6 +101,12 @@ namespace F1_Manager_2026.Picking_Team
             await Task.Delay(2000);
 
             // 5. Navigate and Close
+            var db = Database.Instance;
+            foreach (var driver in db.DriverList)
+            {
+               driver.Points = 0;
+            }
+            db.CurrentDayInfo.EndOfSeason = false;
             MainCareerMenu mainCareerMenu = new MainCareerMenu();
             mainCareerMenu.Show();
             this.Close();
