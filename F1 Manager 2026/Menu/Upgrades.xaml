@@ -6,7 +6,8 @@
         mc:Ignorable="d"
         WindowState="Maximized"
         WindowStyle="None"
-        Title="Team R&amp;D Center" Height="1080" Width="1920">
+        Title="Team R&amp;D Center" Height="1080" Width="1920"
+        Icon="/Images/Program_icon.png">
 
     <Window.Resources>
         <Style x:Key="UpgradeCardStyle" TargetType="Border">

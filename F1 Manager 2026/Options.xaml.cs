@@ -99,6 +99,7 @@ namespace F1_Manager_2026
         private void Career_Create_Button_Click(object sender, RoutedEventArgs e)
         {
             SaveGame.DeleteSave();
+            Database.Instance.CurrentDayInfo.Day = 0;
             Picking_Team.Main_TeamChoosing _TeamChoosing = new Picking_Team.Main_TeamChoosing();
             _TeamChoosing.Show();
             this.Close();

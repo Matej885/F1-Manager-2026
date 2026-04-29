@@ -193,7 +193,7 @@ namespace F1_Manager_2026.Menu
         {
             var db = Database.Instance;
             if (db.Calendar2026.Any(t => t.RaceDay >= db.CurrentDayInfo.Day && t.RaceDay <= db.CurrentDayInfo.Day + 2)) return;
-            if (db.CurrentDayInfo.Day >= 20)
+            if (db.CurrentDayInfo.Day >= 280)
             {
                 timer.Stop();
                 BtnSimulate.Content = "CONTINUE";
@@ -254,15 +254,13 @@ namespace F1_Manager_2026.Menu
         private void Button_Click_Upgrade(object sender, RoutedEventArgs e)
         {
             if (IsSimulating) StopSimulation();
-            new Upgrades().Show();
+            Upgrades upgrades = new Upgrades();
+            upgrades.Show();
+            SaveGame.Save(Database.Instance);
             this.Close();
         }
 
-        private void Button_Click_Save(object sender, RoutedEventArgs e)
-        {
-            if (IsSimulating) StopSimulation();
-            SaveGame.Save(Database.Instance);
-        }
+       
 
         private void Button_Click_1(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
 
@@ -279,18 +277,39 @@ namespace F1_Manager_2026.Menu
             new Standings().Show();
             this.Close();
         }
+
+        private void Button_Click_WDC(object sender, RoutedEventArgs e)
+        {
+            if (IsSimulating) StopSimulation();
+            new Standings().Show();
+            this.Close();
+        }
+
+        private void Button_Click_WCC(object sender, RoutedEventArgs e)
+        {
+            if (IsSimulating) StopSimulation();
+            new WCC().Show();
+            this.Close();
+        }
+
         private void SeasonEnd(object  sender, EventArgs e)
         {
             var db = Database.Instance;
             db.CurrentDayInfo.EndOfSeason = true;
             MessageBox.Show("This is the end of the season. Let´s see who won it.");
-            Standings standings = new Standings();
-            standings.Show();
+            WCC wcc = new WCC();
+            wcc.Show();
         }
         private void Button_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
             Functions functions = new Functions();
             functions.Button_Effect();
+        }
+
+        private void Button_Click_MainMenu(object sender, RoutedEventArgs e)
+        {
+            Options options = new Options();
+            options.Show();
         }
     }
 }

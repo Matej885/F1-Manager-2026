@@ -33,6 +33,9 @@ namespace F1_Manager_2026
 
         private void Close_Click(object sender, RoutedEventArgs e)
         {
+            MainCareerMenu mainCareerMenu = new MainCareerMenu();
+            mainCareerMenu .Show();
+            SaveGame.Save(Database.Instance);
             this.Close(); 
         }
 

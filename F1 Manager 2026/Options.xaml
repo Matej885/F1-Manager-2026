@@ -8,7 +8,8 @@
         Height="1080" Width="1920"
         WindowStyle="None"
         WindowState="Maximized"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Icon="/Images/Program_icon.png">
 
     <Window.Resources>
         <Style x:Key="F1MenuButton" TargetType="Button">

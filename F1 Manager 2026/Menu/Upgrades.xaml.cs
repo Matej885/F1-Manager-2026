@@ -195,5 +195,13 @@ namespace F1_Manager_2026.Menu
             Functions functions = new Functions();
             functions.Button_Effect();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainCareerMenu mainCareerMenu = new MainCareerMenu();
+            mainCareerMenu.Show();
+            SaveGame.Save(Database.Instance);
+            this.Close();
+        }
     }
 }

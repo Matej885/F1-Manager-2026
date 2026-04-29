@@ -109,6 +109,7 @@ namespace F1_Manager_2026.Picking_Team
             db.CurrentDayInfo.EndOfSeason = false;
             MainCareerMenu mainCareerMenu = new MainCareerMenu();
             mainCareerMenu.Show();
+            SaveGame.Save(Database.Instance);
             this.Close();
         }
     }

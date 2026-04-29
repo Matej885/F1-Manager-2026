@@ -8,7 +8,8 @@
         WindowState="Maximized" 
         WindowStyle="None" 
         AllowsTransparency="True"
-        Background="Black">
+        Background="Black"
+        Icon="/Images/Program_icon.png">
 
     <Grid>
         <Grid x:Name="BackgroundStage">
