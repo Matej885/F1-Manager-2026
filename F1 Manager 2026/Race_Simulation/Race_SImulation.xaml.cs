@@ -11,25 +11,40 @@ using F1_Manager_2026.Picking_Team;
 
 namespace F1_Manager_2026.Race_Simulation
 {
-    // 1. DEFINÍCIA TRIEDY - Musí byť tu, aby ju videli všetky metódy v tomto súbore
     public class RaceResult
     {
         public int Position { get; set; }
         public string Name { get; set; }
         public double AvgPos { get; set; }
-        public int Skill { get; set; }
         public string Team { get; set; }
         public string PhotoPath { get; set; }
-        public string SuitPath { get; set; }
         public int PointsEarned { get; set; }
     }
 
     public partial class Race_Simulation : Window
     {
+        // TÁTO DEFINÍCIA TU MUSÍ BYŤ - aby ju videl konštruktor aj FinishButton
+        private Track currentTrack;
+
         public Race_Simulation()
         {
             InitializeComponent();
-            TrackNameLabel.Text = Database.Instance.SelectedTrack?.Name ?? "GRAND PRIX";
+
+            var db = Database.Instance;
+
+            // AUTOMATIKA: Nájde prvú trať, ktorá nie je hotová
+            currentTrack = db.Calendar2026.OrderBy(t => t.Round).FirstOrDefault(t => !t.IsDone);
+
+            if (currentTrack != null)
+            {
+                TrackNameLabel.Text = currentTrack.Name;
+                db.SelectedTrack = currentTrack;
+            }
+            else
+            {
+                TrackNameLabel.Text = "SEASON FINISHED";
+                BtnStartSim.IsEnabled = false;
+            }
         }
 
         private async void BtnStartSim_Click(object sender, RoutedEventArgs e)
@@ -38,36 +53,25 @@ namespace F1_Manager_2026.Race_Simulation
             var redBrush = new SolidColorBrush(Colors.Red);
             var offBrush = new SolidColorBrush(Color.FromRgb(34, 34, 34));
 
-            // Sekvencia svetiel
-            StatusText.Text = "STARTING SEQUENCE...";
-            await Task.Delay(800); Light1.Fill = redBrush;
-            await Task.Delay(800); Light2.Fill = redBrush;
-            await Task.Delay(800); Light3.Fill = redBrush;
-            await Task.Delay(800); Light4.Fill = redBrush;
-            await Task.Delay(800); Light5.Fill = redBrush;
+            // Svetlá
+            await Task.Delay(500); Light1.Fill = redBrush;
+            await Task.Delay(500); Light2.Fill = redBrush;
+            await Task.Delay(500); Light3.Fill = redBrush;
+            await Task.Delay(500); Light4.Fill = redBrush;
+            await Task.Delay(500); Light5.Fill = redBrush;
 
-            Random rnd = new Random();
-            await Task.Delay(rnd.Next(1000, 2500));
+            await Task.Delay(new Random().Next(1000, 2000));
+            Light1.Fill = offBrush; Light2.Fill = offBrush; Light3.Fill = offBrush; Light4.Fill = offBrush; Light5.Fill = offBrush;
 
-            Light1.Fill = offBrush; Light2.Fill = offBrush; Light3.Fill = offBrush;
-            Light4.Fill = offBrush; Light5.Fill = offBrush;
+            StatusText.Text = "RACING...";
 
-            StatusText.Text = "LIGHTS OUT AND AWAY WE GO!";
+            for (int i = 0; i <= 100; i += 10)
+            {
+                SimProgressBar.Value = i;
+                await Task.Delay(100);
+            }
 
-            // Simulácia
-            SimProgressBar.Value = 10;
-            await Task.Delay(500);
-            StatusText.Text = "CALCULATING AERODYNAMICS...";
-            SimProgressBar.Value = 40;
-            await Task.Delay(500);
-            StatusText.Text = "SIMULATING PIT STRATEGY...";
-            SimProgressBar.Value = 80;
-
-            // Spustenie logiky na pozadí
             await Task.Run(() => RunRaceLogic());
-
-            SimProgressBar.Value = 100;
-            await Task.Delay(500);
 
             StartSequenceOverlay.Visibility = Visibility.Collapsed;
             ResultsListView.Visibility = Visibility.Visible;
@@ -77,64 +81,45 @@ namespace F1_Manager_2026.Race_Simulation
         private void RunRaceLogic()
         {
             var db = Database.Instance;
-            Random rnd = new Random();
-            // Len F1 jazdci
-            var f1Drivers = db.DriverList.Where(d => d.IsF2 == false).ToList();
-            Dictionary<string, double> stats = new Dictionary<string, double>();
+            var rnd = new Random();
+            var f1Drivers = db.DriverList.Where(d => !d.IsF2).ToList();
 
-            for (int sim = 0; sim < 50; sim++)
-            {
-                var available = new List<Driver>(f1Drivers);
-                int currentPos = 1;
+            if (f1Drivers.Count == 0) return;
 
-                while (available.Count > 0)
+            var results = f1Drivers.Select(d => {
+                double carPower = (d.Team == db.PlayerTeamInstance.teamName)
+                    ? db.PlayerTeamInstance.AeroPower
+                    : (db.F1Teams.FirstOrDefault(t => t.Name == d.Team)?.Rating ?? 50);
+
+                return new
                 {
-                    var bestDriver = available
-                        .OrderByDescending(d =>
-                        {
-                            var team = db.F1Teams.FirstOrDefault(t => t.Name == d.Team);
-                            double carPower = team?.Rating ?? 50;
-                            // Tvoj vzorec: (Skill ^ 4) * Sila Auta
-                            double performance = Math.Pow(d.Skill, 4) * carPower;
-                            return performance * (rnd.Next(85, 116) / 100.0);
-                        })
-                        .First();
+                    Driver = d,
+                    Score = (d.Skill * carPower) * (rnd.Next(80, 120) / 100.0)
+                };
+            })
+            .OrderByDescending(x => x.Score)
+            .ToList();
 
-                    if (!stats.ContainsKey(bestDriver.Name)) stats[bestDriver.Name] = 0;
-                    stats[bestDriver.Name] += currentPos;
-                    available.Remove(bestDriver);
-                    currentPos++;
-                }
-            }
-
-            // UI Update
             Dispatcher.Invoke(() =>
             {
-                var finalResults = stats.Select(kvp =>
-                {
-                    var d = f1Drivers.First(dr => dr.Name == kvp.Key);
-                    return new RaceResult
-                    {
-                        Name = kvp.Key,
-                        AvgPos = Math.Round(kvp.Value / 50, 2),
-                        Skill = d.Skill,
-                        Team = d.Team,
-                        PhotoPath = d.PhotoPath,
-                        SuitPath = d.Name == db.PlayerTeamInstance.teamName ? db.PlayerTeamInstance.suitpath : "/Images/suit_default.png"
-                    };
-                }).OrderBy(r => r.AvgPos).ToList();
+                var finalResultsList = new List<RaceResult>();
 
-                for (int i = 0; i < finalResults.Count; i++)
+                for (int i = 0; i < results.Count; i++)
                 {
-                    finalResults[i].Position = i + 1;
+                    var d = results[i].Driver;
                     int pts = CalculateF1Points(i + 1);
-                    finalResults[i].PointsEarned = pts;
+                    d.Points += pts;
 
-                    var driverDb = db.DriverList.FirstOrDefault(d => d.Name == finalResults[i].Name);
-                    if (driverDb != null) driverDb.Points += pts;
+                    finalResultsList.Add(new RaceResult
+                    {
+                        Position = i + 1,
+                        Name = d.Name,
+                        Team = d.Team,
+                        PointsEarned = pts,
+                        PhotoPath = d.PhotoPath
+                    });
                 }
-
-                ResultsListView.ItemsSource = finalResults;
+                ResultsListView.ItemsSource = finalResultsList;
             });
         }
 
@@ -149,11 +134,7 @@ namespace F1_Manager_2026.Race_Simulation
             {
                 DetailName.Text = selected.Name;
                 DetailTeam.Text = selected.Team;
-                try
-                {
-                    DetailPhoto.Source = new BitmapImage(new Uri(selected.PhotoPath, UriKind.RelativeOrAbsolute));
-                }
-                catch { }
+                try { DetailPhoto.Source = new BitmapImage(new Uri(selected.PhotoPath, UriKind.RelativeOrAbsolute)); } catch { }
                 DriverDetailPanel.Visibility = Visibility.Visible;
             }
         }
@@ -162,11 +143,15 @@ namespace F1_Manager_2026.Race_Simulation
 
         private void FinishButton_Click(object sender, RoutedEventArgs e)
         {
-            var db = Database.Instance;
-            db.CurrentDayInfo.Day++;
-            db.CurrentDayInfo.Day++;
-            db.CurrentDayInfo.Day++;
-            db.CurrentDayInfo.Day++;
+            // Tu používame tú globálnu premennú currentTrack
+            if (currentTrack != null)
+            {
+                currentTrack.IsDone = true;
+            }
+
+            Database.Instance.CurrentDayInfo.Day += 7;
+
+            // Otvoríme menu a zavrieme simuláciu
             MainCareerMenu menu = new MainCareerMenu();
             menu.Show();
             this.Close();

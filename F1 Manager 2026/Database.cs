@@ -29,6 +29,7 @@ namespace F1_Manager_2026
         public double Length { get; set; }
         public string RaceDistance { get; set; } = "";
         public string ImagePath { get; set; } = "";
+        public bool IsDone { get; set; } = false;
     }
 
     public class Database : INotifyPropertyChanged
@@ -120,13 +121,13 @@ namespace F1_Manager_2026
                 new F1Team { Name = "Ferrari", Rating = 190, LogoPath = "/Images/ferrari.png" },
                 new F1Team { Name = "Mercedes", Rating = 200, LogoPath = "/Images/mercedes.png" },
                 new F1Team { Name = "McLaren", Rating = 185, LogoPath = "/Images/mclaren.png" },
-                new F1Team { Name = "Aston Martin", Rating = 100, LogoPath = "/Images/astonmartin.png" },
+                new F1Team { Name = "Aston Martin", Rating = 70, LogoPath = "/Images/astonmartin.png" },
                 new F1Team { Name = "Audi", Rating = 140, LogoPath = "/Images/audi.png" },
-                new F1Team { Name = "Alpine", Rating = 155, LogoPath = "/Images/alpine.png" },
+                new F1Team { Name = "Alpine", Rating = 160, LogoPath = "/Images/alpine.png" },
                 new F1Team { Name = "Williams", Rating = 135, LogoPath = "/Images/williams.png" },
-                new F1Team { Name = "RB", Rating = 145, LogoPath = "/Images/rb.jpg" },
-                new F1Team { Name = "Haas", Rating = 200, LogoPath = "/Images/haas.png" },
-                new F1Team { Name = "Cadillac", Rating = 110, LogoPath = "/Images/cadillac.png" }
+                new F1Team { Name = "RB", Rating = 145, LogoPath = "/Images/rb.png" },
+                new F1Team { Name = "Haas", Rating = 155, LogoPath = "/Images/haas.png" },
+                new F1Team { Name = "Cadillac", Rating = 100, LogoPath = "/Images/cadillac.png" }
             };
             FillCalendar();
             PlayerFacilities.DevelopmentLog = new List<string>();
@@ -210,30 +211,30 @@ namespace F1_Manager_2026
         {
 
             Calendar2026 = new List<Track>
-            {
-    new Track { Round = 1, RaceDay = 14, Name = "AUSTRALIAN GRAND PRIX", CountryCode = "AUS", CircuitName = "Albert Park Circuit", Laps = 58, Length = 5.278, RaceDistance = "306.124 km", ImagePath = "/Images/australia1.png" },
-    new Track { Round = 2, RaceDay = 28, Name = "CHINESE GRAND PRIX", CountryCode = "CHN", CircuitName = "Shanghai International Circuit", Laps = 56, Length = 5.451, RaceDistance = "305.066 km", ImagePath = "/Images/china.png" },
-    new Track { Round = 3, RaceDay = 42, Name = "JAPANESE GRAND PRIX", CountryCode = "JPN", CircuitName = "Suzuka International Racing Course", Laps = 53, Length = 5.807, RaceDistance = "307.471 km", ImagePath = "/Images/japan.png" },
-    new Track { Round = 4, RaceDay = 56, Name = "MIAMI GRAND PRIX", CountryCode = "USA", CircuitName = "Miami International Autodrome", Laps = 57, Length = 5.412, RaceDistance = "308.326 km", ImagePath = "/Images/miami.png" },
-    new Track { Round = 5, RaceDay = 70, Name = "CANADIAN GRAND PRIX", CountryCode = "CAN", CircuitName = "Circuit Gilles-Villeneuve", Laps = 70, Length = 4.361, RaceDistance = "305.270 km", ImagePath = "/Images/canada1.png" },
-    new Track { Round = 6, RaceDay = 84, Name = "MONACO GRAND PRIX", CountryCode = "MON", CircuitName = "Circuit de Monaco", Laps = 78, Length = 3.337, RaceDistance = "260.286 km", ImagePath = "/Images/monaco.png" },
-    new Track { Round = 7, RaceDay = 98, Name = "BARCELONA-CATALUNYA GRAND PRIX", CountryCode = "ESP", CircuitName = "Circuit de Barcelona-Catalunya", Laps = 66, Length = 4.657, RaceDistance = "307.236 km", ImagePath = "/Images/barcelona.png" },
-    new Track { Round = 8, RaceDay = 112, Name = "AUSTRIAN GRAND PRIX", CountryCode = "AUT", CircuitName = "Red Bull Ring", Laps = 71, Length = 4.318, RaceDistance = "306.452 km", ImagePath = "/Images/austria.png" },
-    new Track { Round = 9, RaceDay = 126, Name = "BRITISH GRAND PRIX", CountryCode = "GBR", CircuitName = "Silverstone Circuit", Laps = 52, Length = 5.891, RaceDistance = "306.198 km", ImagePath = "/Images/britain.png" },
-    new Track { Round = 10, RaceDay = 140, Name = "BELGIAN GRAND PRIX", CountryCode = "BEL", CircuitName = "Circuit de Spa-Francorchamps", Laps = 44, Length = 7.004, RaceDistance = "308.052 km", ImagePath = "/Images/belgium.png" },
-    new Track { Round = 11, RaceDay = 154, Name = "HUNGARIAN GRAND PRIX", CountryCode = "HUN", CircuitName = "Hungaroring", Laps = 70, Length = 4.381, RaceDistance = "306.630 km", ImagePath = "/Images/hungary.png" },
-    new Track { Round = 12, RaceDay = 168, Name = "DUTCH GRAND PRIX", CountryCode = "NED", CircuitName = "Circuit Zandvoort", Laps = 72, Length = 4.259, RaceDistance = "306.587 km", ImagePath = "/Images/netherlands.png" },
-    new Track { Round = 13, RaceDay = 182, Name = "ITALIAN GRAND PRIX", CountryCode = "ITA", CircuitName = "Autodromo Nazionale Monza", Laps = 53, Length = 5.793, RaceDistance = "306.720 km", ImagePath = "/Images/monza.png" },
-    new Track { Round = 14, RaceDay = 196, Name = "SPANISH GRAND PRIX", CountryCode = "ESP", CircuitName = "Madrid Street Circuit", Laps = 71, Length = 5.474, RaceDistance = "306.500 km", ImagePath = "/Images/madrid.png" },
-    new Track { Round = 15, RaceDay = 210, Name = "AZERBAIJAN GRAND PRIX", CountryCode = "AZE", CircuitName = "Baku City Circuit", Laps = 51, Length = 6.003, RaceDistance = "306.049 km", ImagePath = "/Images/azerbaijan.png" },
-    new Track { Round = 16, RaceDay = 224, Name = "SINGAPORE GRAND PRIX", CountryCode = "SIN", CircuitName = "Marina Bay Street Circuit", Laps = 62, Length = 4.940, RaceDistance = "306.143 km", ImagePath = "/Images/singapore.png" },
-    new Track { Round = 17, RaceDay = 238, Name = "UNITED STATES GRAND PRIX", CountryCode = "USA", CircuitName = "Circuit of the Americas", Laps = 56, Length = 5.513, RaceDistance = "308.405 km", ImagePath = "/Images/cota.png" },
-    new Track { Round = 18, RaceDay = 245, Name = "MEXICO CITY GRAND PRIX", CountryCode = "MEX", CircuitName = "Autódromo Hermanos Rodríguez", Laps = 71, Length = 4.304, RaceDistance = "305.354 km", ImagePath = "/Images/mexico.png" },
-    new Track { Round = 19, RaceDay = 252, Name = "SÃO PAULO GRAND PRIX", CountryCode = "BRA", CircuitName = "Autódromo José Carlos Pace", Laps = 71, Length = 4.309, RaceDistance = "305.879 km", ImagePath = "/Images/brazil.png" },
-    new Track { Round = 20, RaceDay = 259, Name = "LAS VEGAS GRAND PRIX", CountryCode = "USA", CircuitName = "Las Vegas Strip Circuit", Laps = 50, Length = 6.201, RaceDistance = "309.958 km", ImagePath = "/Images/vegas.png" },
-    new Track { Round = 21, RaceDay = 266, Name = "QATAR GRAND PRIX", CountryCode = "QAT", CircuitName = "Lusail International Circuit", Laps = 57, Length = 5.419, RaceDistance = "308.611 km", ImagePath = "/Images/qatar.png" },
-    new Track { Round = 22, RaceDay = 273, Name = "ABU DHABI GRAND PRIX", CountryCode = "UAE", CircuitName = "Yas Marina Circuit", Laps = 58, Length = 5.281, RaceDistance = "306.183 km", ImagePath = "/Images/abudhabi.png" }
-                };
+{
+    new Track { Round = 1, RaceDay = 14, Name = "AUSTRALIAN GRAND PRIX", CountryCode = "AUS", CircuitName = "Albert Park Circuit", Laps = 58, Length = 5.278, RaceDistance = "306.124 km", ImagePath = "/Images/australia1.png", IsDone = false },
+    new Track { Round = 2, RaceDay = 28, Name = "CHINESE GRAND PRIX", CountryCode = "CHN", CircuitName = "Shanghai International Circuit", Laps = 56, Length = 5.451, RaceDistance = "305.066 km", ImagePath = "/Images/china.png", IsDone = false },
+    new Track { Round = 3, RaceDay = 42, Name = "JAPANESE GRAND PRIX", CountryCode = "JPN", CircuitName = "Suzuka International Racing Course", Laps = 53, Length = 5.807, RaceDistance = "307.471 km", ImagePath = "/Images/japan.png", IsDone = false },
+    new Track { Round = 4, RaceDay = 56, Name = "MIAMI GRAND PRIX", CountryCode = "USA", CircuitName = "Miami International Autodrome", Laps = 57, Length = 5.412, RaceDistance = "308.326 km", ImagePath = "/Images/miami.png", IsDone = false },
+    new Track { Round = 5, RaceDay = 70, Name = "CANADIAN GRAND PRIX", CountryCode = "CAN", CircuitName = "Circuit Gilles-Villeneuve", Laps = 70, Length = 4.361, RaceDistance = "305.270 km", ImagePath = "/Images/canada1.png", IsDone = false },
+    new Track { Round = 6, RaceDay = 84, Name = "MONACO GRAND PRIX", CountryCode = "MON", CircuitName = "Circuit de Monaco", Laps = 78, Length = 3.337, RaceDistance = "260.286 km", ImagePath = "/Images/monaco.png", IsDone = false },
+    new Track { Round = 7, RaceDay = 98, Name = "BARCELONA-CATALUNYA GRAND PRIX", CountryCode = "ESP", CircuitName = "Circuit de Barcelona-Catalunya", Laps = 66, Length = 4.657, RaceDistance = "307.236 km", ImagePath = "/Images/barcelona.png", IsDone = false },
+    new Track { Round = 8, RaceDay = 112, Name = "AUSTRIAN GRAND PRIX", CountryCode = "AUT", CircuitName = "Red Bull Ring", Laps = 71, Length = 4.318, RaceDistance = "306.452 km", ImagePath = "/Images/austria.png", IsDone = false },
+    new Track { Round = 9, RaceDay = 126, Name = "BRITISH GRAND PRIX", CountryCode = "GBR", CircuitName = "Silverstone Circuit", Laps = 52, Length = 5.891, RaceDistance = "306.198 km", ImagePath = "/Images/britain.png", IsDone = false },
+    new Track { Round = 10, RaceDay = 140, Name = "BELGIAN GRAND PRIX", CountryCode = "BEL", CircuitName = "Circuit de Spa-Francorchamps", Laps = 44, Length = 7.004, RaceDistance = "308.052 km", ImagePath = "/Images/belgium.png", IsDone = false },
+    new Track { Round = 11, RaceDay = 154, Name = "HUNGARIAN GRAND PRIX", CountryCode = "HUN", CircuitName = "Hungaroring", Laps = 70, Length = 4.381, RaceDistance = "306.630 km", ImagePath = "/Images/hungary.png", IsDone = false },
+    new Track { Round = 12, RaceDay = 168, Name = "DUTCH GRAND PRIX", CountryCode = "NED", CircuitName = "Circuit Zandvoort", Laps = 72, Length = 4.259, RaceDistance = "306.587 km", ImagePath = "/Images/netherlands.png", IsDone = false },
+    new Track { Round = 13, RaceDay = 182, Name = "ITALIAN GRAND PRIX", CountryCode = "ITA", CircuitName = "Autodromo Nazionale Monza", Laps = 53, Length = 5.793, RaceDistance = "306.720 km", ImagePath = "/Images/monza.png", IsDone = false },
+    new Track { Round = 14, RaceDay = 196, Name = "SPANISH GRAND PRIX", CountryCode = "ESP", CircuitName = "Madrid Street Circuit", Laps = 71, Length = 5.474, RaceDistance = "306.500 km", ImagePath = "/Images/madrid.png", IsDone = false },
+    new Track { Round = 15, RaceDay = 210, Name = "AZERBAIJAN GRAND PRIX", CountryCode = "AZE", CircuitName = "Baku City Circuit", Laps = 51, Length = 6.003, RaceDistance = "306.049 km", ImagePath = "/Images/azerbaijan.png", IsDone = false },
+    new Track { Round = 16, RaceDay = 224, Name = "SINGAPORE GRAND PRIX", CountryCode = "SIN", CircuitName = "Marina Bay Street Circuit", Laps = 62, Length = 4.940, RaceDistance = "306.143 km", ImagePath = "/Images/singapore.png", IsDone = false },
+    new Track { Round = 17, RaceDay = 238, Name = "UNITED STATES GRAND PRIX", CountryCode = "USA", CircuitName = "Circuit of the Americas", Laps = 56, Length = 5.513, RaceDistance = "308.405 km", ImagePath = "/Images/cota.png", IsDone = false },
+    new Track { Round = 18, RaceDay = 245, Name = "MEXICO CITY GRAND PRIX", CountryCode = "MEX", CircuitName = "Autódromo Hermanos Rodríguez", Laps = 71, Length = 4.304, RaceDistance = "305.354 km", ImagePath = "/Images/mexico.png", IsDone = false },
+    new Track { Round = 19, RaceDay = 252, Name = "SÃO PAULO GRAND PRIX", CountryCode = "BRA", CircuitName = "Autódromo José Carlos Pace", Laps = 71, Length = 4.309, RaceDistance = "305.879 km", ImagePath = "/Images/brazil.png", IsDone = false },
+    new Track { Round = 20, RaceDay = 259, Name = "LAS VEGAS GRAND PRIX", CountryCode = "USA", CircuitName = "Las Vegas Strip Circuit", Laps = 50, Length = 6.201, RaceDistance = "309.958 km", ImagePath = "/Images/vegas.png", IsDone = false },
+    new Track { Round = 21, RaceDay = 266, Name = "QATAR GRAND PRIX", CountryCode = "QAT", CircuitName = "Lusail International Circuit", Laps = 57, Length = 5.419, RaceDistance = "308.611 km", ImagePath = "/Images/qatar.png", IsDone = false },
+    new Track { Round = 22, RaceDay = 273, Name = "ABU DHABI GRAND PRIX", CountryCode = "UAE", CircuitName = "Yas Marina Circuit", Laps = 58, Length = 5.281, RaceDistance = "306.183 km", ImagePath = "/Images/abudhabi.png", IsDone = false }
+};
         }
 
 
@@ -243,35 +244,45 @@ namespace F1_Manager_2026
             {
                 case 1:
                     PlayerTeamInstance.teamName = "Minardi F1 Team";
+                    PlayerTeamInstance.EnginePower = 20;
+                    PlayerTeamInstance.ChassisPower = 60;
+                    PlayerTeamInstance.AeroPower = 20;
                     PlayerTeamInstance.Budget = 20000000;
                     PlayerTeamInstance.Prestige = 0;
                     PlayerTeamInstance.teamclothespath = "/Images/clothes_minardi.png";
                     PlayerTeamInstance.PathToCar = "/Images/Minardi_Car.jpg";
                     PlayerTeamInstance.suitpath = "/Images/suit_minardi.png";
+                    PlayerTeamInstance.logopath = "/Images/minardi-logo.png";
                     break;
                 case 2:
                     PlayerTeamInstance.teamName = "Alfa Romeo F1 Team";
-                    PlayerTeamInstance.Budget = 50000000;
+                    PlayerTeamInstance.AeroPower = 150;
+                    PlayerTeamInstance.Budget = 50000000; 
                     PlayerTeamInstance.Prestige = 40;
                     PlayerTeamInstance.teamclothespath = "/Images/clothes_alfaromeo.png";
                     PlayerTeamInstance.PathToCar = "/Images/AlfaRomeo_Car.jpg";
                     PlayerTeamInstance.suitpath = "/Images/suit_alfa.png";
+                    PlayerTeamInstance.logopath = "/Images/AlfaRomeo-logo.png";
                     break;
                 case 3:
                     PlayerTeamInstance.teamName = "BMW Sauber F1 Team";
                     PlayerTeamInstance.Budget = 80000000;
+                    PlayerTeamInstance.AeroPower = 170;
                     PlayerTeamInstance.Prestige = 70;
                     PlayerTeamInstance.teamclothespath = "/Images/clothes_BMW.jpg";
                     PlayerTeamInstance.PathToCar = "/Images/BMW_Car.jpg";
                     PlayerTeamInstance.suitpath = "/Images/suit_bmw.png";
+                    PlayerTeamInstance.logopath = "/Images/BMW_Logo.png";
                     break;
                 case 4:
                     PlayerTeamInstance.teamName = "Siemens Racing F1 Team";
                     PlayerTeamInstance.Prestige = 120;
-                    PlayerTeamInstance.Budget = 120000000;
+                    PlayerTeamInstance.AeroPower = 200;
+                    PlayerTeamInstance.Budget = 12000000000;//test verzia (vamazat 2 nuly)
                     PlayerTeamInstance.teamclothespath = "/Images/clothes_Siemens.jpg";
                     PlayerTeamInstance.PathToCar = "/Images/Siemens_Car.jpg";
                     PlayerTeamInstance.suitpath = "/Images/suit_siemens.png";
+                    PlayerTeamInstance.logopath = "/Images/Siemens-logo.png";
                     break;
             }
         }

@@ -1,42 +1,39 @@
 ﻿using F1_Manager_2026.Menu;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace F1_Manager_2026
 {
-    /// <summary>
-    /// Interaction logic for Calendar.xaml
-    /// </summary>
     public partial class Calendar : Window
     {
         public Calendar()
         {
-            // Tento riadok teraz správne prepojí XAML s týmto kódom
             InitializeComponent();
-
-            // Nastavenie dátového kontextu na tvoju databázu tratí
             this.DataContext = Database.Instance;
+            UpdateOverlay();
         }
+
         private void Track_Click(object sender, RoutedEventArgs e)
         {
-            // Získame tlačidlo, na ktoré sa kliklo
             var button = sender as Button;
-            // Získame dáta (objekt Track) priradené k tomuto tlačidlu
             var clickedTrack = button?.DataContext as Track;
 
-            if (clickedTrack != null)   
+            if (clickedTrack != null)
             {
-                // Nastavíme vybratú trať v databáze
                 Database.Instance.SelectedTrack = clickedTrack;
+                UpdateOverlay(); // Aktualizujeme zobrazenie "COMPLETED"
             }
         }
 
-        private void Close_Click(object sender, RoutedEventArgs e)
+        // Pomocná funkcia na zobrazenie nápisu "Done" v pravom paneli
+        private void UpdateOverlay()
         {
-            MainCareerMenu mainCareerMenu = new MainCareerMenu();
-            mainCareerMenu .Show();
-            SaveGame.Save(Database.Instance);
-            this.Close(); 
+            var selected = Database.Instance.SelectedTrack;
+            if (selected != null && DoneOverlay != null)
+            {
+                DoneOverlay.Visibility = selected.IsDone ? Visibility.Visible : Visibility.Collapsed;
+            }
         }
 
         private void Button_Back_Click(object sender, RoutedEventArgs e)

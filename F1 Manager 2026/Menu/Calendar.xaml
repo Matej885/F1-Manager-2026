@@ -41,24 +41,35 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Button Margin="8" Height="100" Background="#111111" BorderBrush="#333333" BorderThickness="2" Cursor="Hand" Click="Track_Click">
+                            <Button x:Name="TrackBtn" Margin="8" Height="100" Background="#111111" BorderBrush="#333333" BorderThickness="2" Cursor="Hand" Click="Track_Click">
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
                                         <Border Background="{TemplateBinding Background}" 
                                                 BorderBrush="{TemplateBinding BorderBrush}" 
                                                 BorderThickness="{TemplateBinding BorderThickness}">
-                                            <ContentPresenter />
+                                            <Grid>
+                                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,0">
+                                                    <TextBlock Text="{Binding Round, StringFormat={}{0:00}}" Foreground="#FF0000" FontSize="32" FontWeight="Black" Margin="0,0,20,0"/>
+                                                    <StackPanel VerticalAlignment="Center">
+                                                        <TextBlock Text="{Binding CountryCode}" Foreground="White" FontSize="20" FontWeight="Bold"/>
+                                                        <TextBlock Text="{Binding Name}" Foreground="#666666" FontSize="11" FontWeight="SemiBold"/>
+                                                    </StackPanel>
+                                                </StackPanel>
+
+                                                <Image x:Name="DoneCheck" Source="/Images/DoneRace.png" Width="25" Height="25" 
+                                                       HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" Visibility="Collapsed"/>
+                                            </Grid>
                                         </Border>
                                     </ControlTemplate>
                                 </Button.Template>
-                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,0">
-                                    <TextBlock Text="{Binding Round, StringFormat={}{0:00}}" Foreground="#FF0000" FontSize="32" FontWeight="Black" Margin="0,0,20,0"/>
-                                    <StackPanel VerticalAlignment="Center">
-                                        <TextBlock Text="{Binding CountryCode}" Foreground="White" FontSize="20" FontWeight="Bold"/>
-                                        <TextBlock Text="{Binding Name}" Foreground="#666666" FontSize="11" FontWeight="SemiBold"/>
-                                    </StackPanel>
-                                </StackPanel>
                             </Button>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding IsDone}" Value="True">
+                                    <Setter TargetName="TrackBtn" Property="BorderBrush" Value="#4CAF50"/>
+                                    <Setter TargetName="TrackBtn" Property="Background" Value="#0A150A"/>
+                                    <Setter TargetName="TrackBtn" Property="Opacity" Value="0.8"/>
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
@@ -76,10 +87,14 @@
 
                         <Border Height="280" Background="White" CornerRadius="5" BorderBrush="#222222" BorderThickness="1" Margin="0,0,0,30">
                             <Grid>
-                                <Image Source="{Binding ImagePath}" 
-                                       Stretch="Uniform" 
-                                       Margin="15"
-                                       RenderOptions.BitmapScalingMode="HighQuality"/>
+                                <Image Source="{Binding ImagePath}" Stretch="Uniform" Margin="15" RenderOptions.BitmapScalingMode="HighQuality"/>
+
+                                <Border x:Name="DoneOverlay" Background="#AA000000" Visibility="Collapsed">
+                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <Image Source="/Images/donerace.png" Width="80" Height="80"/>
+                                        <TextBlock Text="COMPLETED" Foreground="White" FontWeight="Black" FontSize="24" Margin="0,10,0,0"/>
+                                    </StackPanel>
+                                </Border>
                             </Grid>
                         </Border>
 
@@ -95,62 +110,24 @@
                                 <TextBlock Text="DISTANCE" Foreground="#444" FontSize="12" FontWeight="Bold"/>
                                 <TextBlock Text="{Binding RaceDistance}" Foreground="White" FontSize="22" FontWeight="Bold"/>
                             </StackPanel>
-                            <StackPanel Margin="0,15">
-                                <TextBlock Text="TRACK LENGTH" Foreground="#444" FontSize="12" FontWeight="Bold"/>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Length}" Foreground="White" FontSize="22" FontWeight="Bold"/>
-                                    <TextBlock Text=" KM" Foreground="White" FontSize="12" VerticalAlignment="Bottom" Margin="4,0,0,3"/>
-                                </StackPanel>
-                            </StackPanel>
                         </UniformGrid>
-
-                        <Separator Background="#222" Margin="0,40"/>
-
-                        <TextBlock Text="TYRE ALLOCATION" Foreground="#444" FontSize="12" FontWeight="Bold" Margin="0,0,0,20"/>
-                        <StackPanel Orientation="Horizontal">
-                            <Ellipse Width="24" Height="24" Fill="#FF0000" Margin="0,0,10,0"/>
-                            <Ellipse Width="24" Height="24" Fill="#F1C40F" Margin="0,0,10,0"/>
-                            <Ellipse Width="24" Height="24" Fill="#FFFFFF" Margin="0,0,10,0"/>
-                            <TextBlock Text="C5 - C4 - C3" Foreground="White" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Margin="10,0,0,0"/>
-                        </StackPanel>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Margin="0,40,0,0">
-                        <Button Content="BACK TO MAIN MENU" 
-                                Height="60" 
-                                Background="#111" 
-                                Foreground="White" 
-                                FontWeight="Bold"
-                                FontSize="16"
-                                BorderBrush="#333"
-                                Cursor="Hand"
-                                Click="Button_Back_Click">
-                            <Button.Style>
-                                <Style TargetType="Button">
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate TargetType="Button">
-                                                <Border Background="{TemplateBinding Background}" 
-                                                        BorderBrush="{TemplateBinding BorderBrush}" 
-                                                        BorderThickness="1" 
-                                                        CornerRadius="3">
-                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#E10600"/>
-                                            <Setter Property="BorderBrush" Value="#E10600"/>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
-                        </Button>
+                        <Button Content="BACK TO MAIN MENU" Height="60" Background="#111" Foreground="White" 
+                                FontWeight="Bold" FontSize="16" BorderBrush="#333" Cursor="Hand" Click="Button_Back_Click"/>
                     </StackPanel>
                 </Grid>
             </Border>
         </Grid>
     </Grid>
+
+    <Window.Style>
+        <Style TargetType="Window">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding SelectedTrack.IsDone}" Value="True">
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Style>
 </Window>

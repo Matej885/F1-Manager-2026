@@ -28,31 +28,43 @@ namespace F1_Manager_2026
             var db = Database.Instance;
             var allTeams = new List<WCCEntry>();
 
-            // 1. AI Tímy z databázy
+            // 1. Spracovanie AI Tímov
             foreach (var team in db.F1Teams)
             {
+                // Výpočet bodov: Sčítame body všetkých jazdcov, ktorí patria do tohto tímu
+                int teamPoints = db.DriverList
+                    .Where(d => d.Team == team.Name)
+                    .Sum(d => d.Points);
+
                 allTeams.Add(new WCCEntry
                 {
                     Name = team.Name,
                     Rating = team.Rating,
-                    Points = 0, // Tu si neskôr namapuj body ak ich pridáš do F1Team triedy
-                    // OPRAVA URI: team.LogoPath už obsahuje "/", tak ho sem nedávame manuálne
+                    Points = teamPoints,
                     Logo = new BitmapImage(new Uri($"pack://application:,,,{team.LogoPath}", UriKind.Absolute))
                 });
             }
 
-            // 2. Hráčsky Tím
+            // 2. Spracovanie Hráčskeho Tímu
+            // Sčítame body jazdcov, ktorí jazdia za hráčov tím
+            int playerTeamPoints = db.DriverList
+                .Where(d => d.Team == db.PlayerTeamInstance.teamName)
+                .Sum(d => d.Points);
+
             allTeams.Add(new WCCEntry
             {
                 Name = db.PlayerTeamInstance.teamName,
-                Rating = 100,
-                Points = 0,
-                // Ako logo hráča používame helmu alebo suitpath z databázy
-                Logo = new BitmapImage(new Uri("pack://application:,,,/Images/helmet.png", UriKind.Absolute))
+                Rating = (int)db.PlayerTeamInstance.AeroPower, // Použijeme AeroPower ako rating pre hráča
+                Points = playerTeamPoints,
+                Logo = new BitmapImage(new Uri($"pack://application:,,,{db.PlayerTeamInstance.logopath}", UriKind.Absolute))
             });
 
-            // 3. Zoradenie (aktuálne podľa Ratingu, kým nemáš body)
-            var sorted = allTeams.OrderByDescending(t => t.Rating).ToList();
+            // 3. Zoradenie podľa BODOV (primárne) a potom podľa Ratingu (sekundárne)
+            // Týmto zabezpečíš, že ten, kto má viac bodov, bude vždy vyššie
+            var sorted = allTeams
+                .OrderByDescending(t => t.Points)
+                .ThenByDescending(t => t.Rating)
+                .ToList();
 
             // 4. Nastavenie dát pre UI
             this.DataContext = new
@@ -68,7 +80,6 @@ namespace F1_Manager_2026
         {
             new MainCareerMenu().Show();
             this.Close();
-
         }
     }
 }

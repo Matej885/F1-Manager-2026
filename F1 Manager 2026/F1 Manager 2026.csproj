@@ -47,6 +47,7 @@
     <None Remove="Images\colapinto.png" />
     <None Remove="Images\coloured_tire_difficulty.png" />
     <None Remove="Images\cota.png" />
+    <None Remove="Images\DoneRace.png" />
     <None Remove="Images\F1 Manager 2026 logo.png" />
     <None Remove="Images\ferrari.png" />
     <None Remove="Images\ferrari_engine.png" />
@@ -54,6 +55,9 @@
     <None Remove="Images\haas.png" />
     <None Remove="Images\hadjar.png" />
     <None Remove="Images\hamilton.png" />
+    <None Remove="Images\Head2.png" />
+    <None Remove="Images\Head3.png" />
+    <None Remove="Images\Head4.png" />
     <None Remove="Images\helmet.png" />
     <None Remove="Images\honda_engine.jpg" />
     <None Remove="Images\hulkenberg.png" />
@@ -224,6 +228,9 @@
     <Content Include="Images\cota.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\DoneRace.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\ferrari.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -240,6 +247,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Head1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Head2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Head3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Head4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\helmet.png">

@@ -25,6 +25,7 @@
         public string playerphotopath { get; set; } = "/Images/Head1.png";
         public string teamclothespath { get; set; } = "/Images/suit_default.png";
         public string suitpath { get; set; }
+        public string logopath { get; set; }
 
         // Motor detaily
         public string EngineName { get; set; }

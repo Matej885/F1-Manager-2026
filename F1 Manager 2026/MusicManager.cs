@@ -33,9 +33,5 @@ public static class MusicManager
     public static double GetVolume() => mediaPlayer.Volume;
 
     // Metóda na získanie názvu aktuálnej skladby pre UI
-    public static string GetCurrentTrackName()
-    {
-        if (playlist == null) return "";
-        return System.IO.Path.GetFileNameWithoutExtension(playlist[currentTrackIndex]).Replace("_", " ").ToUpper();
-    }
+   
 }

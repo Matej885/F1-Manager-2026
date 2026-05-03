@@ -134,7 +134,17 @@ namespace F1_Manager_2026.Menu
             bool isRaceUpcoming = db.Calendar2026.Any(t =>
                 t.RaceDay >= nextDay &&
                 t.RaceDay <= nextDay + 2);
-
+            if (db.CurrentDayInfo.Day >= 280)
+            {
+                timer.Stop();
+                BtnSimulate.Content = "CONTINUE";
+                IsSimulating = false;
+                Engine_Pick EP = new Engine_Pick();
+                EP.Show();
+                db.CurrentDayInfo.Day = 1;
+                db.CurrentDayInfo.EndOfSeason = true;
+                this.Close();
+            }
             if (isRaceUpcoming || db.CurrentDayInfo.IsSpecialEvent || nextDay > 273)
             {
                 StopSimulation();
@@ -281,7 +291,7 @@ namespace F1_Manager_2026.Menu
         private void Button_Click_WDC(object sender, RoutedEventArgs e)
         {
             if (IsSimulating) StopSimulation();
-            new Standings().Show();
+                new Standings().Show();
             this.Close();
         }
 
@@ -299,6 +309,7 @@ namespace F1_Manager_2026.Menu
             MessageBox.Show("This is the end of the season. Let´s see who won it.");
             WCC wcc = new WCC();
             wcc.Show();
+            this.Close();
         }
         private void Button_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
@@ -310,6 +321,7 @@ namespace F1_Manager_2026.Menu
         {
             Options options = new Options();
             options.Show();
+            this.Close();
         }
     }
 }
