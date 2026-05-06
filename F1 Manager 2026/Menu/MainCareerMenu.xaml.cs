@@ -324,7 +324,7 @@ namespace F1_Manager_2026.Menu
             if (IsSimulating) StopSimulation();
             new WCC().Show();
             this.Close();
-        }
+        } 
 
         private void SeasonEnd(object sender, EventArgs e)
         {
