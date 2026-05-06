@@ -341,10 +341,9 @@ namespace F1_Manager_2026.Menu
             functions.Button_Effect();
         }
 
-        private void Button_Click_MainMenu(object sender, RoutedEventArgs e)
+        private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            Options options = new Options();
-            options.Show();
+            new RaceHistory().Show();
             this.Close();
         }
     }
