@@ -29,7 +29,7 @@ namespace F1_Manager_2026.Menu
             InitializeComponent();
             LoadTeamData();
             UpdateLogUI();
-
+            SaveGame.Save(Database.Instance);
             // --- NASTAVENIE TIMERA ---
             timer.Interval = TimeSpan.FromMilliseconds(500);
             timer.Tick += Timer_Tick;
@@ -41,7 +41,8 @@ namespace F1_Manager_2026.Menu
                 playlist = functions.GetMusicList();
 
                 // KĽÚČOVÁ ČASŤ: Keď skladba skončí, zavolaj PlayNextTrack
-                musicPlayer.MediaEnded += (s, e) => {
+                musicPlayer.MediaEnded += (s, e) =>
+                {
                     this.Dispatcher.Invoke(() => PlayNextTrack());
                 };
 
@@ -130,7 +131,7 @@ namespace F1_Manager_2026.Menu
         {
             var db = Database.Instance;
             int nextDay = db.CurrentDayInfo.Day + 1;
-
+            SaveGame.Save(Database.Instance);
             bool isRaceUpcoming = db.Calendar2026.Any(t =>
                 t.RaceDay >= nextDay &&
                 t.RaceDay <= nextDay + 2);
@@ -161,21 +162,41 @@ namespace F1_Manager_2026.Menu
 
         private void HandleUpgrades(Database db)
         {
+            db.PlayerFacilities.AeroUpgradeDaysLeft--;
+            db.PlayerFacilities.EngineUpgradeDaysLeft--;
+            db.PlayerFacilities.ChassisUpgradeDaysLeft--;
             // Aero
-            if (db.PlayerFacilities.AeroUpgradeDaysLeft > 0)
+            if (db.PlayerFacilities.AeroUpgradeDaysLeft == 0)
             {
                 db.PlayerFacilities.AeroUpgradeDaysLeft--;
-                if (db.PlayerFacilities.AeroUpgradeDaysLeft == 0)
-                {
-                    db.PlayerTeamInstance.AeroPower += db.PlayerFacilities.NextAeroUpgrade;
-                    db.AddDevelopmentLog($"Aero upgrade completed! Performance boost +{db.PlayerFacilities.NextAeroUpgrade} applied.");
-                    db.PlayerFacilities.WindTunnel_Enabled = true;
-                    db.PlayerFacilities.AeroUpgradeDaysLeft = -1;
-                    db.PlayerTeamInstance.AeroUpgradeLevel++;
-                    UpdateLogUI();
-                }
+                db.PlayerTeamInstance.AeroPower += db.PlayerFacilities.NextAeroUpgrade;
+                db.AddDevelopmentLog($"Aero upgrade completed! Performance boost +{db.PlayerFacilities.NextAeroUpgrade} applied.");
+                db.PlayerFacilities.WindTunnel_Enabled = true;
+                db.PlayerFacilities.AeroUpgradeDaysLeft = -1;
+                db.PlayerTeamInstance.AeroUpgradeLevel++;
+                UpdateLogUI();
+
             }
-            // Tu by nasledovala logika pre Chassis a Engine...
+            if (db.PlayerFacilities.ChassisUpgradeDaysLeft == 0)
+            {
+                db.PlayerFacilities.AeroUpgradeDaysLeft--;
+                db.PlayerTeamInstance.ChassisPower += db.PlayerFacilities.NextChassisUpgrade;
+                db.AddDevelopmentLog($"Chassis upgrade completed! Performance boost +{db.PlayerFacilities.NextChassisUpgrade} applied.");
+                db.PlayerFacilities.CFD_Enabled = true;
+                db.PlayerFacilities.ChassisUpgradeDaysLeft = -1;
+                db.PlayerTeamInstance.ChassisUpgradeLevel++;
+                UpdateLogUI();
+            }
+            if (db.PlayerFacilities.EngineUpgradeDaysLeft == 0)
+            {
+                db.PlayerFacilities.EngineUpgradeDaysLeft--;
+                db.PlayerTeamInstance.EnginePower += db.PlayerFacilities.NextEngineUpgrade;
+                db.AddDevelopmentLog($"Engine upgrade completed! Performance boost +{db.PlayerFacilities.NextEngineUpgrade} applied.");
+                db.PlayerFacilities.powertrainDyno_Enabled = true;
+                db.PlayerFacilities.NextEngineUpgrade = -1;
+                db.PlayerTeamInstance.Engine_UpgradeLevel++;
+                UpdateLogUI();
+            }
         }
 
         private void UpdateLogUI()
@@ -270,12 +291,13 @@ namespace F1_Manager_2026.Menu
             this.Close();
         }
 
-       
+
 
         private void Button_Click_1(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
 
         private void Button_Click_Calendar(object sender, RoutedEventArgs e)
         {
+            SaveGame.Save(Database.Instance);
             if (IsSimulating) StopSimulation();
             new Calendar().Show();
             this.Close();
@@ -283,6 +305,7 @@ namespace F1_Manager_2026.Menu
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            SaveGame.Save(Database.Instance);
             if (IsSimulating) StopSimulation();
             new Standings().Show();
             this.Close();
@@ -290,8 +313,9 @@ namespace F1_Manager_2026.Menu
 
         private void Button_Click_WDC(object sender, RoutedEventArgs e)
         {
+            SaveGame.Save(Database.Instance);
             if (IsSimulating) StopSimulation();
-                new Standings().Show();
+            new Standings().Show();
             this.Close();
         }
 
@@ -302,7 +326,7 @@ namespace F1_Manager_2026.Menu
             this.Close();
         }
 
-        private void SeasonEnd(object  sender, EventArgs e)
+        private void SeasonEnd(object sender, EventArgs e)
         {
             var db = Database.Instance;
             db.CurrentDayInfo.EndOfSeason = true;

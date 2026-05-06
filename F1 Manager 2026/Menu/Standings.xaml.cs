@@ -28,9 +28,10 @@ namespace F1_Manager_2026.Menu
 
         private void LoadStandingsData()
         {
-                var sortedList = Database.Instance.DriverList
-                .OrderByDescending(d => d.Points)
-                .ToList();
+            var sortedList = Database.Instance.DriverList
+                    .Where(d => d.IsF2 == false)
+                    .OrderByDescending(d => d.Points)
+                    .ToList();
 
             // Priradenie pre pódium (ošetrené, ak by bolo v liste menej jazdcov)
             if (sortedList.Count >= 1) Top1 = sortedList[0];

@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Xml.Linq;
 
 namespace F1_Manager_2026.Picking_Team
 {
@@ -80,7 +81,7 @@ namespace F1_Manager_2026.Picking_Team
 
                 if (p.Budget < (decimal)kliknuty.Cost)
                 {
-                    MessageBox.Show("Low on cash!", "Warning", MessageBoxButton.OK,MessageBoxImage.Hand);
+                    MessageBox.Show("Low on cash!", "Warning", MessageBoxButton.OK, MessageBoxImage.Hand);
                     return;
                 }
 
@@ -104,8 +105,43 @@ namespace F1_Manager_2026.Picking_Team
                 }
 
                 kliknuty.Team = p.teamName;
-                kliknuty.IsF2 = false;
 
+                kliknuty.Team = p.teamName;
+                if (kliknuty.IsF2 == false)
+                {
+                    List<string> drivervalues = new List<string>();
+                    foreach (var driver in db.DriverList)
+                    {
+                        // Vyberáme len tých, ktorí sú skutočne voľní
+                        if (driver.Team == "Free Agent")
+                        {
+                            // Pridáme meno do listu toľkokrát, aký má skill (vážený výber)
+                            for (int i = 0; i < driver.Skill; i++)
+                            {
+                                drivervalues.Add(driver.Name);
+                            }
+                        }
+                    }
+
+                    if (drivervalues.Count > 0)
+                    {
+                        Random rnd = new Random();
+                        string nahodneMeno = drivervalues[rnd.Next(drivervalues.Count)];
+
+                        // Nájdeme konkrétnu inštanciu jazdca podľa vyžrebovaného mena
+                        var nahodnyJazdec = db.DriverList.FirstOrDefault(d => d.Name == nahodneMeno);
+
+                        if (nahodnyJazdec != null)
+                        {
+                            nahodnyJazdec.Team = povodnyTim;
+                            nahodnyJazdec.IsF2 = false;
+                        }
+                    }
+                }
+                else if (kliknuty.IsF2 = true)
+                {
+                    kliknuty.IsF2 = false;
+                }
                 timesselected++;
                 ResetMoney();
                 if (db.CurrentDayInfo.EndOfSeason == true)
@@ -117,7 +153,7 @@ namespace F1_Manager_2026.Picking_Team
                 {
                     Avatar_Pick d = new Avatar_Pick();
                     d.Show();
-                    navigation=true;
+                    navigation = true;
                     this.Close();
                 }
             }
@@ -155,6 +191,6 @@ namespace F1_Manager_2026.Picking_Team
             Application.Current.Shutdown();
         }
 
-        
+
     }
 }

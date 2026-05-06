@@ -38,7 +38,6 @@ namespace F1_Manager_2026.Race_Simulation
             if (currentTrack != null)
             {
                 TrackNameLabel.Text = currentTrack.Name;
-                db.SelectedTrack = currentTrack;
             }
             else
             {
@@ -82,13 +81,14 @@ namespace F1_Manager_2026.Race_Simulation
         {
             var db = Database.Instance;
             var rnd = new Random();
+            var playerTeam = db.PlayerTeamInstance;
             var f1Drivers = db.DriverList.Where(d => !d.IsF2).ToList();
 
             if (f1Drivers.Count == 0) return;
 
             var results = f1Drivers.Select(d => {
-                double carPower = (d.Team == db.PlayerTeamInstance.teamName)
-                    ? db.PlayerTeamInstance.AeroPower
+                double carPower = (d.Team == playerTeam.teamName)
+                    ? playerTeam.AeroPower
                     : (db.F1Teams.FirstOrDefault(t => t.Name == d.Team)?.Rating ?? 50);
 
                 return new
@@ -103,24 +103,52 @@ namespace F1_Manager_2026.Race_Simulation
             Dispatcher.Invoke(() =>
             {
                 var finalResultsList = new List<RaceResult>();
+                decimal totalReward = 0;
 
                 for (int i = 0; i < results.Count; i++)
                 {
                     var d = results[i].Driver;
-                    int pts = CalculateF1Points(i + 1);
+                    int position = i + 1;
+                    int pts = CalculateF1Points(position);
                     d.Points += pts;
+
+                    // --- LOGIKA ODMENY PRE HRÁČA ---
+                    if (d.Team == playerTeam.teamName)
+                    {
+                        totalReward += CalculateGoalReward(position, playerTeam);
+                    }
 
                     finalResultsList.Add(new RaceResult
                     {
-                        Position = i + 1,
+                        Position = position,
                         Name = d.Name,
                         Team = d.Team,
                         PointsEarned = pts,
                         PhotoPath = d.PhotoPath
                     });
                 }
+
+                // Pripísanie peňazí a log do databázy
+                if (totalReward > 0)
+                {
+                    playerTeam.Budget += totalReward;
+                    db.AddDevelopmentLog($"Race Bonus: Received ${totalReward:N0} for meeting team goals.");
+                }
+
                 ResultsListView.ItemsSource = finalResultsList;
             });
+        }
+
+        // Pomocná metóda na výpočet peňazí podľa cieľov
+        private decimal CalculateGoalReward(int position, PlayerTeam team)
+        {
+            // Odmeny sú nastavené podľa náročnosti cieľa (môžeš si upraviť sumy)
+            if (position <= team.UnrealisticGoal) return 10_000_000m; // Top odmena (napr. víťazstvo)
+            if (position <= team.HighGoal) return 5_000_000m;
+            if (position <= team.MediumGoal) return 2_500_000m;
+            if (position <= team.LowGoal) return 1_000_000m;
+
+            return 0;
         }
 
         private int CalculateF1Points(int pos)

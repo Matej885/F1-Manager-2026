@@ -41,5 +41,11 @@
         public string PathToCar { get; set; }
         public string PathToDriver1 { get; set; }
         public string PathToDriver2 { get; set; }
+        
+        //Ciele
+        public int  LowGoal { get; set; }
+        public int MediumGoal { get; set; }
+        public int HighGoal { get; set; }
+        public int UnrealisticGoal { get; set; }
     }
 }

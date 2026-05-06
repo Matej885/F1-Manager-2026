@@ -193,5 +193,24 @@ namespace F1_Manager_2026.Picking_Team
         {
             Application.Current.Shutdown();
         }
+
+        private void Race_Short_Checked(object sender, RoutedEventArgs e)
+        {
+            var db = Database.Instance;
+            db.FillCalendar(10);
+            db.FillCalendar(22);
+        }
+
+        private void Race_Medium_Checked(object sender, RoutedEventArgs e)
+        {
+            var db = Database.Instance;
+            db.FillCalendar(16);
+        }
+
+        private void Race_Long_Checked(object sender, RoutedEventArgs e)
+        {
+            var db = Database.Instance;
+            db.FillCalendar(22);
+        }
     }
 }

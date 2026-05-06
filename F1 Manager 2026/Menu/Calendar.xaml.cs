@@ -1,7 +1,8 @@
-﻿using F1_Manager_2026.Menu;
+﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
+using F1_Manager_2026.Menu; // Ak máš MainCareerMenu tu, ponechaj to
 
 namespace F1_Manager_2026
 {
@@ -11,36 +12,45 @@ namespace F1_Manager_2026
         {
             InitializeComponent();
             this.DataContext = Database.Instance;
+
+            // Základná inicializácia dát
+            if (Database.Instance.Calendar2026 != null && Database.Instance.Calendar2026.Any())
+            {
+                if (Database.Instance.SelectedTrack == null)
+                    Database.Instance.SelectedTrack = Database.Instance.Calendar2026.First();
+            }
+
             UpdateOverlay();
         }
 
+        // TÁTO METÓDA CHÝBALA ALEBO BOLA NEPRÍSTUPNÁ
         private void Track_Click(object sender, RoutedEventArgs e)
         {
-            var button = sender as Button;
-            var clickedTrack = button?.DataContext as Track;
-
-            if (clickedTrack != null)
+            if (sender is Button button && button.DataContext is Track clickedTrack)
             {
                 Database.Instance.SelectedTrack = clickedTrack;
-                UpdateOverlay(); // Aktualizujeme zobrazenie "COMPLETED"
+                UpdateOverlay();
             }
         }
 
-        // Pomocná funkcia na zobrazenie nápisu "Done" v pravom paneli
-        private void UpdateOverlay()
-        {
-            var selected = Database.Instance.SelectedTrack;
-            if (selected != null && DoneOverlay != null)
-            {
-                DoneOverlay.Visibility = selected.IsDone ? Visibility.Visible : Visibility.Collapsed;
-            }
-        }
-
+        // TÁTO METÓDA CHÝBALA ALEBO BOLA NEPRÍSTUPNÁ
         private void Button_Back_Click(object sender, RoutedEventArgs e)
         {
+            // Predpokladáme, že MainCareerMenu existuje v projekte
             MainCareerMenu mainMenu = new MainCareerMenu();
             mainMenu.Show();
             this.Close();
+        }
+
+        private void UpdateOverlay()
+        {
+            var selected = Database.Instance.SelectedTrack;
+            var overlay = this.FindName("DoneOverlay") as Border;
+
+            if (selected != null && overlay != null)
+            {
+                overlay.Visibility = selected.IsDone ? Visibility.Visible : Visibility.Collapsed;
+            }
         }
     }
 }

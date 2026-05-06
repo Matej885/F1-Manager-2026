@@ -255,9 +255,6 @@
     <Content Include="Images\Head3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Head4.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Images\helmet.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

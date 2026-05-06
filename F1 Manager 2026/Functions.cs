@@ -1,4 +1,5 @@
-﻿using System;
+﻿using F1_Manager_2026;
+using System;
 using System.Collections.Generic;
 using System.Windows.Media;
 
@@ -31,5 +32,9 @@ public class Functions
         effectPlayer.Position = TimeSpan.Zero;
         effectPlayer.Volume = 0.5;
         effectPlayer.Play();
+    }
+    public void DriversChange()
+    {
+        
     }
 }

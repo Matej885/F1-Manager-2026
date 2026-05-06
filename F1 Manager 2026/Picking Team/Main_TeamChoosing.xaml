@@ -10,6 +10,32 @@
         Title="Main_TeamChoosing" Height="1080" Width="1920"
         Icon="/Images/Program_icon.png">
 
+    <Window.Resources>
+        <Style x:Key="RaceOptionStyle" TargetType="RadioButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border Name="Border" Margin="5" Padding="10" Background="#1A1A1A" 
+                                BorderBrush="#444" BorderThickness="2" CornerRadius="5" Cursor="Hand">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="Red"/>
+                                <Setter TargetName="Border" Property="Background" Value="#2A0000"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#333"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Bahnschrift"/>
+        </Style>
+    </Window.Resources>
+
     <Grid Background="#0F0F0F">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="450"/>
@@ -26,7 +52,7 @@
             <Label Content="TEAM PRINCIPAL PROFILE" Foreground="Red" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold" Margin="0,0,0,20"/>
 
             <Label Content="First Name and Surname:" Foreground="Gray" FontFamily="Bahnschrift"/>
-            <TextBox Name = "Name_Label"  Text="Matej" Height="35" FontSize="18" Margin="0,5,0,15" Background="#252525" Foreground="White" BorderBrush="#444" VerticalContentAlignment="Center" Padding="5,0"/>
+            <TextBox Name="Name_Label" Text="Matej" Height="35" FontSize="18" Margin="0,5,0,15" Background="#252525" Foreground="White" BorderBrush="#444" VerticalContentAlignment="Center" Padding="5,0"/>
 
             <Border BorderBrush="#333" BorderThickness="1" Padding="10" CornerRadius="5" Margin="0,50,0,0">
                 <StackPanel>
@@ -40,7 +66,7 @@
             <Label Content="SELECT YOUR ORIGIN / TEAM" Foreground="White" FontSize="18" HorizontalAlignment="Center" FontFamily="Bahnschrift" Margin="0,0,0,20"/>
 
             <UniformGrid Columns="4" Width="400" Height="80">
-                <Button Name = "Main_Button" Content="1" Margin="5,0,5,5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" Click="Button_Click" MouseEnter="Main_Button_MouseEnter" Cursor="Hand" Height="70" VerticalAlignment="Bottom"/>
+                <Button Name="Main_Button" Content="1" Margin="5,0,5,5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" Click="Button_Click" MouseEnter="Main_Button_MouseEnter" Cursor="Hand" Height="70" VerticalAlignment="Bottom"/>
                 <Button Content="2" Margin="5,0,5,5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" Click="Button_Click_1" MouseEnter="Main_Button_MouseEnter" Cursor="Hand" Height="70" VerticalAlignment="Bottom"/>
                 <Button Content="3" Margin="5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" MouseEnter="Main_Button_MouseEnter" Click="Button_Click_2" Cursor="Hand"/>
                 <Button Content="4" Margin="5" Background="#222" Foreground="White" FontSize="28" BorderBrush="White" MouseEnter="Main_Button_MouseEnter" Click="Button_Click_3" Cursor="Hand"/>
@@ -49,7 +75,7 @@
             <Label Name="Team_Name_Label" Content="TEAM NAME" Margin="0,40,0,0" HorizontalAlignment="Center" Foreground="White" FontSize="36" FontWeight="Bold" FontFamily="Bahnschrift"/>
             <Image Name="Logo_Shower" Height="150" Width="150" Margin="0,20" Stretch="Uniform"/>
 
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,40,0,0">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,20,0,0">
                 <StackPanel Orientation="Horizontal" Margin="0,5">
                     <Label Name="Car_Speed_Label" Content="CAR PERFORMANCE:" Foreground="White" FontSize="16" FontFamily="Bahnschrift" Visibility="Visible"/>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,0,0">
@@ -66,15 +92,41 @@
                     <Label Name="Money_Description_Label" Content="$$$" Foreground="LightGreen" FontSize="16" FontWeight="Bold" FontFamily="Bahnschrift"/>
                 </StackPanel>
             </StackPanel>
+
+            <StackPanel Margin="0,40,0,0">
+                <Label Content="SEASON LENGTH" Foreground="Red" FontSize="18" HorizontalAlignment="Center" FontFamily="Bahnschrift" FontWeight="Bold"/>
+                <UniformGrid Columns="3" Width="420" Margin="0,10,0,0">
+                    <RadioButton Name="Race_Short" GroupName="RaceCount" Style="{StaticResource RaceOptionStyle}" Checked="Race_Short_Checked">
+                        <StackPanel>
+                            <TextBlock Text="10" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"/>
+                            <TextBlock Text="RACES" FontSize="10" HorizontalAlignment="Center" Foreground="Gray"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton Name="Race_Medium" GroupName="RaceCount" IsChecked="True" Style="{StaticResource RaceOptionStyle}" Checked="Race_Medium_Checked">
+                        <StackPanel>
+                            <TextBlock Text="16" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"/>
+                            <TextBlock Text="RACES" FontSize="10" HorizontalAlignment="Center" Foreground="Gray"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton Name="Race_Long" GroupName="RaceCount" Style="{StaticResource RaceOptionStyle}" Checked="Race_Long_Checked">
+                        <StackPanel>
+                            <TextBlock Text="22" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"/>
+                            <TextBlock Text="RACES" FontSize="10" HorizontalAlignment="Center" Foreground="Gray"/>
+                        </StackPanel>
+                    </RadioButton>
+                </UniformGrid>
+            </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Column="2" Margin="20,120,40,0">
             <Label Content="TEAM BIOGRAPHY" Foreground="Red" FontSize="20" FontFamily="Bahnschrift" FontWeight="Bold" Margin="0,0,0,20"/>
             <TextBlock Name="Description_Text" TextWrapping="Wrap" Foreground="White" FontSize="16" FontFamily="Bahnschrift" TextAlignment="Justify" Height="400">
-                To see stats abou teams first select one of them. Each team has different budget, car performance and difficulty. You can also see team biography and current car preview. Choose wisely, because you will be with this team for whole career.
+                To see stats about teams first select one of them. Each team has different budget, car performance and difficulty. You can also see team biography and current car preview. Choose wisely, because you will be with this team for whole career.
             </TextBlock>
 
-            <Label Name="Difficulty_Label" Content="DIFFICULTY" Foreground="White" Margin="0,20,0,5" FontWeight="Bold"/>
+            <Label Name="Difficulty_Label" Content="DIFFICULTY" Foreground="White" Margin="0,20,0,5" FontWeight="Bold" FontFamily="Bahnschrift"/>
             <StackPanel Orientation="Horizontal">
                 <Image Name="Difficulty_Grid1" Width="40" Height="25" Margin="2"/>
                 <Image Name="Difficulty_Grid2" Width="40" Height="25" Margin="2"/>
@@ -93,6 +145,8 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button  Background="DarkRed"  FontSize="10" Content="Close game" HorizontalAlignment="Right" Margin="0,1047,10,0" VerticalAlignment="Bottom" Height="23" Width="76" Click="Button_Click_Close" Grid.Column="2"/>
+
+        <Button Background="DarkRed" FontSize="10" Content="Close game" HorizontalAlignment="Right" Margin="0,0,10,10" 
+                VerticalAlignment="Bottom" Height="23" Width="76" Click="Button_Click_Close" Grid.Column="2" Foreground="White" BorderThickness="0"/>
     </Grid>
 </Window>

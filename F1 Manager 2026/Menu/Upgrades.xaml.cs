@@ -22,6 +22,9 @@ namespace F1_Manager_2026.Menu
             var db = Database.Instance;
             var team = db.PlayerTeamInstance;
 
+            Engine_UpgradeLevel.Text = $"Level: {db.PlayerTeamInstance.Engine_UpgradeLevel}";
+            Chassis_UpgradeLevel.Text = $"Level: {db.PlayerTeamInstance.ChassisUpgradeLevel}";
+            AeroUpgradeLevel.Text = $"Level: {db.PlayerTeamInstance.AeroUpgradeLevel}";
             // Načítanie stavu budov
             string windtunnel_text = db.PlayerFacilities.WindTunnel_Enabled ? "Functional" : "Not Operational";
             string cfd_text = db.PlayerFacilities.CFD_Enabled ? "Functional" : "Not Operational";
@@ -93,7 +96,7 @@ namespace F1_Manager_2026.Menu
             Random rnd = new Random();
             int daysleft = rnd.Next(20, 30);
             db.PlayerFacilities.ChassisUpgradeDaysLeft = daysleft;
-            db.PlayerFacilities.NextChassisUpgrade = strenght; 
+            db.PlayerFacilities.NextChassisUpgrade = strenght;
             CheckMoney();
         }
 
