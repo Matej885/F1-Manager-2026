@@ -1,4 +1,5 @@
-﻿using F1_Manager_2026.Picking_Team;
+﻿using F1_Manager_2026.Menu;
+using F1_Manager_2026.Picking_Team;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -86,6 +87,7 @@ namespace F1_Manager_2026
         public ObservableCollection<Driver> DriverList { get; set; }
         public List<F1Team> F1Teams { get; set; }
         public List<PlayerAvatar> Avatars { get; set; }
+        public List<RaceWeekendHistory> RaceHistory { get; set; } = new List<RaceWeekendHistory>();
 
         // TU JE TO DOPLNENÉ: Inštancia pre aktuálny časový stav
         public DayInfo CurrentDayInfo { get; set; } = new DayInfo();

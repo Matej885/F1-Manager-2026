@@ -111,7 +111,8 @@ namespace F1_Manager_2026.Race_Simulation
                     int position = i + 1;
                     int pts = CalculateF1Points(position);
                     d.Points += pts;
-
+                    if (position == 1) d.Wins++;
+                    if (position <= 3) d.Podiums++;
                     // --- LOGIKA ODMENY PRE HRÁČA ---
                     if (d.Team == playerTeam.teamName)
                     {
@@ -127,7 +128,7 @@ namespace F1_Manager_2026.Race_Simulation
                         PhotoPath = d.PhotoPath
                     });
                 }
-
+                SaveRaceHistory(finalResultsList, currentTrack, playerTeam);
                 // Pripísanie peňazí a log do databázy
                 if (totalReward > 0)
                 {
@@ -137,6 +138,45 @@ namespace F1_Manager_2026.Race_Simulation
 
                 ResultsListView.ItemsSource = finalResultsList;
             });
+        }
+        private void SaveRaceHistory(List<RaceResult> finalResultsList, Track? track, PlayerTeam playerTeam)
+        {
+            if (track == null || finalResultsList.Count == 0)
+            {
+                return;
+            }
+
+            var db = Database.Instance;
+            var winner = finalResultsList[0];
+            var driver1Result = finalResultsList.FirstOrDefault(r => r.Name == playerTeam.driver1name);
+            var driver2Result = finalResultsList.FirstOrDefault(r => r.Name == playerTeam.driver2name);
+            int totalPoints = finalResultsList
+                .Where(r => r.Team == playerTeam.teamName)
+                .Sum(r => r.PointsEarned);
+
+            var historyEntry = new RaceWeekendHistory
+            {
+                RoundNumber = track.Round,
+                TrackName = track.Name,
+                WinnerName = winner.Name,
+                WinnerTeam = winner.Team,
+                Driver1Pos = driver1Result?.Position ?? 0,
+                Driver2Pos = driver2Result?.Position ?? 0,
+                TotalPoints = totalPoints,
+                IsPodium = (driver1Result?.Position ?? int.MaxValue) <= 3 ||
+                           (driver2Result?.Position ?? int.MaxValue) <= 3,
+                FullResults = finalResultsList.Select(r => new RaceResultEntry
+                {
+                    Position = r.Position,
+                    DriverName = r.Name,
+                    TeamName = r.Team,
+                    PointsEarned = r.PointsEarned
+                }).ToList()
+            };
+
+            db.RaceHistory.RemoveAll(r => r.RoundNumber == track.Round);
+            db.RaceHistory.Add(historyEntry);
+            db.RaceHistory = db.RaceHistory.OrderBy(r => r.RoundNumber).ToList();
         }
 
         // Pomocná metóda na výpočet peňazí podľa cieľov
