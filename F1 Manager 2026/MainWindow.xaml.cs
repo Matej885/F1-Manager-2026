@@ -1,4 +1,7 @@
-﻿using System.Text;
+﻿using DotNetEnv;
+using F1_Manager_2026.Artificial_Inteligence;
+using F1_Manager_2026.Menu;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -11,12 +14,15 @@ using System.Windows.Shapes;
 
 namespace F1_Manager_2026
 {
+    
     public partial class MainWindow : Window
     {
+       test Test = new test();
         public MainWindow()
         {
             InitializeComponent();
-            var a = Database.Instance.DriverList;
+            AI_Conversation aI_Conversation = new AI_Conversation();
+            aI_Conversation.Show();
             Loading_Screen_Intro_Media_Element.Play();
 
         }

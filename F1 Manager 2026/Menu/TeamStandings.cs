@@ -1,3 +1,4 @@
+using DotNetEnv;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace F1_Manager_2026.Menu
 
         public TeamStandings(string name, string logoPath)
         {
+           
             Name = name;
             LogoPath = logoPath;
             ImagePath = logoPath;
