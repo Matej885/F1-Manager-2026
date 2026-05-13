@@ -4,7 +4,8 @@
         Title="Race History - Season 2026" Height="600" Width="900"
         Background="#1A1A1A" WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
-        WindowStyle="None">
+        WindowStyle="None"
+         Icon="/Images/Program_icon.png">
     
     <Grid Margin="20">
         <Grid.RowDefinitions>
@@ -31,7 +32,8 @@
                   GridLinesVisibility="None"
                   FontSize="14"
                   IsReadOnly="True"
-                  SelectionMode="Single">
+                  SelectionMode="Single"
+                  SelectionChanged="HistoryGrid_SelectionChanged">
             
             <DataGrid.Resources>
                 <Style TargetType="DataGridColumnHeader">

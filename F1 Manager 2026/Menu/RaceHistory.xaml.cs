@@ -36,5 +36,15 @@ namespace F1_Manager_2026.Menu
             new MainCareerMenu().Show();
             this.Close();
         }
+        private void HistoryGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (HistoryGrid.SelectedItem is not RaceWeekendHistory selectedRace)
+            {
+                return;
+            }
+
+            new RaceHistoryDetail(selectedRace).ShowDialog();
+            HistoryGrid.SelectedItem = null;
+        }
     }
 }
