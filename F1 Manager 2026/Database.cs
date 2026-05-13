@@ -88,6 +88,7 @@ namespace F1_Manager_2026
         public List<F1Team> F1Teams { get; set; }
         public List<PlayerAvatar> Avatars { get; set; }
         public List<RaceWeekendHistory> RaceHistory { get; set; } = new List<RaceWeekendHistory>();
+        public int SeasonRaceCount { get; set; } = 16;
 
         // TU JE TO DOPLNENÉ: Inštancia pre aktuálny časový stav
         public DayInfo CurrentDayInfo { get; set; } = new DayInfo();
@@ -115,7 +116,7 @@ namespace F1_Manager_2026
         // --- CONSTRUCTOR ---
         public Database()
         {
-            FillCalendar(22);
+            FillCalendar(SeasonRaceCount);
 
             F1Teams = new List<F1Team>
             {
@@ -211,6 +212,7 @@ namespace F1_Manager_2026
         }
         public void FillCalendar(int numberOfRaces)
         {
+            SeasonRaceCount = numberOfRaces;
             // 1. Definícia všetkých dostupných tratí
             var allTracks = new List<Track>
     {
@@ -269,7 +271,7 @@ namespace F1_Manager_2026
                 case 2:
                     PlayerTeamInstance.teamName = "Alfa Romeo F1 Team";
                     PlayerTeamInstance.AeroPower = 150;
-                    PlayerTeamInstance.Budget = 50000000; 
+                    PlayerTeamInstance.Budget = 90000000; 
                     PlayerTeamInstance.Prestige = 40;
                     PlayerTeamInstance.teamclothespath = "/Images/clothes_alfaromeo.png";
                     PlayerTeamInstance.PathToCar = "/Images/AlfaRomeo_Car.jpg";
@@ -282,7 +284,7 @@ namespace F1_Manager_2026
                     break;
                 case 3:
                     PlayerTeamInstance.teamName = "BMW Sauber F1 Team";
-                    PlayerTeamInstance.Budget = 80000000;
+                    PlayerTeamInstance.Budget = 120000000;
                     PlayerTeamInstance.AeroPower = 170;
                     PlayerTeamInstance.Prestige = 70;
                     PlayerTeamInstance.teamclothespath = "/Images/clothes_BMW.jpg";
@@ -298,7 +300,7 @@ namespace F1_Manager_2026
                     PlayerTeamInstance.teamName = "Siemens Racing F1 Team";
                     PlayerTeamInstance.Prestige = 120;
                     PlayerTeamInstance.AeroPower = 200;
-                    PlayerTeamInstance.Budget = 12000000000;//test verzia (vamazat 2 nuly)
+                    PlayerTeamInstance.Budget = 220000000;
                     PlayerTeamInstance.teamclothespath = "/Images/clothes_Siemens.jpg";
                     PlayerTeamInstance.PathToCar = "/Images/Siemens_Car.jpg";
                     PlayerTeamInstance.suitpath = "/Images/suit_siemens.png";

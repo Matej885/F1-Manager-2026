@@ -56,7 +56,7 @@ namespace F1_Manager_2026
                     // preto ho po načítaní pre istotu znovu inicializujeme.
                     if (Database.Instance.Calendar2026 == null || Database.Instance.Calendar2026.Count == 0)
                     {
-                        Database.Instance.FillCalendar(22);
+                        Database.Instance.FillCalendar(Database.Instance.SeasonRaceCount);
                     }
                 }
             }

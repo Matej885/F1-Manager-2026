@@ -44,6 +44,7 @@ namespace F1_Manager_2026.Menu
             }
 
             new RaceHistoryDetail(selectedRace).ShowDialog();
+            this.Close();   
             HistoryGrid.SelectedItem = null;
         }
     }
