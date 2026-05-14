@@ -79,7 +79,7 @@ namespace F1_Manager_2026.Picking_Team
                     return;
                 }
 
-                if (p.Budget < (decimal)kliknuty.Cost)
+                if (p.Budget < (double)kliknuty.Cost)
                 {
                     MessageBox.Show("Low on cash!", "Warning", MessageBoxButton.OK, MessageBoxImage.Hand);
                     return;
@@ -87,7 +87,7 @@ namespace F1_Manager_2026.Picking_Team
 
                 // AK PREŠIEL, PODPISUJEME
                 string povodnyTim = kliknuty.Team;
-                p.Budget -= (decimal)kliknuty.Cost;
+                p.Budget -= (double)kliknuty.Cost;
 
                 if (timesselected == 0)
                 {

@@ -90,7 +90,7 @@ namespace F1_Manager_2026.Picking_Team
             db.PlayerTeamInstance.Engine_Path = path;
             db.PlayerTeamInstance.EnginePower = power;
             db.PlayerTeamInstance.EngineReliability = reliability;
-            db.PlayerTeamInstance.Budget -= cost;
+            db.PlayerTeamInstance.Budget -= (double)cost;
 
             Drivers_Pick dp = new Drivers_Pick();
             dp.Show();

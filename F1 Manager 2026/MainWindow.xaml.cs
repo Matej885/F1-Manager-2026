@@ -17,8 +17,6 @@ namespace F1_Manager_2026
         public MainWindow()
         {
             InitializeComponent();
-           Env.Load();
-            MessageBox.Show(Environment.GetEnvironmentVariable("Groq"));
             var a = Database.Instance.DriverList;
             Loading_Screen_Intro_Media_Element.Play();
 

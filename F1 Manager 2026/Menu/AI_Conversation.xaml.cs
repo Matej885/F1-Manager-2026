@@ -116,7 +116,7 @@ namespace F1_Manager_2026.Menu
                     {
                         MessageBox.Show("Contract extended. Prepare for next season! ", "Success");
                         double realstartermoney = db.PlayerTeamInstance.startermoney * 1.2;
-                        db.PlayerTeamInstance.Budget += realstartermoney; 
+                        db.PlayerTeamInstance.Budget += (double)realstartermoney; 
                         Engine_Pick engine_Pick = new Engine_Pick();
                         engine_Pick.Show();
                         this.Close();

@@ -1,12 +1,66 @@
 ﻿<Window x:Class="F1_Manager_2026.Menu.AI_Conversation"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:F1_Manager_2026.Menu"
-        mc:Ignorable="d"
-        Title="AI_Conversation" Height="450" Width="800">
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d" 
+        Height="1080" Width="1920"
+        WindowState="Maximized" WindowStyle="None"
+        Background="#050505" Title="AI Advisor">
+
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#0A0A0A" BorderBrush="Red" BorderThickness="0,0,0,4">
+            <TextBlock Text="TEAM BOSS" Foreground="White" FontSize="30" VerticalAlignment="Center" Margin="50,0" FontFamily="Bahnschrift"/>
+        </Border>
+
+        <ScrollViewer x:Name="ChatScrollViewer" Grid.Row="1" Margin="50,20" VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="ChatItemsControl">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="{Binding Alignment}" Margin="10,8">
+                            <Ellipse Width="50" Height="50" Margin="0,0,15,0" VerticalAlignment="Top" 
+                                     Visibility="{Binding ImageVisibility}">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding ProfileImage}" Stretch="UniformToFill"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+
+                            <Border Background="{Binding BackgroundColor}" Padding="15" CornerRadius="0,15,15,15" BorderBrush="#333" BorderThickness="1" MaxWidth="800">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Sender}" Foreground="{Binding SenderColor}" FontSize="11" FontWeight="Bold" Margin="0,0,0,5"/>
+                                    <TextBlock Text="{Binding Message}" Foreground="White" FontSize="15" TextWrapping="Wrap" FontFamily="Consolas"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <DockPanel Grid.Row="2" Margin="50,10">
+            <Button DockPanel.Dock="Right" 
+                    Content="SEND" 
+                    Width="120" 
+                    Margin="10,0" 
+                    Background="Red" 
+                    Foreground="White" 
+                    FontWeight="Bold"
+                    Click="Send_Click"/>
+
+            <TextBox x:Name="UserInput" 
+                     Background="#222" 
+                     Foreground="White" 
+                     FontSize="18" 
+                     Padding="10,0"
+                     VerticalContentAlignment="Center" 
+                     KeyDown="UserInput_KeyDown"
+                     BorderBrush="#444"/>
+        </DockPanel>
     </Grid>
 </Window>

@@ -131,7 +131,7 @@ namespace F1_Manager_2026.Race_Simulation
                 // Pripísanie peňazí a log do databázy
                 if (totalReward > 0)
                 {
-                    playerTeam.Budget += totalReward;
+                    playerTeam.Budget += (double)totalReward;
                     db.AddDevelopmentLog($"Race Bonus: Received ${totalReward:N0} for meeting team goals.");
                 }
 

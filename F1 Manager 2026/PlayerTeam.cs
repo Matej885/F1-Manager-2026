@@ -4,7 +4,7 @@
     {
         public string PlayerName { get; set; }
         public string teamName { get; set; } = "";
-        public decimal Budget { get; set; }
+        public double Budget { get; set; }
         public int Prestige { get; set; }
 
         // Výkonnostné štatistiky
@@ -19,6 +19,8 @@
         public int AeroUpgradeLevel { get; set; } = 1;
         public int ChassisUpgradeLevel { get; set; } = 1;
         public int Engine_UpgradeLevel { get; set; } = 1;
+        public double WCCPosition { get; set; }
+        public double SeasonGoal { get; set; }
 
         // Cesty k obrázkom
         public string Engine_Path { get; set; }
@@ -47,5 +49,6 @@
         public int MediumGoal { get; set; }
         public int HighGoal { get; set; }
         public int UnrealisticGoal { get; set; }
+        public double startermoney { get; set; }
     }
 }
