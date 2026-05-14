@@ -103,7 +103,7 @@ namespace F1_Manager_2026.Race_Simulation
             Dispatcher.Invoke(() =>
             {
                 var finalResultsList = new List<RaceResult>();
-                decimal totalReward = 0;
+                double totalReward = 0;
 
                 for (int i = 0; i < results.Count; i++)
                 {
@@ -116,7 +116,7 @@ namespace F1_Manager_2026.Race_Simulation
                     // --- LOGIKA ODMENY PRE HRÁČA ---
                     if (d.Team == playerTeam.teamName)
                     {
-                        totalReward += CalculateGoalReward(position, playerTeam);
+                        totalReward += (double)CalculateGoalReward(position, playerTeam);
                     }
 
                     finalResultsList.Add(new RaceResult

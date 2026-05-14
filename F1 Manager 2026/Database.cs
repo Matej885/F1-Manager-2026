@@ -14,9 +14,16 @@ namespace F1_Manager_2026
     // TriInfo zostáva, aby držala informácie o aktuálnom dni
     public class DayInfo
     {
-        public int Day { get; set; } = 1; // Začíname dňom 1
+        public int Day { get; set; } = 1;
         public bool EndOfSeason { get; set; } = false;
-        public bool IsSpecialEvent { get; set; } = false;
+        public bool IsSpecialEvent { get; set; } = false; // Removed the stray 'e'
+
+        // Reference the Instance of the Database to access the Calendar
+        public bool AreAllRacesFinished => Database.Instance.Calendar2026.All(t => t.IsDone);
+
+        public Track? NextUpcomingRace => Database.Instance.Calendar2026
+            .OrderBy(t => t.Round)
+            .FirstOrDefault(t => !t.IsDone);
     }
 
     public class Track
@@ -258,6 +265,7 @@ namespace F1_Manager_2026
                     PlayerTeamInstance.ChassisPower = 60;
                     PlayerTeamInstance.AeroPower = 20;
                     PlayerTeamInstance.Budget = 20000000;
+                    PlayerTeamInstance.startermoney = 20000000;
                     PlayerTeamInstance.Prestige = 0;
                     PlayerTeamInstance.teamclothespath = "/Images/clothes_minardi.png";
                     PlayerTeamInstance.PathToCar = "/Images/Minardi_Car.jpg";
@@ -267,11 +275,13 @@ namespace F1_Manager_2026
                     PlayerTeamInstance.MediumGoal = 15;
                     PlayerTeamInstance.HighGoal = 10;
                     PlayerTeamInstance.UnrealisticGoal = 3;
+                    PlayerTeamInstance.SeasonGoal = 10;
                     break;
                 case 2:
                     PlayerTeamInstance.teamName = "Alfa Romeo F1 Team";
                     PlayerTeamInstance.AeroPower = 150;
-                    PlayerTeamInstance.Budget = 90000000; 
+                    PlayerTeamInstance.Budget = 90000000;
+                    PlayerTeamInstance.startermoney = 90000000;
                     PlayerTeamInstance.Prestige = 40;
                     PlayerTeamInstance.teamclothespath = "/Images/clothes_alfaromeo.png";
                     PlayerTeamInstance.PathToCar = "/Images/AlfaRomeo_Car.jpg";
@@ -281,10 +291,12 @@ namespace F1_Manager_2026
                     PlayerTeamInstance.MediumGoal = 12;
                     PlayerTeamInstance.HighGoal = 8;
                     PlayerTeamInstance.UnrealisticGoal = 3;
+                    PlayerTeamInstance.SeasonGoal = 8;
                     break;
                 case 3:
                     PlayerTeamInstance.teamName = "BMW Sauber F1 Team";
                     PlayerTeamInstance.Budget = 120000000;
+                    PlayerTeamInstance.startermoney = 120000000;
                     PlayerTeamInstance.AeroPower = 170;
                     PlayerTeamInstance.Prestige = 70;
                     PlayerTeamInstance.teamclothespath = "/Images/clothes_BMW.jpg";
@@ -295,12 +307,14 @@ namespace F1_Manager_2026
                     PlayerTeamInstance.MediumGoal = 10;
                     PlayerTeamInstance.HighGoal = 5;
                     PlayerTeamInstance.UnrealisticGoal = 2;
+                    PlayerTeamInstance.SeasonGoal = 6;
                     break;
                 case 4:
                     PlayerTeamInstance.teamName = "Siemens Racing F1 Team";
                     PlayerTeamInstance.Prestige = 120;
                     PlayerTeamInstance.AeroPower = 200;
                     PlayerTeamInstance.Budget = 220000000;
+                    PlayerTeamInstance.startermoney = 220000000;
                     PlayerTeamInstance.teamclothespath = "/Images/clothes_Siemens.jpg";
                     PlayerTeamInstance.PathToCar = "/Images/Siemens_Car.jpg";
                     PlayerTeamInstance.suitpath = "/Images/suit_siemens.png";
@@ -309,6 +323,7 @@ namespace F1_Manager_2026
                     PlayerTeamInstance.MediumGoal = 5;
                     PlayerTeamInstance.HighGoal = 3;
                     PlayerTeamInstance.UnrealisticGoal = 1;
+                    PlayerTeamInstance.SeasonGoal = 3;
                     break;
             }
         }

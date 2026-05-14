@@ -79,7 +79,7 @@ namespace F1_Manager_2026.Picking_Team
                     return;
                 }
 
-                if (p.Budget < (decimal)kliknuty.Cost)
+                if (p.Budget < kliknuty.Cost)
                 {
                     MessageBox.Show("Low on cash!", "Warning", MessageBoxButton.OK, MessageBoxImage.Hand);
                     return;
@@ -87,7 +87,7 @@ namespace F1_Manager_2026.Picking_Team
 
                 // AK PREŠIEL, PODPISUJEME
                 string povodnyTim = kliknuty.Team;
-                p.Budget -= (decimal)kliknuty.Cost;
+                p.Budget -= kliknuty.Cost;
 
                 if (timesselected == 0)
                 {
@@ -144,14 +144,9 @@ namespace F1_Manager_2026.Picking_Team
                 }
                 timesselected++;
                 ResetMoney();
-                if (db.CurrentDayInfo.EndOfSeason == true)
-                {
-                    MainCareerMenu mainCareerMenu = new MainCareerMenu();
-                    mainCareerMenu.Show();
-                }
                 if (timesselected == 2)
                 {
-                    Avatar_Pick d = new Avatar_Pick();
+                    Final_Window d = new Final_Window();
                     d.Show();
                     navigation = true;
                     this.Close();

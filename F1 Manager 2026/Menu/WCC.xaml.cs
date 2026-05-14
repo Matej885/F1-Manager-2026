@@ -28,10 +28,11 @@ namespace F1_Manager_2026
             var db = Database.Instance;
             var allTeams = new List<WCCEntry>();
 
-            // 1. Spracovanie AI Tímov
+            BtnBack.Content = db.CurrentDayInfo.EndOfSeason ? "Continue to Standings" : "Back to HQ";
+
+            // 1. AI Tímy
             foreach (var team in db.F1Teams)
             {
-                // Výpočet bodov: Sčítame body všetkých jazdcov, ktorí patria do tohto tímu
                 int teamPoints = db.DriverList
                     .Where(d => d.Team == team.Name)
                     .Sum(d => d.Points);
@@ -41,45 +42,68 @@ namespace F1_Manager_2026
                     Name = team.Name,
                     Rating = team.Rating,
                     Points = teamPoints,
-                    Logo = new BitmapImage(new Uri($"pack://application:,,,{team.LogoPath}", UriKind.Absolute))
+                    Logo = LoadImage(team.LogoPath)
                 });
             }
 
-            // 2. Spracovanie Hráčskeho Tímu
-            // Sčítame body jazdcov, ktorí jazdia za hráčov tím
+            // 2. Hráčsky Tím
+            // Správny výpočet bodov: sčítame body všetkých jazdcov, ktorí patria do hráčovho tímu
             int playerTeamPoints = db.DriverList
                 .Where(d => d.Team == db.PlayerTeamInstance.teamName)
-                .Sum(d => d.Points);
+                .Sum(d => d.Points); 
 
             allTeams.Add(new WCCEntry
             {
                 Name = db.PlayerTeamInstance.teamName,
-                Rating = (int)db.PlayerTeamInstance.AeroPower, // Použijeme AeroPower ako rating pre hráča
+                Rating = db.PlayerTeamInstance.TeamPower,
                 Points = playerTeamPoints,
-                Logo = new BitmapImage(new Uri($"pack://application:,,,{db.PlayerTeamInstance.logopath}", UriKind.Absolute))
+                Logo = LoadImage(db.PlayerTeamInstance.logopath)
             });
 
-            // 3. Zoradenie podľa BODOV (primárne) a potom podľa Ratingu (sekundárne)
-            // Týmto zabezpečíš, že ten, kto má viac bodov, bude vždy vyššie
+            // 3. Zoradenie
             var sorted = allTeams
                 .OrderByDescending(t => t.Points)
                 .ThenByDescending(t => t.Rating)
                 .ToList();
+            // 3.5 Zápis pozície hráča do databázy
+            var playerTeamName = db.PlayerTeamInstance.teamName;
+            // IndexOf vráti 0 pre prvého, preto pridávame +1
+            int finalPosition = sorted.FindIndex(t => t.Name == playerTeamName) + 1;
 
-            // 4. Nastavenie dát pre UI
+            db.PlayerTeamInstance.WCCPosition = finalPosition;
+            // 4. UI DataContext
             this.DataContext = new
             {
-                Top1 = sorted.Count > 0 ? sorted[0] : null,
-                Top2 = sorted.Count > 1 ? sorted[1] : null,
-                Top3 = sorted.Count > 2 ? sorted[2] : null,
+                Top1 = sorted.ElementAtOrDefault(0),
+                Top2 = sorted.ElementAtOrDefault(1),
+                Top3 = sorted.ElementAtOrDefault(2),
                 OtherTeams = sorted.Skip(3).ToList()
             };
         }
 
+        // Pomocná funkcia pre bezpečné načítanie obrázkov
+        private BitmapImage LoadImage(string path)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(path)) return null;
+                return new BitmapImage(new Uri($"pack://application:,,,{path}", UriKind.Absolute));
+            }
+            catch { return null; } 
+        }
+
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            new MainCareerMenu().Show();
-            this.Close();
+            if (Database.Instance.CurrentDayInfo.EndOfSeason == true)
+            {
+                new Standings().Show();
+                this.Close();
+            }
+            else
+            {
+                new MainCareerMenu().Show();
+                this.Close();
+            }
         }
     }
 }

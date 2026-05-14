@@ -213,13 +213,13 @@ namespace F1_Manager_2026.Picking_Team
         private void Race_Short_Checked(object sender, RoutedEventArgs e)
         {
             var db = Database.Instance;
-            db.FillCalendar(10);
+            db.FillCalendar(7);
         }
 
         private void Race_Medium_Checked(object sender, RoutedEventArgs e)
         {
             var db = Database.Instance;
-            db.FillCalendar(16);
+            db.FillCalendar(15);
         }
 
         private void Race_Long_Checked(object sender, RoutedEventArgs e)

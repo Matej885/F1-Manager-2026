@@ -21,8 +21,6 @@ namespace F1_Manager_2026
         public MainWindow()
         {
             InitializeComponent();
-            AI_Conversation aI_Conversation = new AI_Conversation();
-            aI_Conversation.Show();
             Loading_Screen_Intro_Media_Element.Play();
 
         }

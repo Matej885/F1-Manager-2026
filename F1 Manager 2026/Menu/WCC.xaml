@@ -82,7 +82,7 @@
                     <TextBlock Text=" | SEASON 2026" Foreground="#666" FontSize="18" FontWeight="SemiBold" VerticalAlignment="Center" Margin="10,0,0,0"/>
                 </StackPanel>
 
-                <Button Content="BACK TO HQ" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource BackButtonStyle}" Click="BtnBack_Click"/>
+                <Button Name = "BtnBack" Content="BACK TO HQ" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource BackButtonStyle}" Click="BtnBack_Click"/>
             </Grid>
         </Border>
 

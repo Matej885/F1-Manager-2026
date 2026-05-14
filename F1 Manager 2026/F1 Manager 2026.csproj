@@ -31,6 +31,7 @@
     <None Remove="Images\BMW_Car.jpg" />
     <None Remove="Images\BMW_Logo.png" />
     <None Remove="Images\bortoleto.png" />
+    <None Remove="Images\Boss_Avatar.png" />
     <None Remove="Images\bottas.png" />
     <None Remove="Images\bottas1.png" />
     <None Remove="Images\brazil.png" />
@@ -508,6 +509,12 @@
 
   <ItemGroup>
     <Content Include="Images\cadillac.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\Boss_Avatar.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

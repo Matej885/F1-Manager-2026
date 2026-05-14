@@ -4,7 +4,7 @@
     {
         public string PlayerName { get; set; }
         public string teamName { get; set; } = "";
-        public decimal Budget { get; set; }
+        public double Budget { get; set; }
         public int Prestige { get; set; }
 
         // Výkonnostné štatistiky
@@ -33,15 +33,18 @@
 
         // Jazdci
         public string? driver1name { get; set; }
-        public int driver1cost { get; set; }
+        public double driver1cost { get; set; }
         public int driver1rating { get; set; }
         public string? driver2name { get; set; }
-        public int driver2cost { get; set; }    
+        public double driver2cost { get; set; }    
         public int driver2rating { get; set; }
         public string PathToCar { get; set; }
         public string PathToDriver1 { get; set; }
         public string PathToDriver2 { get; set; }
-        
+        public int WCCPosition { get; set; }
+        public int SeasonGoal { get; set; }
+        public double startermoney { get; set; }
+
         //Ciele
         public int  LowGoal { get; set; }
         public int MediumGoal { get; set; }

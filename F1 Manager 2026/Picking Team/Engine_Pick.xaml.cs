@@ -76,11 +76,11 @@ namespace F1_Manager_2026.Picking_Team
         private void Btn_Ford_Click(object sender, RoutedEventArgs e)
             => SelectEngine("Red Bull Ford", "redbull_engine.jpg", 85, 90, 23000000);
 
-        private void SelectEngine(string name, string path, int power, int reliability, decimal cost)
+        private void SelectEngine(string name, string path, int power, int reliability, double cost)
         {
             var db = Database.Instance;
 
-            if ((decimal)db.PlayerTeamInstance.Budget < cost)
+            if ((db.PlayerTeamInstance.Budget < cost))
             {
                 MessageBox.Show("Insufficient funds!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

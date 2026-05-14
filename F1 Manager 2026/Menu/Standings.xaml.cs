@@ -47,9 +47,9 @@ namespace F1_Manager_2026.Menu
             var db = Database.Instance;
             if (db.CurrentDayInfo.EndOfSeason == true)
             {
-               Engine_Pick DP = new Engine_Pick();
-                this.Close();
+                AI_Conversation DP = new AI_Conversation();
                 DP.Show();
+                this.Close();
             }
             else
             {
