@@ -19,7 +19,7 @@
             <TextBlock Text="TEAM BOSS" Foreground="White" FontSize="30" VerticalAlignment="Center" Margin="50,0" FontFamily="Bahnschrift"/>
         </Border>
 
-        <ScrollViewer x:Name="ChatScrollViewer" Grid.Row="1" Margin="50,20" VerticalScrollBarVisibility="Auto">
+        <ScrollViewer x:Name="ChatScrollViewer" Grid.Row="1" Margin="50,20">
             <ItemsControl x:Name="ChatItemsControl">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
@@ -44,23 +44,8 @@
         </ScrollViewer>
 
         <DockPanel Grid.Row="2" Margin="50,10">
-            <Button DockPanel.Dock="Right" 
-                    Content="SEND" 
-                    Width="120" 
-                    Margin="10,0" 
-                    Background="Red" 
-                    Foreground="White" 
-                    FontWeight="Bold"
-                    Click="Send_Click"/>
-
-            <TextBox x:Name="UserInput" 
-                     Background="#222" 
-                     Foreground="White" 
-                     FontSize="18" 
-                     Padding="10,0"
-                     VerticalContentAlignment="Center" 
-                     KeyDown="UserInput_KeyDown"
-                     BorderBrush="#444"/>
+            <Button DockPanel.Dock="Right" Content="SEND" Width="120" Margin="10,0" Background="Red" Foreground="White" Click="Send_Click"/>
+            <TextBox x:Name="UserInput" Background="#222" Foreground="White" FontSize="18" VerticalContentAlignment="Center" KeyDown="UserInput_KeyDown"/>
         </DockPanel>
     </Grid>
 </Window>

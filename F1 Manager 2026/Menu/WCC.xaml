@@ -7,7 +7,8 @@
         WindowState="Maximized"
         WindowStyle="None"
         Title="Constructors' Standings" Height="1080" Width="1920"
-        Background="#050505">
+        Background="#050505"
+         Icon="/Images/Program_icon.png">
 
     <Window.Resources>
         <Style x:Key="BackButtonStyle" TargetType="Button">
@@ -81,7 +82,7 @@
                     <TextBlock Text=" | SEASON 2026" Foreground="#666" FontSize="18" FontWeight="SemiBold" VerticalAlignment="Center" Margin="10,0,0,0"/>
                 </StackPanel>
 
-                <Button Content="BACK TO HQ" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource BackButtonStyle}" Click="BtnBack_Click"/>
+                <Button Name = "BtnBack" Content="BACK TO HQ" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource BackButtonStyle}" Click="BtnBack_Click"/>
             </Grid>
         </Border>
 

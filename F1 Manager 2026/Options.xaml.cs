@@ -28,7 +28,7 @@ namespace F1_Manager_2026
             PlayCurrentTrack();
 
             if (Music_Visualizer != null) Music_Visualizer.Play();
-            if (options_Media_Element != null) options_Media_Element.Play();
+            if (options_Media_Element != null) options_Media_Element.Play();  
 
             UpdateVolumeButtonIcon();
         }
@@ -99,6 +99,7 @@ namespace F1_Manager_2026
         private void Career_Create_Button_Click(object sender, RoutedEventArgs e)
         {
             SaveGame.DeleteSave();
+            Database.Instance  = new Database(); 
             Database.Instance.CurrentDayInfo.Day = 0;
             Picking_Team.Main_TeamChoosing _TeamChoosing = new Picking_Team.Main_TeamChoosing();
             _TeamChoosing.Show();

@@ -106,6 +106,7 @@ namespace F1_Manager_2026.Picking_Team
             {
                driver.Points = 0;
             }
+            db.CurrentDayInfo.Day = 0;
             db.CurrentDayInfo.EndOfSeason = false;
             MainCareerMenu mainCareerMenu = new MainCareerMenu();
             mainCareerMenu.Show();

@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Linq;
 
 namespace F1_Manager_2026.Menu
 {
@@ -20,12 +21,31 @@ namespace F1_Manager_2026.Menu
         public RaceHistory()
         {
             InitializeComponent();
+            LoadRaceHistory();
+        }
+
+        private void LoadRaceHistory()
+        {
+            HistoryGrid.ItemsSource = Database.Instance.RaceHistory
+                .OrderBy(r => r.RoundNumber)
+                .ToList();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             new MainCareerMenu().Show();
             this.Close();
+        }
+        private void HistoryGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (HistoryGrid.SelectedItem is not RaceWeekendHistory selectedRace)
+            {
+                return;
+            }
+
+            new RaceHistoryDetail(selectedRace).ShowDialog();
+            this.Close();   
+            HistoryGrid.SelectedItem = null;
         }
     }
 }

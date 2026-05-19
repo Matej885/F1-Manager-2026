@@ -130,72 +130,113 @@ namespace F1_Manager_2026.Menu
         private void Timer_Tick(object sender, EventArgs e)
         {
             var db = Database.Instance;
-            int nextDay = db.CurrentDayInfo.Day + 1;
-            SaveGame.Save(Database.Instance);
-            bool isRaceUpcoming = db.Calendar2026.Any(t =>
-                t.RaceDay >= nextDay &&
-                t.RaceDay <= nextDay + 2);
-            if (db.CurrentDayInfo.Day >= 280)
+
+            // 1. KONTROLA KONCA SEZÓNY (Ak už nie sú žiadne ďalšie preteky)
+            if (db.CurrentDayInfo.AreAllRacesFinished)
             {
                 timer.Stop();
-                BtnSimulate.Content = "CONTINUE";
                 IsSimulating = false;
-                Engine_Pick EP = new Engine_Pick();
-                EP.Show();
-                db.CurrentDayInfo.Day = 1;
+
                 db.CurrentDayInfo.EndOfSeason = true;
+
+                MessageBox.Show("The final race has been concluded. The season is officially over!", "Season End");
+                WCC wcc = new WCC();
+                wcc.Show();
+
                 this.Close();
+                return;
             }
-            if (isRaceUpcoming || db.CurrentDayInfo.IsSpecialEvent || nextDay > 273)
+
+            // 2. BEŽNÁ SIMULÁCIA DŇA
+            int nextDay = db.CurrentDayInfo.Day + 1;
+
+            var nextRace = db.CurrentDayInfo.NextUpcomingRace;
+
+            if (nextRace != null && nextDay == nextRace.RaceDay)
             {
                 StopSimulation();
+                // Nastavíme deň presne na deň pretekov
+                db.CurrentDayInfo.Day = nextRace.RaceDay;
+
                 Race_Simulation.Race_Simulation _Simulation = new Race_Simulation.Race_Simulation();
                 _Simulation.Show();
                 this.Close();
                 return;
             }
 
+            // Posun dňa a spracovanie upgradov
             db.CurrentDayInfo.Day = nextDay;
             HandleUpgrades(db);
             UpdateDayDisplay();
+            SaveGame.Save(db);
         }
 
         private void HandleUpgrades(Database db)
         {
-            db.PlayerFacilities.AeroUpgradeDaysLeft--;
-            db.PlayerFacilities.EngineUpgradeDaysLeft--;
-            db.PlayerFacilities.ChassisUpgradeDaysLeft--;
-            // Aero
-            if (db.PlayerFacilities.AeroUpgradeDaysLeft == 0)
-            {
-                db.PlayerFacilities.AeroUpgradeDaysLeft--;
-                db.PlayerTeamInstance.AeroPower += db.PlayerFacilities.NextAeroUpgrade;
-                db.AddDevelopmentLog($"Aero upgrade completed! Performance boost +{db.PlayerFacilities.NextAeroUpgrade} applied.");
-                db.PlayerFacilities.WindTunnel_Enabled = true;
-                db.PlayerFacilities.AeroUpgradeDaysLeft = -1;
-                db.PlayerTeamInstance.AeroUpgradeLevel++;
-                UpdateLogUI();
+            // ================= AERO =================
 
-            }
-            if (db.PlayerFacilities.ChassisUpgradeDaysLeft == 0)
+            if (db.PlayerFacilities.AeroUpgradeDaysLeft > 0)
             {
                 db.PlayerFacilities.AeroUpgradeDaysLeft--;
-                db.PlayerTeamInstance.ChassisPower += db.PlayerFacilities.NextChassisUpgrade;
-                db.AddDevelopmentLog($"Chassis upgrade completed! Performance boost +{db.PlayerFacilities.NextChassisUpgrade} applied.");
-                db.PlayerFacilities.CFD_Enabled = true;
-                db.PlayerFacilities.ChassisUpgradeDaysLeft = -1;
-                db.PlayerTeamInstance.ChassisUpgradeLevel++;
-                UpdateLogUI();
+
+                if (db.PlayerFacilities.AeroUpgradeDaysLeft == 0)
+                {
+                    db.PlayerTeamInstance.AeroPower += db.PlayerFacilities.NextAeroUpgrade;
+
+                    db.AddDevelopmentLog(
+                        $"Aero upgrade completed! Performance boost +{db.PlayerFacilities.NextAeroUpgrade} applied.");
+
+                    db.PlayerFacilities.WindTunnel_Enabled = true;
+                    db.PlayerTeamInstance.AeroUpgradeLevel++;
+
+                    db.PlayerFacilities.NextAeroUpgrade = 0;
+
+                    UpdateLogUI();
+                }
             }
-            if (db.PlayerFacilities.EngineUpgradeDaysLeft == 0)
+
+            // ================= CHASSIS =================
+
+            if (db.PlayerFacilities.ChassisUpgradeDaysLeft > 0)
+            {
+                db.PlayerFacilities.ChassisUpgradeDaysLeft--;
+
+                if (db.PlayerFacilities.ChassisUpgradeDaysLeft == 0)
+                {
+                    db.PlayerTeamInstance.ChassisPower += db.PlayerFacilities.NextChassisUpgrade;
+
+                    db.AddDevelopmentLog(
+                        $"Chassis upgrade completed! Performance boost +{db.PlayerFacilities.NextChassisUpgrade} applied.");
+
+                    db.PlayerFacilities.CFD_Enabled = true;
+                    db.PlayerTeamInstance.ChassisUpgradeLevel++;
+
+                    db.PlayerFacilities.NextChassisUpgrade = 0;
+
+                    UpdateLogUI();
+                }
+            }
+
+            // ================= ENGINE =================
+
+            if (db.PlayerFacilities.EngineUpgradeDaysLeft > 0)
             {
                 db.PlayerFacilities.EngineUpgradeDaysLeft--;
-                db.PlayerTeamInstance.EnginePower += db.PlayerFacilities.NextEngineUpgrade;
-                db.AddDevelopmentLog($"Engine upgrade completed! Performance boost +{db.PlayerFacilities.NextEngineUpgrade} applied.");
-                db.PlayerFacilities.powertrainDyno_Enabled = true;
-                db.PlayerFacilities.NextEngineUpgrade = -1;
-                db.PlayerTeamInstance.Engine_UpgradeLevel++;
-                UpdateLogUI();
+
+                if (db.PlayerFacilities.EngineUpgradeDaysLeft == 0)
+                {
+                    db.PlayerTeamInstance.EnginePower += db.PlayerFacilities.NextEngineUpgrade;
+
+                    db.AddDevelopmentLog(
+                        $"Engine upgrade completed! Performance boost +{db.PlayerFacilities.NextEngineUpgrade} applied.");
+
+                    db.PlayerFacilities.powertrainDyno_Enabled = true;
+                    db.PlayerTeamInstance.Engine_UpgradeLevel++;
+
+                    db.PlayerFacilities.NextEngineUpgrade = 0;
+
+                    UpdateLogUI();
+                }
             }
         }
 
@@ -223,24 +264,38 @@ namespace F1_Manager_2026.Menu
         private void StartSimulation()
         {
             var db = Database.Instance;
-            if (db.Calendar2026.Any(t => t.RaceDay >= db.CurrentDayInfo.Day && t.RaceDay <= db.CurrentDayInfo.Day + 2)) return;
+
+            // Ak je dnes race day -> okamžite otvor race
+            var nextRace = db.CurrentDayInfo.NextUpcomingRace;
+
+            if (nextRace != null && db.CurrentDayInfo.Day >= nextRace.RaceDay)
+            {
+                StopSimulation();
+
+                Race_Simulation.Race_Simulation sim = new Race_Simulation.Race_Simulation();
+                sim.Show();
+                this.Close();
+                return;
+            }
+
+            // Koniec sezóny
             if (db.CurrentDayInfo.Day >= 280)
             {
-                timer.Stop();
-                BtnSimulate.Content = "CONTINUE";
-                IsSimulating = false;
-                Engine_Pick EP = new Engine_Pick();
-                EP.Show();
+                StopSimulation();
+
+                Engine_Pick ep = new Engine_Pick();
+                ep.Show();
+
                 db.CurrentDayInfo.Day = 1;
                 db.CurrentDayInfo.EndOfSeason = true;
+
                 this.Close();
+                return;
             }
-            else
-            {
-                timer.Start();
-                BtnSimulate.Content = "STOP";
-                IsSimulating = true;
-            }
+
+            timer.Start();
+            BtnSimulate.Content = "STOP";
+            IsSimulating = true;
         }
 
         private void BtnSimulate_Click(object sender, RoutedEventArgs e)
