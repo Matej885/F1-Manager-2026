@@ -43,8 +43,6 @@
         public string PathToCar { get; set; }
         public string PathToDriver1 { get; set; }
         public string PathToDriver2 { get; set; }
-        public int WCCPosition { get; set; }
-        public int SeasonGoal { get; set; }
         public double startermoney { get; set; }
 
         //Ciele
@@ -52,6 +50,5 @@
         public int MediumGoal { get; set; }
         public int HighGoal { get; set; }
         public int UnrealisticGoal { get; set; }
-        public double startermoney { get; set; }
     }
 }

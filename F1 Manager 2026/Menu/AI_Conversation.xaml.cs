@@ -110,7 +110,7 @@ namespace F1_Manager_2026.Menu
                         MessageBox.Show("You have been fired from the team because you didn´t do enough. Better luck next time!", "Career Over");
                         SaveGame.DeleteSave();
                         Options options = new Options();
-                        this.Close();
+                        Application.Current.Shutdown();
                     }
                     else if (aiText.Contains("[PROCEED]") || aiText.Contains("PROCEED"))
                     {
