@@ -54,7 +54,7 @@ namespace F1_Manager_2026.Menu
             string userText = UserInput.Text.Trim();
             if (string.IsNullOrEmpty(userText)) return;
 
-            AddMessage("TEAM PRINCIPAL", userText, HorizontalAlignment.Right, "#1A1A1A");
+            AddMessage("TEAM PRINCIPAL", userText, HorizontalAlignment.Right, "#1A1A1A"); 
             UserInput.Clear();
 
             await SendRequestToAI(userText);
