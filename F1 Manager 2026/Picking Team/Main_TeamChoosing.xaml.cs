@@ -214,18 +214,21 @@ namespace F1_Manager_2026.Picking_Team
         {
             var db = Database.Instance;
             db.FillCalendar(7);
+            db.PlayerTeamInstance.desiredraces = 7;
         }
 
         private void Race_Medium_Checked(object sender, RoutedEventArgs e)
         {
             var db = Database.Instance;
             db.FillCalendar(15);
+            db.PlayerTeamInstance.desiredraces = 15;
         }
 
         private void Race_Long_Checked(object sender, RoutedEventArgs e)
         {
             var db = Database.Instance;
             db.FillCalendar(22);
+            db.PlayerTeamInstance.desiredraces = 22;
         }
     }
 }

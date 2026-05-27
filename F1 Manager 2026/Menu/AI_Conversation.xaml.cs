@@ -35,17 +35,15 @@ namespace F1_Manager_2026.Menu
             Env.Load();
 
             var db = Database.Instance;
-            // Prvotný pozdrav od majiteľa pri načítaní okna
             if (db.CurrentDayInfo.EndOfSeason)
             {
-                // Voláme metódu na pozdrav (bez textu v parametri vyvolá prvú reakciu od AI)
                 TriggerInitialGreeting();
             }
         }
 
         private async void TriggerInitialGreeting()
         {
-            // Majiteľ začne konverzáciu sám
+            // Šéf tímu (AI) začne konverzáciu sám
             await SendRequestToAI("The season is over. I am waiting for your report. Don´t forget to say hello also");
         }
 
@@ -54,7 +52,8 @@ namespace F1_Manager_2026.Menu
             string userText = UserInput.Text.Trim();
             if (string.IsNullOrEmpty(userText)) return;
 
-            AddMessage("TEAM PRINCIPAL", userText, HorizontalAlignment.Right, "#1A1A1A");
+            // TY SI: TEAM MANAGER (Používateľ pôjde vpravo)
+            AddMessage("TEAM MANAGER", userText, HorizontalAlignment.Right, "#1A1A1A");
             UserInput.Clear();
 
             await SendRequestToAI(userText);
@@ -71,17 +70,18 @@ namespace F1_Manager_2026.Menu
                 var db = Database.Instance;
                 var apiMessages = new List<object>();
 
-                // 1. SYSTEM PROMPT
+                // 1. SYSTEM PROMPT (Upravené na Team Principal / Team Manager vzťah)
                 apiMessages.Add(new
                 {
                     role = "system",
-                    content = $@"You are an experienced Formula 1 Team Owner conducting an end-of-season review with the Team Principal. Tone: Professional, realistic and conversational. Calm authority instead of aggressive hostility. Speak naturally like a real private team meeting or WhatsApp-style conversation. Keep messages relatively short and dynamic. No emojis. Stay fully in character. Behavior Rules: 1. Start the conversation naturally with a season review. 2. Allow a realistic back-and-forth conversation. 3. Do not instantly end the conversation after 2-3 replies. 4. Usually keep the discussion between 4-10 messages total unless the conversation naturally ends earlier. 5. Do not constantly ask for highly technical details. 6. Focus more on leadership, expectations, results, momentum, drivers, finances, team morale and future plans. 7. If the player massively overachieved the goal, acknowledge it and give genuine praise while remaining professional. 8. If the player slightly missed expectations, be disappointed but fair. 9. If the player completely failed expectations, become more serious and question leadership decisions. 10. Occasionally use realistic F1/business terms like: long-term project, development direction, sponsor confidence, competitiveness, aerodynamic performance, infrastructure, return on investment. But do NOT overuse them. Conversation Flow: Begin naturally. React dynamically to the player's replies. Avoid repeating the same phrases. The conversation should feel human and varied. The owner can soften if the player gives good reasoning. The owner can become stricter if excuses sound weak. Season Context: Final WCC Position: P{db.PlayerTeamInstance.WCCPosition}, Season Goal: P{db.PlayerTeamInstance.SeasonGoal}. Decision Rules: At the end of the conversation, make a final decision. If the player is fired, the FINAL message must contain ONLY: [TERMINATED]. If the player keeps the job, the FINAL message must contain ONLY: [PROCEED]. Important: The final verdict message must contain nothing except [TERMINATED] or [PROCEED]. Do not rush toward the verdict. End the conversation naturally before giving the final verdict. Additional Context: {BuildAIContext()}"
+                    content = $@"You are an experienced Formula 1 Team Principal conducting an end-of-season review with your Team Manager. Tone: Professional, realistic and conversational. Calm authority instead of aggressive hostility. Speak naturally like a real private team meeting or WhatsApp-style conversation. Keep messages relatively short and dynamic. No emojis. Stay fully in character. Behavior Rules: 1. Start the conversation naturally with a season review. 2. Allow a realistic back-and-forth conversation. 3. Do not instantly end the conversation after 2-3 replies. 4. Usually keep the discussion between 4-10 messages total unless the conversation naturally ends earlier. 5. Do not constantly ask for highly technical details. 6. Focus more on leadership, expectations, results, momentum, drivers, finances, team morale and future plans. 7. If the player massively overachieved the goal, acknowledge it and give genuine praise while remaining professional. 8. If the player slightly missed expectations, be disappointed but fair. 9. If the player completely failed expectations, become more serious and question leadership decisions. 10. Occasionally use realistic F1/business terms like: long-term project, development direction, sponsor confidence, competitiveness, aerodynamic performance, infrastructure, return on investment. But do NOT overuse them. Conversation Flow: Begin naturally. React dynamically to the player's replies. Avoid repeating the same phrases. The conversation should feel human and varied. The Team Principal can soften if the player gives good reasoning. The Team Principal can become stricter if excuses sound weak. Season Context: Final WCC Position: P{db.PlayerTeamInstance.WCCPosition}, Season Goal: P{db.PlayerTeamInstance.SeasonGoal}. Decision Rules: At the end of the conversation, make a final decision. If the player is fired, the FINAL message must contain ONLY: [TERMINATED]. If the player keeps the job, the FINAL message must contain ONLY: [PROCEED]. Important: The final verdict message must contain nothing except [TERMINATED] or [PROCEED]. Do not rush toward the verdict. End the conversation naturally before giving the final verdict. Additional Context: {BuildAIContext()}"
                 });
 
-                // 2. HISTÓRIA (bez system správ, len user/assistant)
+                // 2. OPRAVENÁ HISTÓRIA: Správne priradenie rolí pre Groq API
                 foreach (var msg in Messages)
                 {
-                    string role = (msg.Sender == "TEAM PRINCIPAL") ? "user" : "assistant";
+                    // "TEAM MANAGER" (Ty) = user, "TEAM PRINCIPAL" (AI) = assistant
+                    string role = (msg.Sender == "TEAM MANAGER") ? "user" : "assistant";
                     apiMessages.Add(new { role = role, content = msg.Message });
                 }
 
@@ -102,7 +102,8 @@ namespace F1_Manager_2026.Menu
                     using var doc = JsonDocument.Parse(responseString);
                     string aiText = doc.RootElement.GetProperty("choices")[0].GetProperty("message").GetProperty("content").GetString();
 
-                    AddMessage("TEAM OWNER", aiText, HorizontalAlignment.Left, "#0A0A0A");
+                    // AI JE: TEAM PRINCIPAL (Pôjde vľavo s profilovkou)
+                    AddMessage("TEAM PRINCIPAL", aiText, HorizontalAlignment.Left, "#0A0A0A");
 
                     // Kontrola konca hry
                     if (aiText.Contains("[TERMINATED]"))
@@ -110,14 +111,17 @@ namespace F1_Manager_2026.Menu
                         MessageBox.Show("You have been fired from the team because you didn´t do enough. Better luck next time!", "Career Over");
                         SaveGame.DeleteSave();
                         Options options = new Options();
+                        options.Show();
                         this.Close();
                     }
                     else if (aiText.Contains("[PROCEED]") || aiText.Contains("PROCEED"))
                     {
                         MessageBox.Show("Contract extended. Prepare for next season! ", "Success");
                         double realstartermoney = db.PlayerTeamInstance.startermoney * 1.2;
-                        db.PlayerTeamInstance.Budget += realstartermoney; 
+                        db.PlayerTeamInstance.Budget += realstartermoney;
                         Engine_Pick engine_Pick = new Engine_Pick();
+                        db.Calendar2026.Clear();
+                        db.FillCalendar(db.PlayerTeamInstance.desiredraces);
                         engine_Pick.Show();
                         this.Close();
                     }
@@ -135,7 +139,8 @@ namespace F1_Manager_2026.Menu
 
         private void AddMessage(string who, string text, HorizontalAlignment side, string color)
         {
-            bool isOwner = (who == "TEAM OWNER");
+            // Šéfom tímu (AI) je teraz TEAM PRINCIPAL
+            bool isPrincipal = (who == "TEAM PRINCIPAL");
 
             Messages.Add(new ChatMessage
             {
@@ -143,9 +148,9 @@ namespace F1_Manager_2026.Menu
                 Message = text,
                 Alignment = side,
                 BackgroundColor = color,
-                SenderColor = isOwner ? "#E10600" : "#AAAAAA",
-                ProfileImage = isOwner ? "/Images/Boss_Avatar.png" : null,
-                ImageVisibility = isOwner ? Visibility.Visible : Visibility.Collapsed
+                SenderColor = isPrincipal ? "#E10600" : "#AAAAAA",
+                ProfileImage = isPrincipal ? "/Images/Boss_Avatar.png" : null,
+                ImageVisibility = isPrincipal ? Visibility.Visible : Visibility.Collapsed
             });
 
             if (ChatScrollViewer != null)
@@ -156,7 +161,6 @@ namespace F1_Manager_2026.Menu
         {
             var db = Database.Instance;
             var team = db.PlayerTeamInstance;
-            var fac = db.PlayerFacilities;
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine($"Team: {team.teamName} | Budget: {team.Budget:N0}$ | Prestige: {team.Prestige}");
