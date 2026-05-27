@@ -12,6 +12,7 @@ using F1_Manager_2026.Picking_Team;
 
 namespace F1_Manager_2026.Menu
 {
+    //
     public class ChatMessage
     {
         public string Sender { get; set; }
