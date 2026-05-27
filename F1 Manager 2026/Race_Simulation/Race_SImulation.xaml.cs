@@ -23,7 +23,6 @@ namespace F1_Manager_2026.Race_Simulation
 
     public partial class Race_Simulation : Window
     {
-        // TÁTO DEFINÍCIA TU MUSÍ BYŤ - aby ju videl konštruktor aj FinishButton
         private Track currentTrack;
 
         public Race_Simulation()
@@ -32,7 +31,6 @@ namespace F1_Manager_2026.Race_Simulation
 
             var db = Database.Instance;
 
-            // AUTOMATIKA: Nájde prvú trať, ktorá nie je hotová
             currentTrack = db.Calendar2026.OrderBy(t => t.Round).FirstOrDefault(t => !t.IsDone);
 
             if (currentTrack != null)
@@ -52,7 +50,6 @@ namespace F1_Manager_2026.Race_Simulation
             var redBrush = new SolidColorBrush(Colors.Red);
             var offBrush = new SolidColorBrush(Color.FromRgb(34, 34, 34));
 
-            // Svetlá
             await Task.Delay(500); Light1.Fill = redBrush;
             await Task.Delay(500); Light2.Fill = redBrush;
             await Task.Delay(500); Light3.Fill = redBrush;
@@ -82,7 +79,11 @@ namespace F1_Manager_2026.Race_Simulation
             var db = Database.Instance;
             var rnd = new Random();
             var playerTeam = db.PlayerTeamInstance;
-            var f1Drivers = db.DriverList.Where(d => !d.IsF2).ToList();
+
+            // ZMENA TU: Vyfiltrujeme preč jazdcov, ktorí nemajú F2 a zároveň NIE SÚ Free Agent
+            var f1Drivers = db.DriverList
+                .Where(d => !d.IsF2 && d.Team != "Free Agent")
+                .ToList();
 
             if (f1Drivers.Count == 0) return;
 
@@ -110,10 +111,12 @@ namespace F1_Manager_2026.Race_Simulation
                     var d = results[i].Driver;
                     int position = i + 1;
                     int pts = CalculateF1Points(position);
+
+                    // Keďže sme ich vyfiltrovali vyššie, tu už podmienku na Free Agent nemusíme riešiť
                     d.Points += pts;
                     if (position == 1) d.Wins++;
                     if (position <= 3) d.Podiums++;
-                    // --- LOGIKA ODMENY PRE HRÁČA ---
+
                     if (d.Team == playerTeam.teamName)
                     {
                         totalReward += (double)CalculateGoalReward(position, playerTeam);
@@ -128,8 +131,9 @@ namespace F1_Manager_2026.Race_Simulation
                         PhotoPath = d.PhotoPath
                     });
                 }
+
                 SaveRaceHistory(finalResultsList, currentTrack, playerTeam);
-                // Pripísanie peňazí a log do databázy
+
                 if (totalReward > 0)
                 {
                     playerTeam.Budget += (double)totalReward;
@@ -139,6 +143,7 @@ namespace F1_Manager_2026.Race_Simulation
                 ResultsListView.ItemsSource = finalResultsList;
             });
         }
+
         private void SaveRaceHistory(List<RaceResult> finalResultsList, Track? track, PlayerTeam playerTeam)
         {
             if (track == null || finalResultsList.Count == 0)
@@ -150,6 +155,8 @@ namespace F1_Manager_2026.Race_Simulation
             var winner = finalResultsList[0];
             var driver1Result = finalResultsList.FirstOrDefault(r => r.Name == playerTeam.driver1name);
             var driver2Result = finalResultsList.FirstOrDefault(r => r.Name == playerTeam.driver2name);
+
+            // Free Agent tím odtiaľto vypadne automaticky, keďže kontrolujeme rovnosť s playerTeam.teamName
             int totalPoints = finalResultsList
                 .Where(r => r.Team == playerTeam.teamName)
                 .Sum(r => r.PointsEarned);
@@ -179,11 +186,9 @@ namespace F1_Manager_2026.Race_Simulation
             db.RaceHistory = db.RaceHistory.OrderBy(r => r.RoundNumber).ToList();
         }
 
-        // Pomocná metóda na výpočet peňazí podľa cieľov
         private decimal CalculateGoalReward(int position, PlayerTeam team)
         {
-            // Odmeny sú nastavené podľa náročnosti cieľa (môžeš si upraviť sumy)
-            if (position <= team.UnrealisticGoal) return 10_000_000m; // Top odmena (napr. víťazstvo)
+            if (position <= team.UnrealisticGoal) return 10_000_000m;
             if (position <= team.HighGoal) return 5_000_000m;
             if (position <= team.MediumGoal) return 2_500_000m;
             if (position <= team.LowGoal) return 1_000_000m;
@@ -211,7 +216,6 @@ namespace F1_Manager_2026.Race_Simulation
 
         private void FinishButton_Click(object sender, RoutedEventArgs e)
         {
-            // Tu používame tú globálnu premennú currentTrack
             if (currentTrack != null)
             {
                 currentTrack.IsDone = true;
@@ -219,7 +223,6 @@ namespace F1_Manager_2026.Race_Simulation
 
             Database.Instance.CurrentDayInfo.Day += 7;
 
-            // Otvoríme menu a zavrieme simuláciu
             MainCareerMenu menu = new MainCareerMenu();
             menu.Show();
             this.Close();

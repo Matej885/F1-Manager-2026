@@ -146,6 +146,13 @@ namespace F1_Manager_2026.Picking_Team
                 ResetMoney();
                 if (timesselected == 2)
                 {
+                    foreach (var drivers in db.DriverList)
+                    {
+                        if (drivers.Team == "Free Agent")
+                        {
+                            drivers.IsF2 = true;
+                        }
+                    }
                     Final_Window d = new Final_Window();
                     d.Show();
                     navigation = true;
