@@ -7,6 +7,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Images\Program_icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -84,7 +85,6 @@
     <None Remove="Images\ocon.png" />
     <None Remove="Images\perez.png" />
     <None Remove="Images\piastri.png" />
-    <None Remove="Images\Program_icon.png" />
     <None Remove="Images\qatar.png" />
     <None Remove="Images\rb.png" />
     <None Remove="Images\RB_suit.png" />
@@ -496,7 +496,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Images\Program_icon.png">
+    <Content Include="Images\Program_icon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

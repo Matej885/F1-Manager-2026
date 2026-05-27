@@ -30,7 +30,7 @@ namespace F1_Manager_2026.Picking_Team
             var db = Database.Instance;
             switch(db.SeasonRaceCount)
             {
-                case 10:
+                case 7:
                     Race_Short.IsChecked = true;
                     break;
                     case 22:
