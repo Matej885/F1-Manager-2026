@@ -85,6 +85,7 @@
     <None Remove="Images\ocon.png" />
     <None Remove="Images\perez.png" />
     <None Remove="Images\piastri.png" />
+    <None Remove="Images\Program_icon.png" />
     <None Remove="Images\qatar.png" />
     <None Remove="Images\rb.png" />
     <None Remove="Images\RB_suit.png" />
@@ -323,6 +324,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\piastri.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Program_icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\qatar.png">
