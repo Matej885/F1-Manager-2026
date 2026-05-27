@@ -12,6 +12,7 @@ public class Functions
         string musicPath = "Sounds/";
         return new List<string>
         {
+                        musicPath + "F1 - Hans Zimmer.mp3",
             musicPath + "Bad As I Used To Be - Chris Stapleton.wav",
             musicPath + "The Chain - Fleetwood Mac.wav",
             musicPath + "More Than A Feeling - Boston.wav",

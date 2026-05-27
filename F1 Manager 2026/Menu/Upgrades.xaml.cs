@@ -188,7 +188,7 @@ namespace F1_Manager_2026.Menu
             this.Close();
         }
 
-        private void Button_Click_Close(object sender, RoutedEventArgs e)
+        private void Button_Click_Close(object sender, RoutedEventArgs e)  
         {
             Application.Current.Shutdown();
         }

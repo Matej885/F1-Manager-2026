@@ -26,6 +26,7 @@
     <None Remove="Images\australia1.png" />
     <None Remove="Images\austria.png" />
     <None Remove="Images\azerbaijan.png" />
+    <None Remove="Images\Backgrounf_Image.png" />
     <None Remove="Images\barcelona.png" />
     <None Remove="Images\bearman.png" />
     <None Remove="Images\belgium.png" />
@@ -121,7 +122,8 @@
     <None Remove="Images\verstappen.png" />
     <None Remove="Images\volume_off.png" />
     <None Remove="Images\williams.png" />
-    <None Remove="Images\WorkTable.png" />    <None Remove="Sounds\Figure.09  - Linkin Park.wav" />    <None Remove="Sounds\Figure.09 - Linkin Park.wav" />    <None Remove="Sounds\Johnny B. Goode - Chuck Berry.wav" />
+    <None Remove="Images\WorkTable.png" />    
+    <None Remove="Sounds\F1 - Hans Zimmer.mp3" /><None Remove="Sounds\Figure.09  - Linkin Park.wav" />    <None Remove="Sounds\Figure.09 - Linkin Park.wav" />    <None Remove="Sounds\Johnny B. Goode - Chuck Berry.wav" />
     <None Remove="Sounds\Johnny B. Goode - ChuckBerry.wav" />
     <None Remove="Sounds\Ocean Man -  Ween.wav" />
     <None Remove="Sounds\Ocean Man - Ween.wav" />
@@ -171,6 +173,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\azerbaijan.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Backgrounf_Image.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\barcelona.png">
@@ -438,6 +443,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Sounds\Down Under - Men At Work.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\F1 - Hans Zimmer.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Sounds\Figure.09 - Linkin Park.wav">
